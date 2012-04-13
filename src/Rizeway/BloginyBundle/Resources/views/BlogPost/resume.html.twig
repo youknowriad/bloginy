@@ -1,0 +1,19 @@
+<div id="post-resume-{{ post.id }}" class="post {{ class }}">
+    
+    {% include "BloginyBundle:BlogPost:vote_button.html.twig" with {'post' : post, 'vote' : vote} %}
+
+    <h2 {% if is_arabic(post.title) %}dir="rtl"{% else %}dir="ltr"{% endif %}><a href="{{ path('blog_post_show', {'slug': post.slug }) }}">{{post.shortTitle}}</a></h2>
+
+    <p {% if is_arabic(post.resume) %}dir="rtl"{% else %}dir="ltr"{% endif %}>{{ post.resume|raw }}</p>
+
+    <div class="details_bar">
+        <span>{{ post.createdAt|date('Y-m-d H:i:s') }}</span>
+        <span class="blog_link">{% trans from 'bloginy' %}Blog{% endtrans %} : <a href="{{ path('blog_show', {'slug' : post.blog.slug }) }}">{{post.blog.title}}</a></span>
+    </div>
+</div>
+
+
+<script>
+    post = new PostHandler($('#post-resume-{{ post.id }}'));
+    post.init();
+</script>

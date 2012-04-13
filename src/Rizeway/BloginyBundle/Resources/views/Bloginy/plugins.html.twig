@@ -1,0 +1,60 @@
+{% extends "::layout.html.twig" %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" %}
+{% endblock %}
+
+{% block submenu %}
+     <div id="submenu"></div>
+{% endblock %}
+
+{% block body %}
+
+<h1>Les plugins Bloginy</h1>
+<p>Afin de permettre plus de visibilité de votre blog au niveau de la
+blogosphère algérienne, et de participer à la communauté algérienne
+sur le web, Bloginy vous propose différents plugins. Actuellement ces
+plugins sont consacrés aux blogs <strong>Wordpress</strong> uniquement.</p>
+<p><strong>Installation d'un plugin</strong></p>
+<p>L'installation du plugin se fait de la même manière que tout plugin
+wordpress : décompressez l'archive dans le dossier des plugins et le
+tour est joué.</p>
+
+<div class="plugin content-block">
+<h2>Plugin 1 : Bookmark Plugin</h2>
+<p>Ce plugin vous permet d'ajouter un bouton de proposition d'articles
+et vote directement sur votre blog. Les visiteurs de votre blog qui
+apprécient vos articles n'ont donc plus qu'à cliquer sur le bouton
+afin de donner un coup de pouce à votre article.</p>
+<p><strong>Page du plugin</strong></p>
+<p><a href="http://wordpress.org/extend/plugins/wp-bookmark-bloginy/">http://wordpress.org/extend/plugins/wp-bookmark-bloginy/</a></p>
+<p><strong>Lien de téléchargement</strong></p>
+<p><a
+	href="http://downloads.wordpress.org/plugin/wp-bookmark-bloginy.zip">http://downloads.wordpress.org/plugin/wp-bookmark-bloginy.zip</a></p>
+<p><strong>Utilisation du plugin</strong></p>
+<p>Il suffit d'activer le plugin, ensuite vous pourrez configurer la
+position où s'affiche le plugin dans vos articles dans les options de
+wordpres.</p>
+</div>
+
+<div class="plugin content-block">
+<h2>Plugin 2 : Bloginy Feed</h2>
+<p>Ce plugin vous permet d'afficher les articles les mieux classés sur
+Bloginy directement sur votre blog wordpress, sur votre sidebar ou à
+l'endroit que vous souhaitez.</p>
+<p><strong>Page du plugin</strong></p>
+<p><a href="http://wordpress.org/extend/plugins/wp-bloginy/">http://wordpress.org/extend/plugins/wp-bookmark-bloginy/</a></p>
+<p><strong>Lien de téléchargement</strong></p>
+<p><a href="http://downloads.wordpress.org/plugin/wp-bloginy.zip">http://downloads.wordpress.org/plugin/wp-bookmark-bloginy.zip</a></p>
+<p><strong>Utilisation du plugin</strong></p>
+<p>Deux façons d’utilisation sont possibles, soit en ajoutant le
+widget via l’interface d’administration avec un simple glisser
+déposer, et là vous pouvez régler les paramètres de votre choix,
+nombre de flux, le titre et aussi le nombre de caractères à afficher
+par titre. Soit de façon manuelle, en ajoutant le code suivant là ou
+vous voulez afficher les flux, Sidebar, Footer…Etc</p>
+<div id="errors"><code>{{'<?php wp_bloginy(); ?>'|e}}</code>
+</div>
+</div>
+
+{% endblock %}

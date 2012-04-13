@@ -1,0 +1,20 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Bloginy : {% trans from "user" %}Login{% endtrans %}{% endblock %}
+
+{% block body %}
+
+    <h1>{% trans from "user" %}Login{% endtrans %}</h1>
+
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+
+    {% include "UserBundle:User:login_form.html.twig" with {'last_username': last_username } %}
+
+{% endblock %}
+
+
+{% block submenu %}
+    <div id="submenu"></div>
+{% endblock %}

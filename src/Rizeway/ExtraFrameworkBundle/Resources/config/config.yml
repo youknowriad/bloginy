@@ -1,0 +1,6 @@
+services:
+    validator.unique.unique_validator:
+        class: Rizeway\ExtraFrameworkBundle\Validator\Constraints\UniqueValidator
+        arguments: [@doctrine.orm.default_entity_manager]
+        tags:
+            - { name: validator.constraint_validator, alias: validator.unique.unique_validator }

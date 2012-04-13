@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE bloginy_api PUBLIC "-//Bloginy//Bloginy API DTD//FR" "http://www.bloginy.com/bloginy.dtd">
+<bloginy_api>
+<blogs>
+  {% for blog in blogs %}
+    <blog>
+      <blog_id>{{ blog.id }}</blog_id>
+      <title>{{ blog.title }}</title>
+      <description>
+          {{ blog.description }}
+      </description>
+      <url>{{ blog.url }}</url>
+      <feed_url>{{ blog.feedUrl }}</feed_url>
+      <location>{{ blog.location }}</location>
+    </blog>
+  {% endfor %}
+</blogs>
+</bloginy_api>

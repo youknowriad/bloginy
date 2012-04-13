@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}Bloginy : {% trans from "app" %}Blog Aggregator{% endtrans %}{% endblock %}</title>
+
+        {% block js %}
+            <script src="{{ asset('js/jquery/jquery-1.4.4.min.js') }}"></script>
+            <script src="{{ asset('js/fix/iframeheight.js') }}"></script>
+            <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        {% endblock %}
+
+        <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/external.css') }}"/>
+
+        <!--[if IE]>
+            <script src="{{ asset('js/fix/html5shiv.js') }}"></script>
+        <![endif]-->
+        <!--[if lt IE 9]>
+            <script src="{{ asset('js/fix/IE9.js') }}"></script>
+        <![endif]-->
+
+        {% block meta %}
+        {% endblock %}
+
+    </head>
+    <body>
+        <div id="black_header" >
+            <div id ="header" class="divcenter">
+		<a id="logo" href="http://bloginy.com"> <img src="{{ asset('images/small-logo.png') }}" alt="Logo du site" /></a>
+                
+                <div id="header_externe">{% block header %}{% endblock %}</div>
+            </div>
+        </div>
+        
+        <iframe id="external_page" src="{% block link %}{% endblock %}"></iframe>
+        
+        
+        <!-- Google Tracking Code - Asynchrone-->
+
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-788479-5']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+          })();
+
+        </script>
+
+        <!-- End of Google Tracking Code - Asynchrone-->
+    </body>
+</html>

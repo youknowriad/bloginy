@@ -1,0 +1,32 @@
+{% extends "::layout.html.twig" %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" %}
+{% endblock %}
+
+{% block submenu %}
+     <div id="submenu"></div>
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans from "bloginy" %}About Bloginy{% endtrans %}</h1>
+    
+    <p>{% trans from "bloginy" %}Bloginy is the Algerian blogs aggregator of choice. It's a website that brings together the most interesting posts on the Algerian blogs.{% endtrans %}</p>
+
+    <h2>{% trans from "bloginy" %}How it works ?{% endtrans %}</h2>
+    <p>{% trans from "bloginy" %}Bloginy is a Community website, where users propose their posts or news and vote for the posts which interest them. The most popular posts will be seen pushed to the top of the home page.{% endtrans %}</p>
+
+    <h2>{% trans from "bloginy" %}More on Bloginy{% endtrans %}</h2>
+    <ul class="content-list">
+            <li>{% trans from "bloginy" %}Bloginy is a specific aggregator for the Algerian Web. It allow you to stay up to date with the news and blogs in Algeria.{% endtrans %}</li>
+            <li>{% trans from "bloginy" %}Bloginy also aggregates Algerian blogs, it is the perfect place to discover new blogs.{% endtrans %}</li>
+            <li>{% trans from "bloginy" %}Bloginy allows you to make your blog more visible to the Algerian community.{% endtrans %}</li>
+            <li>{% trans from "bloginy" %}You don't have a blog and you want to express yourself, you can write your own posts and publish them directly on Bloginy.{% endtrans %}</li>
+    </ul>
+
+    <h2>{% trans from "bloginy" %}Need help ?{% endtrans %}</h2>
+    <p>{% trans from "bloginy" %}If you are new in what relates to Web 2.0 or may be you don't know how to benefit from Bloginy, see{% endtrans %} <a href="{{ path('bloginy_faq') }}">{% trans from "bloginy" %}the Frequently Asked Questions "FAQ"{% endtrans %}</a>.</p>
+
+    <h2>{% trans from "bloginy" %}Terms of use{% endtrans %}</h2>
+    <p>{% trans from "bloginy" %}The use of Bloginy and its services is ruled by{% endtrans %} <a href="{{ path('bloginy_conditions') }}">{% trans from "bloginy" %}terms of use{% endtrans %}</a> {% trans from "bloginy" %}which you accept once you use the service{% endtrans %}.</p>
+{% endblock %}

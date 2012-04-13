@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Rizeway\BloginyBundle\Entity\Blog" repository-class="Rizeway\BloginyBundle\Model\Repository\BlogRepository">
+        <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="title" column="title" type="string" length="250" />
+        <field name="slug" column="slug" type="string" length="255" unique="true" /> <!-- For URL -->
+        <field name="description" column="description" type="string" length="255" />
+        <field name="url" column="url" type="string" length="255" unique="true" />
+        <field name="feed_url" column="feed_url" type="string" length="255" unique="true" />
+
+        <field name="location" column="location" type="string" length="100" nullable="true" />
+        <field name="language" column="language" type="string" length="100" />
+        <field name="approved" column="approved" type="boolean" />
+        
+        <!-- move these fields to history ranking tables -->
+        <field name="votes" column="votes" type="integer" />
+        <field name="rank_value" column="rank_value" type="integer" />
+        <field name="count_views" column="count_views" type="integer" />
+
+        <field name="posts_updated_at" column="posts_updated_at" type="datetime" nullable="true" />
+        <field name="created_at" column="created_at" type="datetime" />
+        
+    </entity>
+</doctrine-mapping>

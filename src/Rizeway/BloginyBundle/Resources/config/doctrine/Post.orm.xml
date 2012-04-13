@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Rizeway\BloginyBundle\Entity\Post" repository-class="Rizeway\BloginyBundle\Model\Repository\PostRepository">
+        <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="title" column="title" type="string" length="250" />
+        <field name="slug" column="slug" type="string" length="255" unique="true" /> <!-- For URL -->
+        <field name="content" column="content" type="text" />
+        <field name="link" column="link" type="string" length="255" nullable="true" />
+        <field name="language" column="language" type="string" length="100" />
+
+        <field name="count_votes" column="count_votes" type="integer" />
+        <field name="count_comments" column="count_comments" type="integer" />
+        <field name="rank_value" column="rank_value" type="integer" />
+        <field name="count_views" column="count_views" type="integer" />
+
+        <field name="approved" column="approved" type="boolean" />
+
+        <field name="created_at" column="created_at" type="datetime" />
+
+        <many-to-one field="user" target-entity="Rizeway\UserBundle\Entity\User" />
+        <many-to-one field="category" target-entity="Category" />
+        <one-to-many field="comments" target-entity="Comment" mapped-by="post" />
+        <one-to-many field="tags" target-entity="Tag" mapped-by="post" >
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove />
+            </cascade>
+        </one-to-many>
+        <one-to-many field="votes" target-entity="Vote" mapped-by="post" >
+                <cascade>
+                <cascade-persist/>
+                <cascade-remove />
+            </cascade>
+        </one-to-many>
+        
+        <one-to-many field="visits" target-entity="Visit" mapped-by="post" >
+            <cascade>
+                <cascade-remove />
+            </cascade>
+        </one-to-many>
+        
+        <one-to-many field="activities" target-entity="Activity" mapped-by="post" >
+            <cascade>
+                <cascade-remove />
+            </cascade>
+        </one-to-many>
+        
+        
+        <one-to-one  field="blog_post" target-entity="BlogPost" mapped-by="post" />
+        
+
+    </entity>
+</doctrine-mapping>

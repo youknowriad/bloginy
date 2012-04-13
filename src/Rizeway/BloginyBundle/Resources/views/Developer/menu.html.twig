@@ -1,0 +1,19 @@
+<h4 class="sidebar-title spacer-top">{% trans from "bloginy" %}Posts API{% endtrans %}</h4>
+<ul class="menu-vertical" id="developer_menu">
+    <li {% if current is defined and current == 'top_posts' %}class="current"{% endif %}><a href="{{ path('developer_top_posts') }}">{% trans from "bloginy" %}Top posts{% endtrans %}</a></li>
+    <li {% if current is defined and current == 'blog_posts' %}class="current"{% endif %}><a href="{{ path('developer_blog_posts') }}">{% trans from "bloginy" %}Blog posts{% endtrans %}</a></li>
+    <li {% if current is defined and current == 'user_posts' %}class="current"{% endif %}><a href="{{ path('developer_user_posts') }}">{% trans from "bloginy" %}User posts{% endtrans %}</a></li>
+    <li {% if current is defined and current == 'search_posts' %}class="current"{% endif %}><a href="{{ path('developer_search_posts') }}">{% trans from "bloginy" %}Search posts{% endtrans %}</a></li>
+    <li {% if current is defined and current == 'live_posts' %}class="current"{% endif %}><a href="{{ path('developer_live_posts') }}">{% trans from "bloginy" %}Live posts{% endtrans %}</a></li>
+</ul>
+
+<h4 class="sidebar-title spacer-top">{% trans from "bloginy" %}Blogs API{% endtrans %}</h4>
+<ul class="menu-vertical" id="developer_menu">
+    <li {% if current is defined and current == 'top_blogs' %}class="current"{% endif %}><a href="{{ path('developer_top_blogs') }}">{% trans from "bloginy" %}Top blogs{% endtrans %}</a></li>
+    <li {% if current is defined and current == 'search_blogs' %}class="current"{% endif %}><a href="{{ path('developer_search_blogs') }}">{% trans from "bloginy" %}Search blogs{% endtrans %}</a></li>
+</ul>
+
+<h4 class="sidebar-title spacer-top">{% trans from "bloginy" %}Utils{% endtrans %}</h4>
+<ul class="menu-vertical" id="developer_menu">
+    <li {% if current is defined and current == 'errors' %}class="current"{% endif %}><a href="{{ path('developer_errors') }}">{% trans from "bloginy" %}Errors{% endtrans %}</a></li>
+</ul>

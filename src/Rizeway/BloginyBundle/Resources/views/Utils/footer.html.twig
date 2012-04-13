@@ -1,0 +1,42 @@
+<div id="footer">
+    <div class="menu-footer">
+        <h4>Bloginy</h4>
+        <ul class="balise">
+            <li><a href="{{ path('bloginy_about') }}" alt="{% trans from 'bloginy' %}About Bloginy{% endtrans %}">+ {% trans from 'bloginy' %}About Bloginy{% endtrans %}</a></li>
+            <li><a href="{{ path('bloginy_contact') }}" alt="{% trans from 'bloginy' %}Contact us{% endtrans %}">+ {% trans from 'bloginy' %}Contact us{% endtrans %}</a></li>
+            <li><a href="#" alt="{% trans from 'bloginy' %}The team{% endtrans %}">+ {% trans from 'bloginy' %}The team{% endtrans %}</a></li>
+            <li><a href="http://blog.bloginy.com" alt="{% trans from 'bloginy' %}The blog{% endtrans %}">+ {% trans from 'bloginy' %}The blog{% endtrans %}</a></li>
+        </ul>
+    </div>
+    <div class="menu-footer">
+        <h4>{% trans from 'bloginy' %}Tools{% endtrans %}</h4>
+        <ul class="balise">
+            <li><a href="{{ path('bloginy_plugins') }}" alt="{% trans from 'bloginy' %}Wordpress Plugins{% endtrans %}">+ {% trans from 'bloginy' %}Wordpress Plugins{% endtrans %}</a></li>
+            <li><a href="{{ path('developer_main') }}" alt="{% trans from 'bloginy' %}Bloginy for developers (API){% endtrans %}">+ {% trans from 'bloginy' %}Bloginy for developers (API){% endtrans %}</a></li>
+            <li><a href="{{ path('bloginy_promote') }}" alt="{% trans from 'bloginy' %}Promote Bloginy{% endtrans %}">+ {% trans from 'bloginy' %}Promote Bloginy{% endtrans %}</a></li>
+            <li><a href="{{ path('bloginy_applications') }}" alt="{% trans from 'bloginy' %}Third-party applications{% endtrans %}">+ {% trans from 'bloginy' %}Third-party applications{% endtrans %}</a></li>
+        </ul>
+    </div>
+    <div class="menu-footer">
+        <h4>{% trans from 'bloginy' %}Sections{% endtrans %}</h4>
+        <ul class="balise">
+            <li><a href="{{ path('posts_live') }}" alt="{% trans from 'bloginy' %}Live{% endtrans %}">+ {% trans from "bloginy" %}Live{% endtrans %}</a></li>
+            <li><a href="{{ path('blog_posts_list') }}" alt="{% trans from 'bloginy' %}Aggregator{% endtrans %}">+ {% trans from 'bloginy' %}Aggregator{% endtrans %}</a></li>
+            <li><a href="{{ path('blogs_list') }}" alt="{% trans from 'bloginy' %}Popular blogs{% endtrans %}">+ {% trans from "bloginy" %}Popular blogs{% endtrans %}</a></li>
+        </ul>
+    </div>
+    <div class="menu-footer">
+        <h4>{% trans from 'bloginy' %}Participate{% endtrans %}</h4>
+        <ul class="balise">
+            <li><a href="{{ path('blog_propose') }}" alt="{% trans from 'bloginy' %}Propose a blog{% endtrans %}">+ {% trans from 'bloginy' %}Propose a blog{% endtrans %}</a></li>
+            <li><a id="footer-share-link" href="{{ path('user_share_link') }}"  alt="{% trans from 'bloginy' %}Share / Write a post{% endtrans %}">+ {% trans from 'bloginy' %}Share / Write a post{% endtrans %}</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        $("a#footer-share-link").fancybox();
+    });
+</script>

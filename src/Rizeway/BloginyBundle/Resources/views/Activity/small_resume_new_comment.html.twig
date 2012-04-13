@@ -1,0 +1,9 @@
+{% if activity.user %}
+    <a href="{{ path('user_profile', {'username': activity.user.username }) }}">{{ activity.user.username }}</a>
+{% elseif activity.comment.webSite %}
+    <a href="{{ activity.comment.webSite }}">{{ activity.comment.username }}</a>
+{% else %}
+    {{ activity.comment.username }}
+{% endif %}
+ {% trans from "bloginy" %}left a comment on{% endtrans %} 
+<a  {% if is_arabic(activity.post.title) %}dir="rtl"{% else %}dir="ltr"{% endif %} href="{{ path('post_details', {'slug': activity.post.slug }) }}#comment_list">{{ activity.post.shortTitle(10) }}</a>

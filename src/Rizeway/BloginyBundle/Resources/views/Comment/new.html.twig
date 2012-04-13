@@ -1,0 +1,70 @@
+<div class="new_comment">
+    <h3>{% trans from "bloginy" %}Leave a reply{% endtrans %}</h3>
+
+    <form id="comment-form-{{ comment.post.id }}" class="ajax_form form" action="{{ path('post_comment', {'post_id': comment.post.id}) }}" {{ form_enctype(form) }} method="post">
+        <table>
+            <tr>
+                <td></td>
+                <td>{{ form_errors(form) }}</td>
+            </tr>
+            {% if authenticated %}
+                <tr class="spacer-bottom">
+                    <td>{% trans from "bloginy" %}Username{% endtrans %}</td>
+                    <td>{{comment.username}}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>{{ form_label(form.username) }}</td>
+                    <td>
+                        {{ form_errors(form.username) }}
+                        {{ form_widget(form.username) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.email) }}</td>
+                    <td>
+                        {{ form_errors(form.email) }}
+                        {{ form_widget(form.email) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.web_site) }}</td>
+                    <td>
+                        {{ form_errors(form.web_site) }}
+                        {{ form_widget(form.web_site) }}
+                        ({% trans from "bloginy" %}Optional{% endtrans %})
+                    </td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td>{{ form_label(form.comment) }}</td>
+                <td>
+                    {{ form_errors(form.comment) }}
+                    {{ form_widget(form.comment) }}
+                </td>
+            </tr>
+            {% if not authenticated %}
+                <tr>
+                    <td>{{ form_label(form.captcha, 'Copy the captcha') }}</td>
+                    <td class="captcha">
+                        {{ form_errors(form.captcha) }}
+                        {{ form_widget(form.captcha) }}
+                    </td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td></td>
+                <td>
+                    <button class="button2">{% trans from 'bloginy' %}Post Comment{% endtrans %}</button>
+                    {{ form_rest(form) }}
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        // Comment Handler (ajax form)
+        new_comment = new AjaxFormHandler($('#comment-form-{{ comment.post.id }}'), $('#new-comment-{{ comment.post.id }}'));
+        new_comment.init();
+    </script>
+</div>

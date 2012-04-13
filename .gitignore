@@ -1,0 +1,19 @@
+# Vendor #
+##########
+vendor/*
+src/Rizeway/FormBundle
+!vendor/alchemy
+!vendor/simplepie
+!vendor/ArPHP
+!vendor/Zend
+
+# OS generated Files #
+######################
+.DS_Store
+
+# Eclipse generated Files #
+###########################
+.buildpath
+.project
+.settings/
+.idea/

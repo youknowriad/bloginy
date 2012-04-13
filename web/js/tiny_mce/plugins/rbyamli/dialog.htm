@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#rbyamli_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+	<style type="text/css">
+		#yamlitext {
+			width:298px;
+			height: 50px;
+			margin:10px 0 30px 0;
+		}
+	</style>
+</head>
+<body>
+
+<form action="#">
+	<p>{#rbyamli_dlg.write}</p>
+	<p><textarea id="yamlitext" name="yamlitext" type="text" class="text"></textarea></p>
+	
+	<div class="mceActionPanel">
+		<div style="float: left">
+			<input type="button" id="insert" name="insert" value="{#insert}" onclick="RbYamliDialog.insert();" />
+		</div>
+
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		</div>
+	</div>
+</form>
+
+<!-- YAMLI CODE START -->
+<script type="text/javascript" src="http://api.yamli.com/js/yamli_api.js"></script>
+<script type="text/javascript">
+  if (typeof(Yamli) == "object" && Yamli.init( { uiLanguage: "fr" , startMode: "onOrUserDefault" } ))
+  {
+    Yamli.yamlify( "yamlitext", { settingsPlacement: "bottomLeft" } );
+  }
+</script>
+<!-- YAMLI CODE END -->
+
+</body>
+</html>

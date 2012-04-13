@@ -1,0 +1,8 @@
+<h4 class="sidebar-title">{% trans from "bloginy" %}Last posts{% endtrans %}</h4>
+<ul class="sidebar_list">
+    {% for post in posts|keys %}
+        <li>{% include "BloginyBundle:Post:small_resume.html.twig" with {'post' : posts[post]} %}</li>
+    {% endfor %}
+</ul>
+<a href="{{ path('posts_live') }}" class="sidebar_bottom_link">{% trans from "bloginy" %}Show more posts{% endtrans %}</a>
+

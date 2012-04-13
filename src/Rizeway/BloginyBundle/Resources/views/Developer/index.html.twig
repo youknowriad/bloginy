@@ -1,0 +1,45 @@
+{% extends "::layout.html.twig" %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" %}
+{% endblock %}
+
+{% block submenu %}
+     <div id="submenu"></div>
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans from "bloginy" %}Bloginy API{% endtrans %}</h1>
+    
+    <p>Bloginy expose un nombre important de ces services à travers une API
+    (Application Programming Interface). Pour le moment, l'API est très
+    limitée, mais celle-ci va être enrichie très rapidement.</p> 
+    <p>Les développeurs désirant utiliser cette API, doivent fournir un
+    code d'API. Ce code est unique pour chaque utilisateur inscrit sur
+    Bloginy et est disponible sur le profil de l'utilisateur connecté ou en
+    cliquant directement sur <a href="{{ path('user_api_code') }}">ce lien</a>.</p> 
+    <br /> 
+    <h2>Quelle technlogie faut t-il utiliser ?</h2> 
+    <p>l'API Bloginy vous offre d'utiliser la technologie que vous maitriser
+    le plus puisque celle ci s'appuie sur des fichiers XML générés. Ainsi
+    il est possible de développer des sites web, des applications desktops,
+    des applications mobiles, ... se basant sur l'API de bloginy. Il suffit
+    simplement d'apperler les fichiers XML voulus, et de parser le résultat
+    pour en extraire les informations nécessaires.</p> 
+    <p>Pour plus de détails sur l'utilisation de l'API, référéez vous à
+    la fonction qui vous intéresse sur le menu ici à droite.</p> 
+    <br /> 
+    <h2>Principes généraux :</h2> 
+    <p>La totalité des fonctions fournies nécessitent donc un code d'API
+    pour identifier le développeur, mais nécessitent également un nom de
+    client qui consite en réalité à un identificateur concernant
+    l'application que vous êtes entrain de développer.</p> 
+    <p>Vous pouvez donner à votre client le nom que vous désirez. Celui ci
+    ne doit pas contenir de carctères spéciaux.</p> 
+{% endblock %}
+
+{% block sidebarleft %}
+    <div id="sidebar-left" class="sidebar">
+        {% include "BloginyBundle:Developer:menu.html.twig" %}
+    </div>
+{% endblock %}

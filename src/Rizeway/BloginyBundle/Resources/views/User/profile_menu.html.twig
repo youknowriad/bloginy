@@ -1,0 +1,33 @@
+<ul class="menu-vertical" id="user_profile_menu">
+    <li class="current"><a href="{{ path('user_posts',{'username' : user.username}) }}">{% trans from "bloginy" %}Posts{% endtrans %}</a></li>
+    <li><a href="{{ path('user_activities',{'username' : user.username}) }}">{% trans from "bloginy" %}Timeline{% endtrans %}</a></li>
+</ul>
+
+{% if (dashboard is defined and dashboard) %}
+    <h4 class="sidebar-title spacer-top">{% trans from 'bloginy' %}My pages{% endtrans %}</h4>
+    <ul class="menu-vertical" id="user_profile_private_menu">
+    
+        {% for page in pages %}
+            <li><a href="{{ path('page_show', {'slug': page.slug }) }}" title="{{ page.name }}">{{ page.shortName(23) }}</a></li>
+        {% endfor %}
+        {% if pages|length < 10 %}
+            <li class="small-spacer-top"><a id="new_page_link" class="fancy" href="{{ path('user_new_page') }}">{% trans from "bloginy" %}Create a new page{% endtrans %}</a></li>
+        {% endif %}
+    </ul>
+    
+    <script>
+        var menu = new VerticalMenu('#user_profile_menu, #user_profile_private_menu', '#user_profile_content');
+        menu.init();
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            $("a#new_page_link").fancybox();
+        });
+    </script>
+{% else %}
+    <script>
+        var menu = new VerticalMenu('#user_profile_menu', '#user_profile_content');
+        menu.init();
+    </script>
+{% endif %}

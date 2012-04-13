@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Rizeway\BloginyBundle\Entity\BlogPost" repository-class="Rizeway\BloginyBundle\Model\Repository\BlogPostRepository">
+        <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="title" column="title" type="string" length="250" />
+        <field name="slug" column="slug" type="string" length="255" unique="true" /> <!-- For URL -->
+        <field name="content" column="content" type="text" />
+        <field name="link" column="link" type="string" length="255" />
+        <field name="language" column="language" type="string" length="100" />
+
+        <field name="approved" column="approved" type="boolean" default="false" />
+        <field name="published_at" column="published_at" type="datetime" />
+        <field name="created_at" column="created_at" type="datetime" />
+
+        <many-to-one field="blog" target-entity="Blog" />
+
+        <one-to-one field="post" target-entity="Post" inversed-by="blog_post">
+            <join-column name="post_id" referenced-column-name="id" />
+        </one-to-one>
+        
+    </entity>
+</doctrine-mapping>

@@ -1,0 +1,95 @@
+[symfony]
+    git=http://github.com/symfony/symfony.git
+    version=v2.0.1
+
+[twig]
+    git=http://github.com/fabpot/Twig.git
+    version=v1.1.2
+
+[monolog]
+    git=http://github.com/Seldaek/monolog.git
+    version=1.0.1
+
+[doctrine-common]
+    git=http://github.com/doctrine/common.git
+    version=2.1.1
+
+[doctrine-dbal]
+    git=http://github.com/doctrine/dbal.git
+    version=2.1.1
+
+[doctrine]
+    git=http://github.com/doctrine/doctrine2.git
+    version=2.1.1
+
+[swiftmailer]
+    git=http://github.com/swiftmailer/swiftmailer.git
+    version=v4.1.1
+
+[assetic]
+    git=http://github.com/kriswallsmith/assetic.git
+    version=v1.0.1
+
+[twig-extensions]
+    git=http://github.com/fabpot/Twig-extensions.git
+
+[metadata]
+    git=http://github.com/schmittjoh/metadata.git
+    version=1.0.0
+
+[SensioFrameworkExtraBundle]
+    git=http://github.com/sensio/SensioFrameworkExtraBundle.git
+    target=/bundles/Sensio/Bundle/FrameworkExtraBundle
+
+[JMSSecurityExtraBundle]
+    git=http://github.com/schmittjoh/JMSSecurityExtraBundle.git
+    target=/bundles/JMS/SecurityExtraBundle
+
+[SensioDistributionBundle]
+    git=http://github.com/sensio/SensioDistributionBundle.git
+    target=/bundles/Sensio/Bundle/DistributionBundle
+
+[SensioGeneratorBundle]
+    git=http://github.com/sensio/SensioGeneratorBundle.git
+    target=/bundles/Sensio/Bundle/GeneratorBundle
+
+[AsseticBundle]
+    git=http://github.com/symfony/AsseticBundle.git
+    target=/bundles/Symfony/Bundle/AsseticBundle
+    version=v1.0.0
+
+[doctrine-fixtures]
+  	git=http://github.com/doctrine/data-fixtures.git
+  	target=/doctrine-fixtures
+
+[DoctrineFixturesBundle]
+    git=http://github.com/symfony/DoctrineFixturesBundle.git
+    target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
+
+[Imagine]
+    git=http://github.com/avalanche123/Imagine.git
+    target=/Imagine
+
+[GravatarBundle]
+    git=git://github.com/ornicar/GravatarBundle.git
+    target=/bundles/Ornicar/GravatarBundle
+
+[FeedBundle]
+    git=git://github.com/zendfony/FeedBundle.git
+    target=/bundles/Zendfony/FeedBundle
+
+[RizewayFormBundle]
+    git=git://github.com/youknowriad/RizewayFormBundle.git
+    target=../src/Rizeway/FormBundle
+
+[HTMLPurifierBundle]
+    git=git://github.com/Exercise/HTMLPurifierBundle.git
+    target=/bundles/Exercise/HTMLPurifierBundle
+
+[HTMLPurifier]
+    git=git://github.com/ezyang/htmlpurifier.git
+    target=/htmlpurifier
+
+[CaptchaBundle]
+    git=git://github.com/Gregwar/CaptchaBundle.git
+    target=/bundles/Gregwar/CaptchaBundle

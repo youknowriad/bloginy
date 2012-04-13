@@ -1,0 +1,8 @@
+<ul class="menu-vertical" id="categories">
+    <li {% if category_name == 'none' %}class="current"{% endif %}><a href="{{ path('posts_list',  {'language': language, 'sort': sort, 'category_name': 'none'}) }}">{% trans from "bloginy" %}All categories{% endtrans %}</a></li>
+    {% for category in categories %}
+        <li {% if category_name ==  category.name %}class="current"{% endif %}>
+            <a href="{{ path('posts_list', {'language': language, 'sort': sort, 'category_name': category.name}) }}" title="{{ category.description }}">{{ category.name|trans({}, "bloginy") }}</a>
+        </li>
+    {% endfor %}
+</ul>

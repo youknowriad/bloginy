@@ -1,0 +1,2 @@
+{% trans from "bloginy" %}A new blog has been added{% endtrans %} : 
+<a  {% if is_arabic(activity.blog.title) %}dir="rtl"{% else %}dir="ltr"{% endif %} href="{{ path('blog_show', {'slug': activity.blog.slug }) }}">{{ activity.blog.shortTitle(20) }}</a>

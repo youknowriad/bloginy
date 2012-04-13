@@ -1,0 +1,37 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}{{ user.name }}, Bloginy{% endblock %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" with {"current": "user"} %}
+{% endblock %}
+
+{% block submenu %}
+     <div id="submenu">
+        {% include "BloginyBundle:User:submenu.html.twig" with {'current': 'settings'} %}
+     </div>
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans from "bloginy" %}API Key{% endtrans %}</h1>
+
+    <p>{% trans from "bloginy" %}Your API Key is {% endtrans %}: <strong>{{ user.apiCode }}</strong></p>
+
+    <p>{% trans from "bloginy" %}For more informations on the API, see the bloginy section dedicated to developers. This API gives you the ability to make applications or websites that use the different functions of Bloginy{% endtrans %}.</p>
+
+    <p>{% trans from "bloginy" %}This key in necessary to use the API. For more details visit {% endtrans %} <a href="{{ path('developer_main') }}">{% trans from "bloginy" %}the developer section{% endtrans %}</a>.</p>
+{% endblock %}
+
+
+{% block sidebarleft %}
+    <div id="sidebar-left" class="sidebar">
+        {% include "BloginyBundle:User:settings_menu.html.twig" with {'current': 'api_code'} %}
+    </div>
+{% endblock %}
+
+
+{% block sidebarright %}
+    <div id="sidebar-right" class="sidebar">
+        {% include "BloginyBundle:User:identity.html.twig" with {'user': user} %}
+    </div>
+{% endblock %}

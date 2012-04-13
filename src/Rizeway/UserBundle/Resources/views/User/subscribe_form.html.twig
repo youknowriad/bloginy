@@ -1,0 +1,45 @@
+<form class="form" action="{{ path('user_subscribe') }}" {{ form_enctype(form) }} method="post">
+    <table>
+        <tr>
+            <td></td>
+            <td>
+                {{ form_errors(form) }}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.username) }}</td>
+            <td>
+                {{ form_errors(form.username) }}
+                {{ form_widget(form.username) }}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.email) }}</td>
+            <td>
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email) }}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.password.first, 'Password') }}</td>
+            <td>
+                {{ form_errors(form.password.first) }}
+                {{ form_widget(form.password.first) }}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.password.second, 'Repeat the password') }}</td>
+            <td>
+                {{ form_errors(form.password.second) }}
+                {{ form_widget(form.password.second) }}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button class="button2 small-spacer-top">{% trans from 'user' %}subscribe{% endtrans %}</button>
+                {{ form_widget(form._token) }}
+            </td>
+        </tr>
+    </table>
+</form>

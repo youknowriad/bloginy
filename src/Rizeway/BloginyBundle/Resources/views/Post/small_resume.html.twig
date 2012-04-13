@@ -1,0 +1,1 @@
+<a {% if is_arabic(post.title) %}dir="rtl"{% else %}dir="ltr"{% endif %} href="{{ path('post_show', {'slug': post.slug }) }}">{{ post.shortTitle(35) }}</a>

@@ -1,0 +1,3 @@
+tinyMCE.addI18n('en.rbyamli_dlg',{
+	title : 'Yamli, le clavier arabe'
+});

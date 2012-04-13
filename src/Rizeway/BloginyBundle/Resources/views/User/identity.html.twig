@@ -1,0 +1,28 @@
+{% if user %}
+    <div class="user_identity">
+        <h4 class="sidebar-title">{% trans from 'bloginy' %}Identity{% endtrans %}</h4>
+        <table>
+            <tr>
+                <td>
+                    {% include 'BloginyBundle:User:avatar.html.twig' with {'user': user, 'type' : 'medium'} %}
+                </td>
+                <td>
+                    <div><strong><a href="{{ path('user_profile', {'username': user.username}) }}">{{ user.username }}</a></strong></div>
+                    <div class="social_networks_icons">
+                        {% if user.webSite %}
+                            <a title="{% trans from 'bloginy' %}Web site{% endtrans %}" href="{{ user.webSite }}"><img src="{{ asset('images/icons/web_site.png')}}" /></a>
+                        {% endif %}
+
+                        {% if user.twitter %}
+                            <a title="{% trans from 'bloginy' %}Twitter profile{% endtrans %}" href="{{ user.twitter }}"><img src="{{ asset('images/icons/twitter.png')}}" /></a>
+                        {% endif %}
+
+                        {% if user.facebook %}
+                            <a title="{% trans from 'bloginy' %}Facebook profile{% endtrans %}" href="{{ user.facebook }}"><img src="{{ asset('images/icons/facebook.png')}}" /></a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endif %}

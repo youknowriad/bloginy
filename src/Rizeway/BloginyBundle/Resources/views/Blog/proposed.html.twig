@@ -1,0 +1,27 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Bloginy : {% trans from "bloginy" %}Propose a blog{% endtrans %}{% endblock %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" with {'current': 'blogs'} %}
+{% endblock %}
+
+{% block body %}
+
+    <h1>{% trans from "bloginy" %}Blog Proposed{% endtrans %}</h1>
+
+    {% trans from "bloginy" %}Your blog has been proposed with success. It will be validated as soon as possible. Thanks{% endtrans %}.
+
+{% endblock %}
+
+
+{% block submenu %}
+    <div id="submenu">
+       {% include "BloginyBundle:Blog:sub_menu.html.twig" with {'current': 'propose'} %}
+    </div>
+{% endblock %}
+
+
+{% block searchform %}
+    {% include "BloginyBundle:Blog:search_form.html.twig" %}
+{% endblock %}

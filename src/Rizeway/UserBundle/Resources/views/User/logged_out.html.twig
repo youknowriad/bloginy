@@ -1,0 +1,19 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Bloginy : {% trans from "user" %}Logout Success{% endtrans %}{% endblock %}
+
+{% block body %}
+
+    <h1>{% trans from "user" %}Logout Success{% endtrans %}</h1>
+
+    {% trans from "user" %}You just logged out, you will be redirected in 5 seconds{% endtrans %}.
+
+    <script>
+      window.setTimeout(function(){document.location="{{ path('posts_list') }}" }, 5000);
+    </script>
+{% endblock %}
+
+
+{% block submenu %}
+    <div id="submenu"></div>
+{% endblock %}

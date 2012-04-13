@@ -1,0 +1,121 @@
+parameters:
+    bloginy.post.max_results:             4
+    bloginy.post.sidebar.max_results:     6
+    bloginy.blog.max_results:             20
+    bloginy.blog.sidebar.max_results:     6
+    bloginy.comment.max_results:          30
+    bloginy.feed.max_results:             20
+    bloginy.blog.max_stars:               5
+    bloginy.activity.max_results:         30
+    bloginy.activity.sidebar.max_results: 6
+    bloginy.tag_cloud.tag_max_size :      250
+    bloginy.tag_cloud.tag_min_size :      70
+    bloginy.tag_cloud.limit:              30
+    bloginy.blog.location:
+      - Adrar
+      - Chlef
+      - Laghouat
+      - Oum El-Bouaghi
+      - Batna
+      - Bejaïa
+      - Biskra
+      - Bechar
+      - Blida
+      - Bouira
+      - Tamanrasset
+      - Tebessa
+      - Tlemcen
+      - Tiaret
+      - Tizi Ouzou
+      - Algiers
+      - Djelfa
+      - Jijel
+      - Setif
+      - Saida
+      - Skikda
+      - Sidi Bel Abbes
+      - Annaba
+      - Guelma
+      - Constantine
+      - Medea
+      - Mostaganem
+      - M'Sila
+      - Mascara
+      - Ouargla
+      - Oran
+      - El-Bayadh
+      - Illizi
+      - Bordj-Bou-Arreridj
+      - Boumerdes
+      - El-Taref
+      - Tindouf
+      - Tissemsilt
+      - El Oued
+      - Khenchela
+      - Souk Ahras
+      - Tipaza
+      - Mila
+      - Aïn Defla
+      - Naama
+      - Aïn Temouchent
+      - Ghardaïa
+      - Relizane
+    bloginy.blog.language:
+      ar : Arabic
+      fr : French
+      en : English
+    bloginy.post.language:
+      ar : Arabic
+      fr : French
+      en : English
+      other : Other
+    bloginy.title: 'Bloginy, Algerian Blog Aggregator'
+    bloginy.email: 'contact@bloginy.com'
+    bloginy.link:  'http://www.bloginy.com'
+    bloginy.description : 'Bloginy, Algerian Blog Aggregator'
+    bloginy.feed_link.rss:  'http://www.bloginy.com/feed/'
+    bloginy.dzblogday.tags:
+      - dzblogday
+      - يوم التدوين الجزائري
+      - dz blog day
+      - dz blogday
+      - dzblog day
+    
+#services
+services:
+    bloginy.language_detector:
+        class: Rizeway\BloginyBundle\Model\Utils\LanguageDetector
+        arguments: [%alchemy_api_key%, %bing_app_id%]
+
+    bloginy.feed_parser:
+        class: Rizeway\BloginyBundle\Model\Utils\FeedParser
+
+    bloginy.blog_posts_updater:
+        class: Rizeway\BloginyBundle\Model\Utils\BlogPostsUpdater
+        arguments: [@doctrine.orm.entity_manager, @bloginy.feed_parser, @bloginy.language_detector, %bloginy.post.language%]
+
+    bloginy.blog_ranking_updater:
+        class: Rizeway\BloginyBundle\Model\Utils\BlogRankingUpdater
+        arguments: [@doctrine.orm.entity_manager]
+
+    bloginy.post_ranking_updater:
+        class: Rizeway\BloginyBundle\Model\Utils\PostRankingUpdater
+        arguments: [@doctrine.orm.entity_manager]
+
+    bloginy.api_authenticator:
+        class: Rizeway\BloginyBundle\Model\Utils\ApiAuthenticator
+        arguments: [@doctrine.orm.entity_manager]
+
+    bloginy.loginlistener:
+        class: Rizeway\BloginyBundle\Listener\LoginListener
+        tags:
+            - { name: kernel.event_listener, event: security.interactive_login, method:onSecurityInteractiveLogin }
+            
+    bloginy.twig.extension:
+        class: Rizeway\BloginyBundle\Extension\IsArabicExtension
+        tags:
+            - { name: twig.extension }
+            
+    bloginy.visit_handler:
+        class: Rizeway\BloginyBundle\Model\Utils\PostVisitHandler
+        arguments: [@doctrine.orm.entity_manager]

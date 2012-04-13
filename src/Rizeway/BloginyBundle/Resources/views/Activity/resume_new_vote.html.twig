@@ -1,0 +1,6 @@
+<div class="activity {{ class }}">
+    <span class="datetime">{{ activity.createdAt|date('Y-m-d H:i:s') }}</span>
+    <a href="{{ path('user_profile', {'username': activity.user.username }) }}">{{ activity.user.username }}</a>
+    {% trans from "bloginy" %} has voted for {% endtrans %} 
+    <a {% if is_arabic(activity.post.title) %}dir="rtl"{% else %}dir="ltr"{% endif %} href="{{ path('post_show', {'slug': activity.post.slug }) }}">{{ activity.post.shortTitle(50) }}</a>
+</div>

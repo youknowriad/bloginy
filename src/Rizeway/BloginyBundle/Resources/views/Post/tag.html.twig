@@ -1,0 +1,32 @@
+{% extends "::layout.html.twig" %}
+
+
+{% block title %}Bloginy : {{ tag }}{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('js/bundles/bloginy/utils/bloginyPager.js') }}"></script>
+    <script src="{{ asset('js/bundles/bloginy/post/PostHandler.js') }}"></script>
+{% endblock %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" %}
+{% endblock %}
+
+{% block body %}
+
+    <div id="posts-list">
+        {% include "BloginyBundle:Post:tag_ajax.html.twig" with {'posts': posts, 'votes': votes, 'show_pager': show_pager, 'page': page, 'tag': tag} %}
+    </div>
+
+{% endblock %}
+
+{% block sidebarright %}
+    <div id="sidebar-right" class="sidebar">
+        {% include "BloginyBundle:Post:tag_cloud.html.twig" with {'tags': tags} %}
+    </div>
+{% endblock %}
+
+{% block submenu %}
+    <div id="submenu">{% trans from 'bloginy' %}This page gathers all the posts related to the tag {% endtrans %} <strong>{{ tag }}</strong></div>
+{% endblock %}

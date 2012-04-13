@@ -1,0 +1,7 @@
+{% for post in posts|keys %}
+    {% include "BloginyBundle:Post:resume.html.twig" with {'post' : posts[post], 'vote' : votes[posts[post].id]|default(false), 'class' : cycle(['odd', 'even'], post) } %}
+{% endfor %}
+
+{% if show_pager %}
+    {% include "BloginyBundle:Post:pager.html.twig" with {'route' : 'user_posts', 'params' : {'username': user.username, 'page': page}, 'target': '#user_profile_content'} %}
+{% endif %}

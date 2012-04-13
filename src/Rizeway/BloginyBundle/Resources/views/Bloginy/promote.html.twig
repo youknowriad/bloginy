@@ -1,0 +1,48 @@
+{% extends "::layout.html.twig" %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" %}
+{% endblock %}
+
+{% block submenu %}
+     <div id="submenu"></div>
+{% endblock %}
+
+{% block body %}
+
+<h1>{% trans from 'bloginy' %}Promote Bloginy{% endtrans %}</h1>
+<p>{% trans from 'bloginy' %}You have a blog and you like Bloginy, so help us promote Bloginy through a link or badge on your website. To do this, simply copy the code for the badge you would like and paste it to the desired location on your website.{% endtrans %}</p>
+<table class="badges">
+<tr>
+  <td><img src="{{ asset('images/badges/badge-bloginy-b.png') }}" /></td>
+  <td>
+    <code>{{ '<a href="http://www.bloginy.com"><img style="border:0" src="http://www.bloginy.com/images/badges/badge-bloginy-b.png" title="Actualité du web Algérien" alt="Actualité du web Algérien" /></a>'|e }}</code>
+  </td>
+</tr>
+<tr>
+  <td><img src="{{ asset('images/badges/badge-bloginy-m.png') }}" /></td>
+  <td>
+    <code>{{ '<a href="http://www.bloginy.com"><img style="border:0" src="http://www.bloginy.com/images/badges/badge-bloginy-m.png" title="Actualité du web Algérien" alt="Actualité du web Algérien" /></a>'|e }}</code>
+  </td>
+</tr>
+<tr>
+  <td><img src="{{ asset('images/badges/badge-bloginy-s.png') }}" /></td>
+  <td>
+    <code>{{ '<a href="http://www.bloginy.com"><img style="border:0" src="http://www.bloginy.com/images/badges/badge-bloginy-s.png" title="Actualité du web Algérien" alt="Actualité du web Algérien" /></a>'|e }}</code>
+  </td>
+</tr>
+<tr>
+  <td><img src="{{ asset('images/badges/minibadge-bloginy.png') }}" /></td>
+  <td>
+    <code>{{ '<a href="http://www.bloginy.com"><img style="border:0" src="http://www.bloginy.com/images/badges/minibadge-bloginy.png" title="Actualité du web Algérien" alt="Actualité du web Algérien" /></a>'|e }}</code>
+  </td>
+</tr>
+<tr>
+  <td><img src="{{ asset('images/badges/minibadge-bloginy-s.png') }}" /></td>
+  <td>
+    <code>{{ '<a href="http://www.bloginy.com"><img style="border:0" src="http://www.bloginy.com/images/badges/minibadge-bloginy-s.png" title="Actualité du web Algérien" alt="Actualité du web Algérien" /></a>'|e }}</code>
+  </td>
+</tr>
+</table>
+</div>
+{% endblock %}

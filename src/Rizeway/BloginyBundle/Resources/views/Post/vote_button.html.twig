@@ -1,0 +1,11 @@
+<div class="vote-button">
+    {% if vote %}
+        <div class="has-voted">
+            <strong>{% trans from "bloginy" %}has voted{% endtrans %} <span class="count-votes">{{ post.countVotes }}</span></strong>
+        </div>
+    {% else %}
+        <a class="vote-link {% if is_granted('ROLE_REGISTRED_USER') %}effective{% endif %}" href="{{ path('post_vote', {'slug': post.slug}) }}" title="Voter">
+            <strong>{% trans from "bloginy" %}Vote{% endtrans %} <span class="count-votes">{{ post.countVotes }}</span></strong>
+        </a>
+    {% endif %}
+</div>

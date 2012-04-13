@@ -1,0 +1,7 @@
+{% for key in blogs|keys %}
+    {% include "BloginyBundle:Blog:resume.html.twig" with {'blog' : blogs[key], 'class' : cycle(['odd', 'even'], key)} %}
+{% endfor %}
+
+{% if show_pager %}
+    {% include "BloginyBundle:Blog:pager.html.twig" with {'title': 'More blogs', 'route' : 'blogs_list', 'params' : {'page': page, 'location': location, 'language': language}} %}
+{% endif %}

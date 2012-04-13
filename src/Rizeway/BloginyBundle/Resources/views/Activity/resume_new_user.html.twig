@@ -1,0 +1,5 @@
+<div class="activity {{ class }}">
+    <span class="datetime">{{ activity.createdAt|date('Y-m-d H:i:s') }}</span>
+    <a href="{{ path('user_profile', {'username': activity.user.username }) }}">{{ activity.user.username }}</a>
+     {% trans from "bloginy" %}joined us on Bloginy{% endtrans %}
+</div>

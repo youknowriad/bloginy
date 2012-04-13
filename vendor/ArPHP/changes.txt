@@ -1,0 +1,242 @@
+What's new in ArPHP 2.5.1 (release date: Aug 19, 2009)
+-----------------------------------------------------
+
+* Refactoring ArAutoSummarize sub class, it is now 200% faster.
+
+* Add check to the iconv output, if empty then use internal ArCharsetC converter.
+
+* Add singleton pattern to the ArCharsetC sub class as an option, implementing 
+  this pattern allows a programmer to make this single instance easily accessible 
+  by many other objects. 
+
+* Default charset loaded in the ArCharsetC sub class become only Windows-1256 
+  and UTF-8 for more optimization.
+  
+* ArabicTest source code become compliant to the PEAR Coding Standards.
+
+* You can pass CSS style name as fourth parameter in both highlightSummary and 
+  highlightRateSummary methods in ArAutoSummary instead of background color for 
+  more flexibility (see related example)
+
+* Fix charset name for Windows-1256 in the iconv command (convert to CP1256) in 
+  the core Arabic class, and append "//TRANSLIT" to the output charset.
+
+* Fix warning message in ArAutoSummarize sub class (line 629) when $word is empty.
+
+* Fix charset conversion of swap_ae method input in the ArKeySwap sub class. 
+
+
+What's new in ArPHP 2.5 (release date: Aug 5, 2009)
+-----------------------------------------------------
+
+* Add ArStandarization sub class and "standard" method, this method will 
+  standardize Arabic text to follow writing standards (just like magazine rules).
+  
+* Add simple and rough ArStemmer sub class and "stem" method, this method will 
+  return Arabic stem for a given Arabic word (http://arabtechies.net/node/83). 
+  Algorithm provides by Taha Zerrouki <taha.zerrouki@gmail.com>
+  
+* cleanCommon method in the ArAutoSummarize sub class become public now.
+
+* Add loadExtra method to the ArAutoSummarize sub class to load an enhanced  
+  Arabic stop words list.
+
+* Apply semi-factory pattern by using PHP Reflection and Magic methods to reduce 
+  Arabic.php core file size from 43 KB to 9 KB (allocated only 63% of memory 
+  comparing to previouse version and 3% faster).
+  
+* You can load different sub class dynamically using load method, no need to 
+  have new instance for this purpose any more.
+
+* No need to access sub classes anymore, all methods available on the core 
+  Arabic class level (still previous mode supported and compatible).
+  
+* Name of sub class you would like to load is required now when create an 
+  instance from Arabic class, and mode 'All' is not supported any more.
+
+* Fix using auto load Boolean switch inside Arabic class constructor by use 
+  global $use_autoload (thanks to Mr. Taha Zerrouki to refer to this issue).
+
+* Fix Arabic numbers bidi when followed by Arabic comma or Arabic question 
+  mark in ArGlyphs sub class.
+
+* ArPHP source code become compliant to the PEAR Coding Standards
+
+* Check compatibility with PHP 6.0.0-dev, MySQL 6.0.4-alpha, and cloud computing.
+
+
+What's new in ArPHP 2.0 (release date: Jul 7, 2009)
+-----------------------------------------------------
+Many thanks to all Arab Techies Code Sprint participants who provides valuable 
+assist and advices: http://www.arabtechies.net/participants/codesprint
+-----------------------------------------------------
+
+* ArStrToTime sub class supports now Hijri dates also.
+
+* Add isArabic static method to the ArIdentifier subclass.
+
+* Improve getCharset method in ArCharsetD subclass by add regular expression to 
+  extract HTML page charset from meta tag if there is any! 
+
+* Better mechanism to get most possible Arabic lexical forms for a given word in 
+  the allForms method.
+
+* Enable ArDate and ArMktime sub classes to accept correction factor (+/- 1-2) 
+  to standard hijri calendar
+
+* Use PHP exception is optional now, default is disabled for ease of implement 
+  in applications, you can configure it in the Arabic.php file.
+
+* Use PHP __autoload is optional now, default is disabled for ease of implement 
+  in applications, you can configure it in the Arabic.php file.
+
+* Handle decimal numbers in ArNumber sub class.
+
+* Better garbage collection, by release child objects directly. 
+
+* Add win2html method to the ArCharsetC sub class to convert Arabic string from 
+  Windows-1256 to HTML entities format.
+
+* Improve current stop words list that used in the ArAutoSummary sub class, we 
+  used Arabic stop words list collected by Taha, Walid, Riham and Linuxawy 
+  during Arab Techies Code Sprint 2009 as well as MySQL stop words list of 
+  full-text search for English language.  
+
+* Cleaner Salat calculation equations provided by Mr. Mansoor Magdy. 
+
+* Fix bug of exception thrown when empty string sent to "int2str" method in the 
+  "ArNumber" sub class.
+
+* Fix bug of exception thrown when all keywords sent to "getWhereCondition" 
+  method in "ArQuery" sub class are two letters words.
+
+* Fix salat Al-Asr calculation that may affect some locations (thanks to 
+  Mr. Mansoor and Mr.Salim from qasweb.org) 
+ 
+* Support share-nothing architecture (stateless) where input/output character 
+  set can optionally pass to each method (to be ready for large scale 
+  applications and clustering)
+
+* No need to have "./" in the PHP include_path (to be ready for large scale 
+  applications and clustering) 
+
+
+What's new in ArPHP 1.8 (release date: Feb 15, 2009)
+-----------------------------------------------------
+
+* Core Arabic charset converter become 4 times faster and takes only 70% of RAM 
+  comparing to the previous version, we used iconv function instead of 
+  ArCharsetC sub class when possible.
+
+* Optimize ArIdentifier sub class, it is now 2 times faster.
+
+* Optimize ArGender sub class, it is now 10% faster.
+
+* Optimize ArCompressStr sub class, it is now 10% faster.
+
+* Optimize ArSoundex sub class, it is now 5% faster.
+
+* Optimize ArTransliteration sub class, it is now 5% faster.
+
+* Highlight in documentation and examples how you can optimize classes load by 
+  specify the functionality you looking for, this procedure reduce used RAM 
+  into 25% in average and reduce execution time by 10% in average.
+
+
+What's new in ArPHP 1.7 (release date: Jan 5, 2009)
+-----------------------------------------------------
+
+* Convert all of ArTransliteration, EnTransliteration, ArGender, ArKeySwap, 
+  ArWordTag, ArStrToTime, and ArCompressStr into Static classes for better 
+  performance and memory utilize.
+
+* Better documentation
+
+* Convert class errors into Exceptions (ArabicException) 
+
+* Optimize ArKeySwap sub class, it is now 25% faster and takes only 74% of RAM 
+  comparing to the previous version.
+
+* Optimize ArTransliteration sub class, it is now 37% faster and takes only 80% 
+  of RAM comparing to the previous version.
+
+* Optimize EnTransliteration sub class, it is now 15% faster and takes only 87% 
+  of RAM comparing to the previous version.
+
+* Optimize ArCompressStr sub class, it is now 17% faster and takes only 94% of 
+  RAM comparing to the previous version.
+
+* Optimize ArGlyphs sub class, it is now 10% faster and takes only 85% of RAM 
+  comparing to the previous version.
+
+* Clean ArAutoSummarize list of Arabic common words, add list of English common 
+  and important words, and update ArAutoSummarize class to handle English text 
+  also.
+
+* Fix English sentences separator and fix reading common and important list 
+  files process (ArAutoSummarize sub class).
+
+* Fix jd_to_greg function (ArMktime sub class).
+
+* Cleaner code generate much less PHP Notices.
+
+
+What's new in ArPHP 1.6 (release date: Aug 25, 2008)
+-----------------------------------------------------
+
+* Core Arabic charset converter become 35% faster and takes only 40% of RAM 
+  comparing to the previous version.
+
+* Add sub class for Arabic Huffman zip.
+
+* Add new method "allForms" to ArQuery sub class return all possible word forms to be 
+  search instead of regular expression format.
+
+* Returns WHERE condition alone in the ArQuery sub class (no order by 
+  combination for more flexibility).
+
+* Add new stand alone getOrderBy public method to the ArQuery sub class.
+
+* Field names will not inclosing by ` eternally, so you can use table.field 
+  style in the ArQuery sub class.
+
+* Add documentation for greg_to_jd & jd_to_greg methods in ArDate ArMktime sub 
+  classes and make return values identical to PHP calendar functions.
+
+* Support Libyan date format in the ArDate sub class.
+
+* Capitalize the English letter come after - like Al- case in EnTransliteration 
+  sub class.
+
+* Fix Mktime conversion issue from Higri to Gregorian date.
+
+* Fix strip slashes issue in the ArKeySwap sub class (affect Arabic tah letter). 
+
+
+What's new in ArPHP 1.4 (release date: July 23, 2008)
+-----------------------------------------------------
+
+* Add new method/sub class to implement StrToTime function in Arabic language.
+
+* Enhance ArQuery getWhereCondition() method by escape the unescaped_string, so 
+  that it is safe to place it in a mysql_query(). Also method will ignore 
+  punctuation as well as words of less than 3 chars if they are not in exact 
+  phrase portion.
+
+* No need to compile PHP with --enable-calendar to get ArPHP date function 
+  working. Also I fix ArMktime methods visibility.
+
+* Improve performance by replace preg_replace function by str_replace function 
+  when it is possible (ArAutoSummarize is 200% faster now).
+
+* Fix ArAutoSummarize bug in define sentences and words borders where I miss 
+  handle the comma as a separator just like spaces.
+
+* Fix bug in the $hindo parameter in utf8Glyphs method (did not accept false 
+  value to output Arabic digits instead of Hindo digits).
+
+* Fix ArabicTest and add test cases for ArStrToTime method/sub class.
+
+* Batch file for Apache ab stress test.
+
+* Update license information (use LGPL).

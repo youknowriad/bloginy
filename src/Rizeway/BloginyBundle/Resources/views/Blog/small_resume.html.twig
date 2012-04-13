@@ -1,0 +1,1 @@
+<a {% if is_arabic(blog.title) %}dir="rtl"{% else %}dir="ltr"{% endif %} href="{{ path('blog_show', {'slug' : blog.slug }) }}">{{ blog.shortTitle(15) }}</a> : {{ blog.shortDescription(20) }}

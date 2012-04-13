@@ -1,0 +1,8 @@
+<div class="blog {{ class }}">
+    <div class="blog_header_infos">
+        <span class="blog_location">{{ blog.location|trans }}</span>
+        <a class="blog_url" href="{{ blog.url }}" target="_blank">{{ blog.url }}</a>
+    </div>
+    <h2 {% if is_arabic(blog.title) %}dir="rtl"{% else %}dir="ltr"{% endif %}><a href="{{ path('blog_show', {'slug' : blog.slug }) }}">{{ blog.shortTitle }}</a></h2>
+    <p {% if is_arabic(blog.description) %}dir="rtl"{% else %}dir="ltr"{% endif %}>{{ blog.description }}</p>
+</div>

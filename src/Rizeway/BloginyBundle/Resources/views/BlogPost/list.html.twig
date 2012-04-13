@@ -1,0 +1,38 @@
+{% extends "::layout.html.twig" %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('js/bundles/bloginy/utils/bloginyPager.js') }}"></script>
+    <script src="{{ asset('js/bundles/bloginy/post/PostHandler.js') }}"></script>
+{% endblock %}
+
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" with {"current": "aggregator"} %}
+{% endblock %}
+
+{% block body %}
+
+    <div id="posts-list">
+        {% include "BloginyBundle:BlogPost:list_ajax.html.twig" with {'posts': posts, 'votes': votes, 'show_pager': show_pager, 'from': from} %}
+    </div>
+
+{% endblock %}
+
+{% block submenu %}
+    <div id="submenu">
+        <div id="icons-menu">
+            <a href="{{ path('feed_blog_posts') }}" class="rss_icon icon" title="{% trans from 'Bloginy' %}Follow this page's feed{% endtrans %}">{% trans from "Bloginy" %}Follow this page's feed{% endtrans %}</a>
+        </div>
+        {% include "BloginyBundle:BlogPost:sub_menu.html.twig" with {'current': 'aggregator'} %}
+    </div>
+{% endblock %}
+
+
+{% block sidebarright %}
+    <div id="sidebar-right" class="sidebar">
+        {% include "BloginyBundle:User:share_button.html.twig" %}
+        {% include "BloginyBundle:Blog:propose_button.html.twig" %}
+        {% render "BloginyBundle:Post:last" %}
+    </div>
+{% endblock %}

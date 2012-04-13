@@ -1,0 +1,4 @@
+<nav>
+    <a {% if current == 'top' %}class="current"{% endif %} href="{{ path('blogs_list') }}">{% trans from "bloginy" %}Popular blogs{% endtrans %}</a>
+    <a {% if current == 'propose' %}class="current"{% endif %} href="{{ path('blog_propose') }}">{% trans from "bloginy" %}Propose a blog{% endtrans %}</a>
+</nav>

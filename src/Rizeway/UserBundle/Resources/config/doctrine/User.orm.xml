@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Rizeway\UserBundle\Entity\User" repository-class="Rizeway\UserBundle\Model\Repository\UserRepository">
+        <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="username" column="username" type="string" length="20" unique="true"/>
+        <field name="password" column="password" type="string" length="32" />
+        <field name="email" column="email" type="string" length="100" unique="true"/>
+        <field name="extra_roles" column="extra_roles" type="string" length="150" nullable="true"/>
+
+        <field name="last_name" column="last_name" type="string" length="50" nullable="true" />
+        <field name="first_name" column="first_name" type="string" length="100" nullable="true" />
+        <field name="birthday" column="birthday" type="date" nullable="true" />
+        <field name="avatar_path" column="avatar" type="string" length="100" nullable="true" />
+        <field name="use_gravatar" column="use_gravatar" type="boolean" />
+        <field name="web_site" column="web_site" type="string" length="100" nullable="true"/>
+        <field name="twitter" column="twitter" type="string" length="100" nullable="true"/>
+        <field name="facebook" column="facebook" type="string" length="100" nullable="true"/>
+
+        <field name="api_code" column="api_code" type="string" length="32" nullable="true" />
+        <field name="locale" column="locale" type="string" length="10" />
+        
+        <field name="approved" column="approved" type="boolean" />
+
+        <field name="created_at" column="created_at" type="datetime" />
+        
+    </entity>
+</doctrine-mapping>

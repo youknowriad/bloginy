@@ -1,0 +1,12 @@
+{% if blog %}
+    <h4 class="sidebar-title">{% trans from "bloginy" %}Source Blog{% endtrans %}</h4>
+    <div class="sidebar-block">
+        <h4 {% if is_arabic(blog.title) %}dir="rtl"{% else %}dir="ltr"{% endif %} class="spacer-bottom">{{ blog.shortTitle(25) }}</h4>
+        <p {% if is_arabic(blog.description) %}dir="rtl"{% else %}dir="ltr"{% endif %}>
+            {{ blog.shortDescription }} 
+            <a href="{{ path('blog_show', {'slug': blog.slug}) }}" alt="{% trans from 'bloginy' %}Details{% endtrans %}" class="bleu">
+                <strong>{% trans from 'bloginy' %}Details{% endtrans %}</strong>
+            </a>
+        </p>
+    </div>
+{% endif %}

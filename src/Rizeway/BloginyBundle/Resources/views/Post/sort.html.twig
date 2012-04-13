@@ -1,0 +1,7 @@
+<nav>
+    <a {% if sort == 'TOP' %}class="current"{% endif %} href="{{ path('posts_list', {'category_name': category_name, 'language': language}) }}">{% trans from "bloginy" %}Top posts{% endtrans %}</a>
+    <a {% if sort == 'DAY' %}class="current"{% endif %} href="{{ path('posts_list', {'category_name': category_name, 'language': language, 'sort': 'DAY'}) }}">{% trans from "bloginy" %}Top today{% endtrans %}</a>
+    <a {% if sort == 'WEEK' %}class="current"{% endif %} href="{{ path('posts_list', {'category_name': category_name, 'language': language, 'sort': 'WEEK'}) }}">{% trans from "bloginy" %}Top 7 days{% endtrans %}</a>
+    <a {% if sort == 'MONTH' %}class="current"{% endif %} href="{{ path('posts_list', {'category_name': category_name, 'language': language, 'sort': 'MONTH'}) }}">{% trans from "bloginy" %}Top 30 days{% endtrans %}</a>
+    <a {% if sort == 'YEAR' %}class="current"{% endif %} href="{{ path('posts_list', {'category_name': category_name, 'language': language, 'sort': 'YEAR'}) }}">{% trans from "bloginy" %}Top of the year{% endtrans %}</a>
+</nav>

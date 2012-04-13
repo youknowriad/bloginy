@@ -1,0 +1,1601 @@
+/**
+  *  Bloginy, Blog Aggregator
+  *  Copyright (C) 2012  Riad Benguella - Rizeway
+  *
+  *  This program is free software: you can redistribute it and/or modify
+  *
+  *  it under the terms of the GNU General Public License as published by
+  *  the Free Software Foundation, either version 3 of the License, or
+  *  any later version.
+  *
+  *  This program is distributed in the hope that it will be useful,
+  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU General Public License for more details.
+  *
+  *  You should have received a copy of the GNU General Public License
+  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    border: 0;
+}
+
+body{
+    text-align: center;
+}
+
+body, table {
+    font-family: Tahoma, Arial, Verdana;
+    font-size: 10pt;
+}
+
+a {
+    color: #004e75;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 12pt;
+    padding-bottom: 10px;
+    color: #004e75;
+}
+
+h2 {
+    font-size: 12pt;
+    line-height: 26px;
+}
+
+h2 a, h3 a {
+    color: #000;
+}
+
+h2 a:hover, h3 a:hover, h1 a:hover {
+    text-decoration: none;
+}
+
+h3 {
+    padding-bottom: 10px;
+}
+
+code {
+    display: block;
+    margin-bottom: 18px;
+    border-left: 5px solid #ddd;
+    padding: 15px;
+    background: #f1f1f1;
+    direction: ltr;
+    text-align: left;
+}
+
+tr.spacer-bottom td {
+    padding-bottom: 20px;
+}
+
+.spacer-top {
+    margin-top: 20px;
+}
+
+.spacer-bottom {
+    margin-bottom: 10px;
+}
+
+.small-spacer-top, ul.menu-vertical li.small-spacer-top {
+    margin-top: 10px;
+}
+
+.simple-separator {
+    width: 100%;
+    height: 1px;
+    border-top: 1px dotted #000;
+}
+
+.tooltip {
+    background-color: #000;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    display: none;
+    color: #fff;
+    width: 160px;
+    text-align:left;
+    font-size:12px;
+    box-shadow:0 0 10px #000;
+    -moz-box-shadow:0 0 10px #000;
+    -webkit-box-shadow:0 0 10px #000;
+    z-index: 1500;
+}
+
+.ar_DZ .tooltip {
+    text-align: right;
+}
+
+.divcenter {
+    margin:auto;
+    width: 1000px;
+    text-align: left; /* pr IE6 */
+}
+
+.ar_DZ .divcenter {
+    text-align: right;
+}
+
+#black_header {
+    height: 85px;
+    background: #000;
+}
+
+#header {
+    position:relative;
+}
+
+#logo {
+    position:absolute;
+    top:23px;
+    display: block;
+}
+
+.small_link {
+    color: #999999;
+    font-size: 8pt;
+}
+
+.small_link:hover {
+    color: #000;
+}
+
+.in_box {
+    width: 400px;
+    text-align: justify;
+}
+
+/* ------------------ Title Menu ---------------- */
+.title_menu {
+    padding: 0 1px 0 0;
+    float: right;
+}
+
+.ar_DZ .title_menu {
+    float: left;
+    padding: 0 0 0 1px;
+}
+
+.title_menu span {
+    margin-left: 2px;
+}
+
+.ar_DZ .title_menu span {
+    margin-left: 0;
+    margin-right: 2px;
+}
+
+/* ------------------ Main menu ----------------- */
+nav#main_menu {
+    position: absolute;
+    left: 200px;
+    top: 55px;
+}
+
+.ar_DZ nav#main_menu {
+    left: auto;
+    right: 200px;
+}
+
+nav#main_menu a {
+    color:white;
+    display:block;
+    float:left;
+    margin:0 4px;
+    padding:7px 12px;
+    font-size:10.5pt;
+    text-transform: uppercase;
+    height: 16px;
+}
+
+.ar_DZ nav#main_menu a {
+    float: right;
+}
+
+nav#main_menu a.current, nav#main_menu a.current:hover {
+    background:#e9e9e9;
+    color: black;
+    margin-right:8px;
+    margin-left:0px;
+}
+
+nav#main_menu a:hover {
+    background: #333;
+    color:#FFF;
+    text-decoration: none;
+}
+
+nav#main_menu #login_link:hover {
+    background: url(../images/fleche1.png) right center no-repeat #333;
+    color:#FFF;   
+}
+
+
+/* --------------------- Login Panel ------------ */
+nav#main_menu #login_link {
+    color: #c9effd;
+    padding-right: 30px;
+    background: url(../images/fleche1.png) right center no-repeat;
+}
+
+.ar_DZ nav#main_menu #login_link {
+    padding-left: 30px;
+    padding-right: 12px;
+    background: url(../images/fleche1.png) left center no-repeat;
+}
+
+nav#main_menu #login_link.current {
+    color: #000;
+    background: url(../images/fleche1-hover.png) right center no-repeat #e9e9e9;
+}
+
+.ar_DZ nav#main_menu #login_link.current {
+    background: url(../images/fleche1-hover.png) left center no-repeat #e9e9e9;
+}
+
+nav#main_menu #login_link.current.selected {
+    background: url(../images/fleche1-hover.png) right center no-repeat #c9effd;
+}
+
+.ar_DZ nav#main_menu #login_link.current.selected {
+    background: url(../images/fleche1-hover.png) left center no-repeat #c9effd;
+}
+
+nav#main_menu #login_link.selected {
+    background: url(../images/fleche1-hover.png) right center no-repeat #c9effd;
+    color: #000;
+}
+
+.ar_DZ nav#main_menu #login_link.selected {
+    background: url(../images/fleche1-hover.png) left center no-repeat #c9effd;
+}
+
+/* -------------------- Login status ------------ */
+#login-status {
+    padding-top: 4px;
+    float:right;
+    color: #e9e9e9;
+    font-size: 9pt;
+}
+
+.ar_DZ #login-status {
+    float: left;
+}
+
+#login-status a {
+    color: #b2e8f9;
+}
+
+#login-status a:hover {
+    text-decoration: underline;
+}
+
+#login-status .logout_link {
+    background: url(../images/icons/logout.png) no-repeat left;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+.ar_DZ #login-status .logout_link {
+    background: url(../images/icons/logout.png) no-repeat right;
+    padding-right: 20px;
+    margin-right: 20px;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+/* -------------------- FancyBox ---------------- */
+#fancybox-wrap {
+    text-align: left;
+}
+
+.ar_DZ #fancybox-wrap {
+    text-align: right;
+}
+
+/* -------------------- Ligin Panel ------------- */
+
+#login_panel {
+    overflow: hidden;
+    padding: 15px;
+}
+
+#login_panel h3 {
+    color: #004e75;
+}
+
+#login_panel form {
+    padding: 10px;
+    overflow: hidden;
+}
+
+#login_panel form input {
+    width: 150px;
+}
+
+#login_panel form #remember_me {
+    width: auto;
+    margin: 5px;
+}
+
+/* --------------------- Hover Menu ------------- */
+nav#main_menu ul.hover-menu {
+    list-style: none;
+}
+
+nav#main_menu ul.hover-menu li a {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    color: #000;
+    margin: 0;
+    width: 100%;
+    font-size: 10pt;
+    border-top: #b6b6b6 1px dotted;
+}
+
+nav#main_menu ul.hover-menu li a:hover {
+    background-color: #b2e8f9;
+}
+
+/* --------------------- SubMenu ---------------- */
+
+#submenu {
+    display: block;
+    height: 45px;
+    background: #e9e9e9;
+    line-height:45px;
+    overflow:hidden;
+    padding-left:10px;
+}
+
+.ar_DZ #submenu {
+    padding-right: 10px;
+    padding-left: 0;
+}
+
+#submenu a {
+    padding:0px 15px;
+    color:#004e75;
+    text-transform: uppercase;
+}
+
+#submenu a:hover {
+    color: #000;
+}
+
+#submenu a.current {
+    font-weight: bold;
+}
+
+/* -------------------- Icons Menu ---------------- */
+#icons-menu {
+    float:right;
+    margin-top: 12px;
+    margin-right: 10px;
+}
+
+#icons-menu a.icon {
+    display: block;
+    text-indent: -1000px;
+    margin-left: 5px;
+    width: 18px;
+    height: 19px;
+    overflow: hidden;
+    padding: 0;
+}
+
+#icons-menu a.rss_icon {
+    background: url(../images/icons/rss-icon-small.png) no-repeat;
+}
+
+.ar_DZ #icons-menu {
+    float:left;
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.ar_DZ #icons-menu a.icon {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+/* -------------------- Content & layout ---------- */
+
+#content {
+    overflow:hidden;
+}
+
+.sidebar {
+    font-size: 12.5px;
+}
+
+.sidebar_loading img {
+    display: block;
+    margin: 20px auto;
+}
+
+#content-table {
+    border-collapse: collapse;
+}
+
+#content-table td {
+    vertical-align: top;
+}
+
+#sidebar-left{
+    margin-top:25px;
+    width:150px;
+}
+
+#content-center {
+    padding:25px 20px 20px;
+    width: 100%;
+}
+
+#sidebar-right {
+    width:190px;
+    background: #e9e9e9;
+    padding-bottom: 25px;
+    padding:0 10px 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.sidebar-block {
+    line-height:21px;
+    text-align:justify;
+    margin-bottom:10px;
+    padding:2px 10px;
+    overflow: hidden;
+}
+
+.sidebar-block.last {
+    margin-bottom: 0;
+}
+
+#sidebar-right p {
+    line-height:21px;
+    text-align:justify;
+}
+
+.sidebar-block h5 {
+    padding: 0 4px;
+}
+
+.sidebar-block h5 {
+    font-size: 12.5px;
+}
+
+.sidebar-title {
+    text-align:center;
+    color:#004e75;
+    background:#c9effd/*#e2f1f9*/;
+    line-height: 25px;
+    margin-bottom: 8px;
+    font-size: 11.5px;
+    text-transform: uppercase;
+}
+
+/* ----- Menu vertical ---------- */
+ul.menu-vertical {
+    padding : 0;
+    margin : 0;
+    list-style:none;
+}
+
+ul.menu-vertical li {
+    padding: 0;
+    margin: 2px 0;
+}
+
+ul.menu-vertical li a {
+    display: block;
+    text-align: right;
+    padding:5px 10px;
+    color: black;
+}
+
+
+ul.menu-vertical li.current a {
+    background:#e9e9e9;
+    padding: 5px 10px;
+}
+
+ul.menu-vertical li a:hover {
+    background: #f1f1f1;
+    color: #004e75;
+    text-decoration: none;
+}
+
+#content-center p, #content-center ul {
+    line-height:21px;
+    text-align:justify;
+    margin: 10px 0px;
+    word-wrap: break-word;
+}
+
+#content-center ul, #content-center ol {
+    list-style-position: inside;
+}
+
+.bleu{
+    color:#004f76;
+}
+
+.gris{
+    color:#b8b8b8;
+}
+
+/* ------ Sidebar list ------ */
+.sidebar_list {
+    list-style: none;
+}
+
+.sidebar_list li {
+    margin-bottom: 5px;
+    line-height: 21px;
+    font-size: 8pt;
+}
+
+.sidebar_list li a {
+    color: #000;
+}
+
+/* --------------------- Suscription block ----------- */
+#subscribe-panel {
+    display: none;
+}
+
+.subscribe_button {
+    float:right;
+    margin-top: 10px;
+    line-height: normal;
+}
+
+.ar_DZ .subscribe_button {
+    float: left;
+}
+
+/* ---------------------- Post ------------------------ */
+
+#posts-list .post, #user_profile_content .post {
+    padding: 10px 15px 15px 15px;
+}
+
+.post {
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+.post.even{
+    background: #f1f1f1;
+}
+
+.post .details_bar {
+    font-size: 8pt;
+    color: #999999;
+    padding-top: 10px;
+}
+
+.post .details_bar a {
+    color: #004f76;
+}
+
+.post .details_bar a:hover {
+    color: #000;
+}
+
+.post .comment_link {
+    padding: 0 15px;
+}
+
+.post .blog_link {
+    padding: 0 15px;
+}
+
+.post .post_content, .post .post_content * {
+    line-height: 21px;
+    text-align: justify;
+    word-wrap: break-word;
+}
+
+/* ------------------ VoteButton -------------------- */
+
+.vote-link {
+    text-align: center;
+    display: block;
+    width: 70px;
+    float:right;
+    background: url(../images/fleche2.png) 6px 9px no-repeat #c9effd;
+    padding:6px 10px 6px 20px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.propose-link {
+    text-align: center;
+    display: block;
+    width: 70px;
+    float:right;
+    background: #dbdbdb;
+    padding:6px 15px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #000;
+}
+
+.ar_DZ .propose-link {
+    float: left;
+}
+
+.propose-link:hover {
+    background: #0a0a0a;
+    color: #fff;
+    text-decoration: none;
+}
+
+.ar_DZ .vote-link {
+    float: left;
+    padding:6px 20px 6px 10px;
+}
+
+.vote-link:hover {
+    background: url(../images/fleche2.png) 6px 9px no-repeat #b2e8f9;
+    text-decoration: none;
+}
+
+.vote-link .count-votes, .has-voted .count-votes {
+    color:#004f76;
+    float: right;
+}
+
+.has-voted {
+    width: 86px;
+    float:right;
+    background:#dbdbdb;
+    padding:6px 7px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    letter-spacing: 0.01em;
+    color: #999999;
+    font-size: 9pt;
+}
+
+.ar_DZ .has-voted {
+    float: left;
+    font-size: 8pt;
+    text-align: left;
+}
+
+.ar_DZ .has-voted .count-votes , .has-voted .count-votes {
+    font-size: 10pt;
+}
+
+/* --------------------------------- footer --------------------------- */
+
+#footer{
+    background:#e9e9e9;
+    overflow:hidden;
+    padding: 20px 0;
+    font-size: 9pt;
+    padding-left: 40px;
+    clear: both;
+}
+
+.ar_DZ #footer {
+    padding-left: 0px;
+    padding-right: 40px;
+}
+
+.ar_DZ .menu-footer {
+    float: right;
+    padding-right:0px;
+    padding-left:120px;
+}
+
+.menu-footer {
+    float: left;
+    padding-right: 100px;
+}
+
+.menu-footer ul.balise {
+    padding : 0;
+    margin: 10px 0 0;
+    list-style:none;
+}
+
+.menu-footer ul.balise li {
+    padding:5px 0px;
+}
+
+.menu-footer ul.balise li a {
+    color: #000;
+}
+
+.menu-footer ul.balise li a:hover {
+    color: #004e75;
+    text-decoration: none;
+}
+
+#footer h4 {
+    font-size: 12px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(255,255,255,1);
+}
+
+/* ------------------------------------ Language selection ------------- */
+#language_switch {
+    padding: 17px 0;
+    font-size: 8pt;
+    color: #999999;
+}
+
+#language_switch a {
+    color: #999999;
+}
+
+#language_switch a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------- Search Form --------------------- */
+
+#search_form input {
+    position:absolute;
+    width: 174px;
+    height: 30px;
+    background:#eee;
+    top:47px;
+    right:28px;
+    padding: 0 5px;
+    border: 0;
+    line-height: 20px;
+}
+
+#search_form input.empty {
+    color: #999;
+    font-style: italic;
+}
+
+
+#search_form #go {
+    position:absolute;
+    height: 30px;
+    top:47px;
+    right:0px;
+    border: 0;
+}
+
+.ar_DZ #search_form input {
+    left: 28px;
+    right: auto;
+}
+
+.ar_DZ #search_form #go {
+    left: 0px;
+    right: auto;
+}
+
+/* ----------------- Comments List --------------------- */
+
+#comment_list {
+    margin-top: 20px;
+}
+
+.comment {
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.comment .avatar {
+    float: left;
+    margin-right: 10px;
+}
+
+.ar_DZ .comment .avatar {
+    float: right;
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.comment .comment_details {
+    float:left;
+    background-color: #f1f1f1;
+    padding: 15px;
+    width: 500px;
+}
+
+.moderated_comment .comment .comment_details {
+    background-color: transparent;
+}
+
+.comment .comment_details.waiting {
+    background-color: #dff5fd;
+}
+
+.ar_DZ .comment .comment_details {
+    float: right;
+}
+
+.comment .username {
+    font-weight: bold;
+}
+
+.comment .message {
+    margin-top: 15px;
+    line-height: 21px;
+    text-align: justify;
+    font-size: 9pt;
+}
+
+.comment .comment_sub_menu {
+    margin-top: 20px;
+    font-size: 8pt;
+    border-top: 1px dotted #000;
+    padding: 6px 2px 2px;
+    overflow: hidden;
+}
+
+.comment .comment_sub_menu .post_link {
+    float: right;
+}
+
+.ar_DZ .comment .comment_sub_menu .post_link {
+    float: left;
+}
+
+.comment .comment_sub_menu .sub_menu_item {
+    margin-right: 10px;
+}
+
+.ar_DZ .comment .comment_sub_menu .sub_menu_item {
+    margin-left: 10px;
+}
+
+.moderated_comment {
+    margin-top: 10px;
+}
+
+.moderated_comment .comment {
+    background-color: #c9effd;
+}
+
+/* --------------- Comment Form ----------------------- */
+
+.new_comment {
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    width: 550px;
+}
+
+.new_comment h3 {
+    padding-bottom: 30px;
+}
+
+.new_comment .form input, .new_comment .form textarea {
+    background-color: #f9f9f9;
+}
+
+/* --------------- CSS3 Button ------------------------- */
+a.button, a.button2 {
+    display: block;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.button {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #0a0a0a;
+    padding: 8px 10px;
+    background: #ddd;
+    background: -moz-linear-gradient(
+        top,
+        #f0f0f0 0%,
+        #c6c6c6);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#f0f0f0),
+        to(#c6c6c6));
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border: 0;
+    -moz-box-shadow:
+        0px 1px 3px rgba(000,000,000,0.5),
+        inset 0px 0px 3px rgba(255,255,255,1);
+    -webkit-box-shadow:
+        0px 1px 3px rgba(000,000,000,0.5),
+        inset 0px 0px 3px rgba(255,255,255,1);
+    box-shadow:
+        0px 1px 3px rgba(000,000,000,0.5),
+        inset 0px 0px 3px rgba(255,255,255,1);
+    text-shadow:
+        0px 0px 0px rgba(232,14,232,0),
+        0px 1px 0px rgba(255,255,255,1);
+    cursor: pointer;
+}
+
+.button:hover {
+    background: -moz-linear-gradient(
+        top,
+        #f0f0f0 0%,
+        #e6e6e6);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#f0f0f0),
+        to(#e6e6e6));
+    text-decoration: none;
+}
+
+.button2 {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #0a0a0a;
+    padding: 8px 10px;
+    background: -moz-linear-gradient(
+        top,
+        #e0e0e0 0%,
+        #b6b6b6);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#e0e0e0),
+        to(#b6b6b6));
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border: 0;
+    -moz-box-shadow:
+        0px 1px 2px rgba(000,000,000,0.8),
+        inset 0px 0px 3px rgba(220,220,220,1);
+    -webkit-box-shadow:
+        0px 1px 2px rgba(000,000,000,0.8),
+        inset 0px 0px 3px rgba(220,220,220,1);
+    box-shadow:
+        0px 1px 2px rgba(000,000,000,0.8),
+        inset 0px 0px 3px rgba(220,220,220,1);
+    text-shadow:
+        0px 0px 0px rgba(232,14,232,0),
+        0px 1px 0px rgba(255,255,255,1);
+    cursor: pointer;
+}
+
+.button2:hover {
+
+    background: -moz-linear-gradient(
+        top,
+        #e3e3e3 0%,
+        #c6c6c6);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#e3e3e3),
+        to(#c6c6c6));
+    border: 0px solid #ffbf00;
+    -moz-box-shadow:
+        0px 1px 2px rgba(000,000,000,0.8),
+        inset 0px 0px 3px rgba(200,200,200,1);
+    -webkit-box-shadow:
+        0px 1px 2px rgba(000,000,000,0.8),
+        inset 0px 0px 3px rgba(200,200,200,1);
+    box-shadow:
+        0px 1px 2px rgba(000,000,000,0.8),
+        inset 0px 0px 3px rgba(200,200,200,1);
+    text-decoration: none;
+}
+
+.button[disabled]:active, .button[disabled],
+.button2[disabled]:active, .button2[disabled] {
+    color: #bbb;
+}
+
+/*---------------------Formulaire-----------------------*/
+
+.form input {
+    height: 22px;
+    line-height: 15px;
+    outline-style: none;
+    margin-bottom: 5px;
+    background: #f0f0f0;
+    border: 1px solid #999;
+    margin-right: 5px;
+    padding: 5px;
+    width: 200px;
+}
+
+.form .checkbox input {
+    width: auto;
+    height: 25px;
+    padding: 0;
+    line-height: 25px;
+}
+
+.form select {
+    height: 25px;
+    line-height: 25px;
+    padding: 0 5px;
+    outline-style: none;
+    margin-bottom: 5px;
+    background: #f0f0f0;
+    border: 1px solid #999;
+    margin-right: 5px;
+}
+
+.ar_DZ .form select, .ar_DZ .form input {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.form table {
+    border-collapse: collapse;
+}
+
+
+.sidebar .form input,  .sidebar .form select {
+    width: 100%;
+}
+
+.form label {
+    padding-right: 10px;
+    text-align: right;
+    margin-bottom: 5px;
+    line-height: 25px;
+}
+
+.ar_DZ .form label {
+    padding-right: 0;
+    padding-left: 10px;
+}
+
+.form textarea {
+    width: 400px;
+    height: 100px;
+    background: none;
+    outline-style: none;
+    margin-bottom: 5px;
+    padding: 5px;
+    background: #f0f0f0;
+    border: 1px solid #999;
+}
+
+.form tr.spacer td {
+    height: 15px;
+}
+
+.form tr.separator td {
+    border-top: 1px dotted #999;
+}
+
+.form .help {
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.form .captcha img {
+    display: block;
+}
+
+/* ------- avatar file ------ */
+
+#edit_avatar_file {
+    width: auto;
+    border: none;
+    background: none;
+    padding-left: 0;
+}
+
+/* ------------------ Pager ---------------------------- */
+.bloginy-pager {
+    display: block;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background: #e9e9e9;
+    color: #666;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.bloginy-pager:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.bloginy-pager.selected {
+    text-indent: -1000px;
+    overflow: hidden;
+    background: url(../images/ajax-loader.gif) no-repeat center center #eee;
+}
+
+.bloginy-separator {
+    width: 100%;
+    border-top: 1px dotted #999;
+}
+
+/* ---------------- Message ---------------------------- */
+#bloginy-message {
+    display: none;
+    position: absolute;
+    top:0;
+    width: 100%;
+    background: #FFF;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+    z-index: 10;
+}
+
+/* --------------- Blog Details ------------------------ */
+.blog {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.blog.even {
+    background: #f1f1f1;
+}
+
+.blog_header_infos {
+    padding-top: 5px;
+    padding-right:5px;
+    font-size: 8pt;
+    float:right;
+}
+
+.ar_DZ .blog_header_infos {
+    padding-right: 0;
+    padding-left: 5px;
+    float: left;
+}
+
+.blog_header_infos .blog_url {
+    padding-left: 5px;
+    color: #004e75;
+}
+
+.blog_header_infos .blog_url:hover {
+    color: #000;
+}
+
+.blog_header_infos .blog_location, .blog_resume .blog_location {
+    padding-right: 8px;
+    border-right: 1px #d0d0d0 solid;
+}
+
+.ar_DZ .blog_resume .blog_location {
+    padding-right: 0;
+    border-right: 0;
+    padding-left: 8px;
+    border-left: 1px #d0d0d0 solid;
+}
+
+.blog_resume {
+    overflow: hidden;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #999;
+}
+
+.blog_resume .title_menu {
+    height: 24px;
+    font-size: 8pt;
+    vertical-align: middle;
+}
+
+.title_menu span {
+    font-size: 8pt;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.blog_resume h1 {
+    padding-bottom: 2px;
+}
+
+.blog_thumbnail {
+    float: left;
+    margin: 0 15px 0 0;
+    border: 1px solid #ccc;
+    width: 180px;
+    height: 135px;
+    text-align: center;
+}
+
+.ar_DZ .blog_thumbnail {
+    float: right;
+    margin: 0 0 0 15px;
+}
+
+.ar_DZ .google_ranking, .ar_DZ .alexa_ranking {
+    text-align: left;
+    direction: ltr;
+}
+
+.blog_thumbnail_loading img {
+    display: block;
+    margin: 58px auto;
+}
+
+/* ------------------- avatars ---------------------- */
+
+.big_avatar {
+    width: 100px;
+}
+
+.medium_avatar {
+    width: 50px;
+}
+
+.small_avatar {
+    width: 20px;
+}
+
+#avatar-form .avatar {
+    border: 10px solid #f1f1f1;
+}
+
+/* -------------------- tags ------------------------- */
+
+.tags {
+    padding: 10px;
+    background: #f1f1f1;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.tag_link {
+    float:left;
+    padding:0 10px;
+    line-height: 25px;
+}
+
+.ar_DZ .tag_link {
+    float: right;
+}
+
+.tag_link * {
+    vertical-align: middle;
+}
+/* ---------------------- user ------------------------- */
+
+.user_identity .avatar {
+    margin: 0 10px 10px 0;
+}
+
+/* ---------------------- activities ------------------- */
+
+.activity {
+    padding: 8px;
+}
+
+.activity.even {
+    background: #f1f1f1;
+}
+
+.activity a {
+    color: #004e75;
+}
+
+.activity a:hover {
+    color: #000;
+}
+
+.activity .datetime {
+    margin-right: 20px;
+    font-style: italic;
+}
+
+.ar_DZ .activity .datetime {
+    margin-right: 0;
+    margin-left:  20px;
+}
+
+/* ----------------------- writing/sharing ------------- */
+
+.form .shared_link {
+    width: 340px;
+    height: 23px;
+}
+
+#share-link-form {
+    width: 400px;
+    padding: 20px;
+}
+
+#get-link-button {
+    float: right;
+}
+
+.ar_DZ #get-link-button {
+    float: left;
+}
+
+#shared-link-informations textarea, #write-new-post textarea {
+    width: 390px;
+}
+
+#shared-link-details {
+    padding: 0 20px 20px;
+}
+
+#shared-link-informations {
+    padding-top: 20px;
+}
+
+#shared-link-informations h4 {
+    margin-bottom: 10px;
+}
+
+#write-post-link {
+    padding-left: 20px;
+}
+
+.ar_DZ #write-post-link {
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+#write-new-post {
+    padding: 20px;
+}
+
+/* --------------- New page form ---------------------- */
+
+#newpage-form {
+    padding: 10px;
+}
+
+
+/* ---------------- tabs ----------- */
+.tabs, #content-center .tabs { 
+    padding: 0; 
+    margin: 0; 
+    clear: both; 
+    float: left; 
+}
+
+.tabs li { 
+    display: inline; 
+}
+
+.tabs li a, .tabs li span {
+    padding: 10px; 
+    float:left; 
+    border-bottom: none; 
+    text-decoration: none; 
+    color: #000; 
+}
+
+.tabs li a { 
+    background: #ccc; 
+    border-right: 1px solid #ccc;
+    margin: 0 2px;
+}
+
+.tabs li a.active { 
+    background: #f3f3f3; 
+}
+
+.tabs_content { 
+    clear: both; 
+    border: 1px solid #ccc; 
+    border-top: none; 
+    border-left: none; 
+    background: #f3f3f3; 
+    padding: 20px; 
+}
+
+
+/* --------- autocomplete ------------- */
+.ar_DZ .rizeway_autocomplter_results li {
+    margin: 5px 0 5px 5px;
+    float: right;
+}
+
+.ar_DZ .rizeway_autocomplter_results .rizeway_new_item {
+    margin: 3px 0 3px 5px;
+}
+
+.ar_DZ  .rizeway_autocomplter_results li .rizeway_delete_item {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+/* ---------- last activities -------- */
+.last_activities.sidebar_list li a, .last_blogs.sidebar_list li a {
+    color: #004e75;
+}
+
+.last_activities.sidebar_list li a:hover, .last_blogs.sidebar_list li a:hover  {
+    color: #000;
+}
+
+/* ------- others ----- */
+.sidebar_bottom_link {
+    margin-top: 10px;
+    font-size: 10pt;
+    float: right;
+}
+
+.ar_DZ .sidebar_bottom_link {
+    float: left;
+}
+
+/* ------- tag cloud ---- */
+.tag_cloud a {
+   color: #000;
+}
+
+.tag_cloud a:hover {
+    color: #004e75;
+    text-decoration: none;
+}
+
+/* ----- plugins ----- */
+.plugin {
+    margin-top: 15px;
+    background: #f3f3f3;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.plugin code {
+    border-color: #fff;
+}
+
+/* ---- social networks ----- */
+.social_networks_icons {
+    margin-top: 10px;
+}
+
+.social_networks_icons img {
+    width: 26px;
+}
+
+.social_bookmarks {
+    display: block;
+    margin: 4px 0;
+    float: right;
+    padding: 0 10px;
+}
+
+/* ---- Tables -------------- */
+.bloginytable {
+    margin:5px;
+}
+
+.bloginytable td, .bloginytable th {
+    padding: 5px;
+}
+
+/*  ------------ Les badges */
+.badges {
+	margin: 5px 0 5px 10px;
+}
+
+.badges td {
+	vertical-align: top;
+	padding: 10px 10px 10px 0;
+}
+
+/* ------------- Social Networks ------------- */
+#social-networks {
+    margin-top: 20px;
+    width:200px;
+    background: #e9e9e9;
+    padding: 0 5px;
+    text-transform: uppercase;
+    line-height: 40px;
+    overflow: hidden;
+    float: right;
+}
+
+.ar_DZ #social-networks {
+    float: left;
+}
+
+#social-networks a {
+    float: right;
+    display: block;
+    height: 32px;
+    width: 32px;
+    margin: 5px 0 5px 3px;
+    text-indent:  -1000px;
+    overflow:  hidden;
+}
+
+.ar_DZ #social-networks a {
+    float: left;
+    margin: 5px 3px 5px 0;
+}
+
+#bloginy-facebook {
+    background: url(../images/icons/facebook-carre.png);
+}
+
+
+#bloginy-twitter {
+    background: url(../images/icons/twitter-carre.png);
+}
+
+
+#bloginy-rss {
+    background: url(../images/icons/rss-carre.png);
+}
+
+#copyright {
+    float: right;
+    padding: 10px 0;
+    font-size: 8pt;
+    color: #999999;
+    line-height: 27px;
+}
+
+.fr_FR #copyright {
+    font-size: 7pt;
+}
+
+.ar_DZ #copyright {
+    float: left;
+}
+
+#copyright img {
+    float: right;
+    margin-left: 10px; 
+}
+
+.ar_DZ #copyright img {
+    float: left;
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
+/* ----------------- admin ----------------- */
+#admin {
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    background: #e3e3e3;
+    width: 100%;
+}
+
+/* ---------------- voters ---------------- */
+#post-voters .voter {
+    float: left;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+.ar_DZ #post-voters .voter {
+    float: right;
+}
+
+#post-voters .voter img {
+    width: 50px;
+    height: 50px;
+}

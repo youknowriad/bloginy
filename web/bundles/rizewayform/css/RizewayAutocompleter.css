@@ -1,0 +1,56 @@
+.rizeway_autocomplter_results {
+    list-style: none;
+    padding: 0;
+    overflow:hidden;
+}
+
+.rizeway_autocomplter_results li {
+    border: 1px solid #b2e8f9;
+    background-color: #dff5fd;
+    color: #004f75;
+    margin: 5px 5px 5px 0;
+    float:left;
+    padding: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.rizeway_autocomplter_results .rizeway_new_item {
+    background: none;
+    border: none;
+    padding: 0; 
+    margin: 3px 5px 3px 0;
+}
+
+.rizeway_autocomplter_results .rizeway_new_item input {
+    width: 120px;
+}
+
+.rizeway_autocomplter_results li .rizeway_delete_item {
+    padding-left: 5px;
+    color: #999;
+}
+
+.rizeway_autocomplter_results li .rizeway_delete_item:hover {
+    color: #004f75;
+}
+
+ul.ui-autocomplete {
+    list-style: none;
+    border: 1px solid #ccc;
+    width: 240px;
+}
+
+.ui-autocomplete li.ui-menu-item a {
+    display: block;
+    height: 15px;
+    background: #f3f3f3;
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px dotted #dbdbdb;
+}
+
+.ui-autocomplete li.ui-menu-item a.ui-state-hover {
+    background: #dbdbdb;
+}

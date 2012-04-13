@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bloginy_plugin>
+    <bloginy_bookmark>
+        <found>{{ post ? 'true':'false' }}</found>
+        {% if post %}
+            <proposed>{{ post.post ? 'true':'false' }}</proposed>
+            {% if post.post %}
+                <votes>{{ post.post.countVotes }}</votes>
+                <link>{{ url('post_details', {'slug': post.post.slug}) }}</link>
+            {% else %}
+                <link>{{ url('blog_post_details', {'slug': post.slug}) }}</link>
+            {% endif %}
+            <avote>{{ vote ? 'true':'false' }}</avote>
+        {% endif %}
+    </bloginy_bookmark>
+</bloginy_plugin>

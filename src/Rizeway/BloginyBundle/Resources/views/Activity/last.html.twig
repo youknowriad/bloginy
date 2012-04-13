@@ -1,0 +1,7 @@
+<h4 class="sidebar-title">{% trans from "bloginy" %}Last activity{% endtrans %}</h4>
+<ul class="last_activities sidebar_list">
+    {% for activity in activities|keys %}
+        <li>{% include "BloginyBundle:Activity:small_resume_"~ activities[activity].type ~".html.twig" with {'activity' : activities[activity], 'class' : cycle(['odd', 'even'], activity) } %}</li>
+    {% endfor %}
+</ul>
+<a href="{{ path('activities_live') }}" class="sidebar_bottom_link">{% trans from "bloginy" %}Show more activities{% endtrans %}</a>

@@ -1,0 +1,32 @@
+{% extends "::layout.html.twig" %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" %}
+{% endblock %}
+
+{% block submenu %}
+     <div id="submenu"></div>
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans from "bloginy" %}the Frequently Asked Questions "FAQ"{% endtrans %}</h1>
+
+    <h2>{% trans from 'bloginy' %}Posts{% endtrans %} :</h2>
+    
+    <p><strong>{% trans from "bloginy" %}How to submit a post on Bloginy ?{% endtrans %}</strong></p>
+    <p>{% trans from "bloginy" %}Two solutions are possible and the two ways require subscribing to Bloginy. The first one is to click on the button "Share/Propose a link" and fill in all information about your post (title, abstract, categories and tags). The second solution (faster) is to go to the “agregator” section and  to click on the "propose" button of the post to propose (if it has not yet been proposed of course). In this case, simply add the tags describing the post, the category, and that's it.{% endtrans %}</p>
+
+    <p><strong>{% trans from 'bloginy' %}Can I delete or edit posts on Bloginy ?{% endtrans %}</strong></p>
+    <p>{% trans from 'bloginy' %}You can not do this directly, however you can contact the Bloginy team to announce any abuse, error or to ask for a modification from{% endtrans %} <a href="#">{% trans from 'bloginy' %}the contact form{% endtrans %}</a>.
+    </p>
+
+    <p><strong>{% trans from 'bloginy' %}How do the posts get on home page of Bloginy ?{% endtrans %}</strong></p>
+    <p>{% trans from 'bloginy' %}Bloginy uses a ranking algorithm which takes into account the number of votes on a given post as well as the date of proposal for this post and this in order to propose to you the most interesting posts in priority.{% endtrans %}</p>
+
+    <h2>{% trans from 'bloginy' %}Others{% endtrans %} :</h2>
+    <p><strong>{% trans from 'bloginy' %}What is the "live activities" page ?{% endtrans %}</strong></p>
+    <p><a href="{{ path('activities_live') }}">{% trans from 'bloginy' %}Live activities{% endtrans %}</a> {% trans from 'bloginy' %}is a section of Bloginy that allows you to watch live all the activities on the site, new posts, votes, comments, users and blogs. The page reloads automatically so you can stay up to date.{% endtrans %}</p>
+
+    <p><strong>{% trans from 'bloginy' %}Live posts{% endtrans %} ?</strong></p>
+    <p><a href="{{ path('posts_live') }}">{% trans from 'bloginy' %}Live posts{% endtrans %}</a> {% trans from 'bloginy' %}allows you to follow the publication of posts online. The page reloads automatically in the manner of live activities.{% endtrans %}</p>
+{% endblock %}

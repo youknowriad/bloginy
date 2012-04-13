@@ -1,0 +1,18 @@
+{% for activity in activities|keys %}
+    {% include "BloginyBundle:Activity:resume_"~ activities[activity].type ~".html.twig" with {'activity' : activities[activity], 'class' : cycle(['odd', 'even'], activity) } %}
+{% endfor %}
+
+{% if activities and refreshed %}
+    <div class="bloginy-separator"></div>
+{% endif %}
+
+{% if refresh %}
+    <script>
+        var view = new LiveView($('#activities-list'), "{{ path('activities_live' , {'from' : refresh_from, 'refresh' : true}) }}");
+        view.init();
+    </script>
+{% endif %}
+
+{% if show_pager %}
+    {% include "BloginyBundle:Activity:pager.html.twig" with {'route' : 'activities_live', 'params' : {'from': from}} %}
+{% endif %}

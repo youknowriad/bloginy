@@ -1,0 +1,6 @@
+<div id="comment_list">
+    <h3>{{comments|length}} {% trans from "bloginy" %}Comment(s){% endtrans %}</h3>
+    {% for comment in comments %}
+        {% include "BloginyBundle:Comment:show.html.twig" with {'comment' : comment} %}
+    {% endfor %}
+</div>

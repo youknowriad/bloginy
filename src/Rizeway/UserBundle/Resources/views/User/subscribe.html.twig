@@ -1,0 +1,17 @@
+{% extends "::layout.html.twig" %}
+
+
+{% block title %}Bloginy : {% trans from "user" %}Subscribe{% endtrans %}{% endblock %}
+
+{% block body %}
+
+    <h1>{% trans from "user" %}Subscribe{% endtrans %}</h1>
+
+    {% include "UserBundle:User:subscribe_form.html.twig" with {'form': form} %}
+
+{% endblock %}
+
+
+{% block submenu %}
+    <div id="submenu"></div>
+{% endblock %}

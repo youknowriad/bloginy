@@ -1,0 +1,8 @@
+{% if tags %}
+    <h4 class="sidebar-title">{% trans from "bloginy" %}Tag Cloud{% endtrans %}</h4>
+    <div class="sidebar-block tag_cloud last">
+        {% for tag in tags|keys %}
+            <a href="{{ path('posts_tag', {'tag' : tag|replace({'/': '%2F'})}) }}" style="font-size: {{ tags[tag] }}%">{{ tag }} </a>
+        {% endfor %}
+    </div>
+{% endif %}

@@ -1,0 +1,95 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Bloginy : {% trans from "bloginy" %}Propose a blog{% endtrans %}{% endblock %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" with {'current': 'blogs'} %}
+{% endblock %}
+
+{% block body %}
+
+    <h1>{% trans from "bloginy" %}Propose a blog{% endtrans %}</h1>
+
+    <form class="form" action="{{ path('blog_propose') }}" {{ form_enctype(form) }} method="post">
+        <table>
+            <tr>
+                <td></td>
+                <td>{{ form_errors(form) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.title) }}</td>
+                <td>
+                    {{ form_errors(form.title) }}
+                    {{ form_widget(form.title) }}
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.description) }}</td>
+                <td>
+                    {{ form_errors(form.description) }}
+                    {{ form_widget(form.description) }}
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.url) }}</td>
+                <td>
+                    {{ form_errors(form.url) }}
+                    {{ form_widget(form.url) }}
+                    <img class="help" title="{% trans from 'bloginy' %}Blog's home page address{% endtrans %}" src="{{ asset('images/icons/help.png') }}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.feed_url) }}</td>
+                <td>
+                    {{ form_errors(form.feed_url) }}
+                    {{ form_widget(form.feed_url) }}
+                    <img class="help" title="{% trans from 'bloginy' %}RSS or Atom feed of the blog{% endtrans %}. {% trans from 'bloginy' %}Tell us if you can't find'em{% endtrans %}" src="{{ asset('images/icons/help.png') }}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.location) }}</td>
+                <td>
+                    {{ form_errors(form.location) }}
+                    {{ form_widget(form.location) }}
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.language, 'Primary language') }}</td>
+                <td>
+                    {{ form_errors(form.language) }}
+                    {{ form_widget(form.language) }}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="button2">{% trans from 'bloginy' %}Propose{% endtrans %}</button>
+                    {{ form_rest(form) }}
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        $(".form .help").tooltip({ position: "top center", opacity: 0.7, effect: 'fade'});
+    </script>
+{% endblock %}
+
+{% block submenu %}
+    <div id="submenu">
+       {% include "BloginyBundle:Blog:sub_menu.html.twig" with {'current': 'propose'} %}
+    </div>
+{% endblock %}
+
+
+{% block sidebarright %}
+    <div id="sidebar-right" class="sidebar">
+        {% include "BloginyBundle:Blog:propose_button.html.twig" %}
+        {% render "BloginyBundle:Blog:dailyBlog" %}
+        {% render "BloginyBundle:Blog:last" %}
+    </div>
+{% endblock %}
+
+{% block searchform %}
+    {% include "BloginyBundle:Blog:search_form.html.twig" %}
+{% endblock %}

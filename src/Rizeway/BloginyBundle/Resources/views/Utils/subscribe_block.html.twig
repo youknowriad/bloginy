@@ -1,0 +1,7 @@
+{% if not is_granted('ROLE_REGISTRED_USER') %}
+    <h4 class="sidebar-title">{% trans from "bloginy" %}NEW TO BLOGINY{% endtrans %}</h4>
+    <div class="sidebar-block">
+        <p>{% trans from "bloginy" %}Blogger, simple user, share, and explore your favorite posts and blogs{% endtrans %}.</p>
+        <a href="{{ path('user_subscribe') }}" alt="{% trans from "bloginy" %}SIGN UP{% endtrans %}" class="button2 subscribe_button">{% trans from "bloginy" %}SIGN UP{% endtrans %}</a>
+    </div>
+{% endif %}

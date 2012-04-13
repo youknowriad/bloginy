@@ -1,0 +1,30 @@
+{% extends "::layout.html.twig" %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" %}
+{% endblock %}
+
+{% block submenu %}
+     <div id="submenu"></div>
+{% endblock %}
+
+{% block body %}
+<h1>Les applications tierces, Bloginy</h1>
+
+<p>Grâce à <a href="#">l'API de Bloginy</a>, Différentes applications tierces ont étés développées par la communauté des utilisateurs du site. Ces applications permettent d'utiliser Bloginy sans se connecter sur le site, à partir de votre navigateur ou bien directement sous forme d'application Desktop.</p>
+<p>Vous avez développé une application avec l'API de Bloginy, <a href="{{ path('bloginy_contact') }}">contactez nous</a> et nous nous ferons une joie de mettre à jour cette page avec votre application.</p>
+
+<div class="plugin">
+<h2>Bloginto7 (Pour Windows Seven)</h2>
+<p>BlogInto7 est un client bloginy conçu spécifiquement pour Windows 7. Il vous permet d'utiliser bloginy partir de votre bureau, il utilise l'API bloginy et certaines fonctionnalités standalone pour récupérer et afficher les aliments et leurs informations associant comme des avatars d'utilisateur et ainsi de suite.</p>
+<p><strong>Lien de téléchargement</strong></p>
+<p><a href="http://web.martani.net/bloginto7">http://web.martani.net/bloginto7</a></p>
+</div>
+
+<div class="plugin">
+<h2>Bloginto (Plugin pour Google Chrome)</h2>
+<p>Lecteur de flux pour Bloginy.com (DZ) et Bloginy.ma (Ma). Affiche les flux à la une à partir bloginy.com (Algérie) et Bloginy.ma (Ma).</p>
+<p><strong>Lien de téléchargement</strong></p>
+<p><a href="https://chrome.google.com/extensions/detail/jppmcmbnmodlmgbfdddmeopgagancoak?hl=fr">https://chrome.google.com/extensions/detail/jppmcmbnmodlmgbfdddmeopgagancoak?hl=fr</a></p>
+</div>
+{% endblock %}

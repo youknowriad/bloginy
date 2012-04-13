@@ -1,0 +1,38 @@
+<div id="newpage-form">
+    <h1>{% trans from "bloginy" %}Create a new page{% endtrans %}</h1>
+
+    <p class="spacer-bottom in_box">{% trans from 'bloginy' %}In order to follow the content you like, you can create personalized pages by indicating the tags of posts show in these pages, their author or their source blog{% endtrans %}.</p>
+    
+    <form class="form" action="{{ path('user_new_page') }}" {{ form_enctype(form) }} method="post">
+        {{ form_errors(form) }}
+
+        <div>{{ form_label(form.name) }}</div>
+        <div>{{ form_errors(form.name) }}</div>
+        <div>{{ form_widget(form.name) }}</div>
+
+        <div>{{ form_label(form.public, 'Is public ?') }}</div>
+        <div>{{ form_errors(form.public) }}</div>
+        <div class="checkbox">{{ form_widget(form.public) }}</div>
+
+        <div>{{ form_label(form.tags) }}</div>
+        <div>{{ form_errors(form.tags) }}</div>
+        <div>{{ form_widget(form.tags) }}</div>
+
+        <div>{{ form_label(form.blogs) }}</div>
+        <div>{{ form_errors(form.blogs) }}</div>
+        <div>{{ form_widget(form.blogs) }}</div>
+
+        <div>{{ form_label(form.users) }}</div>
+        <div>{{ form_errors(form.users) }}</div>
+        <div>{{ form_widget(form.users) }}</div>
+        
+        <button class="button2">{% trans from 'bloginy' %}Create this page{% endtrans %}</button>
+        {{ form_rest(form) }}
+
+    </form>
+</div>
+
+<script>
+    var page_view = new NewPageView('#newpage-form form', '#newpage-form');
+    page_view.init();
+</script>

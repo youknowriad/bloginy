@@ -1,0 +1,30 @@
+user_subscribe:
+    pattern: /new_user/subscribe
+    defaults: {_controller: UserBundle:User:subscribe}
+
+user_subscribed:
+    pattern: /new_user/subscribed/{username}
+    defaults: {_controller: UserBundle:User:subscribed}
+
+user_activate:
+    pattern: /new_user/activate/{username}/{code}
+    defaults: {_controller: UserBundle:User:activate}
+
+# Login and security
+user_login:
+    pattern: /login
+    defaults: {_controller: UserBundle:User:login}
+
+user_logged_out:
+    pattern: /logged_out
+    defaults: {_controller: UserBundle:User:loggedOut}
+
+_security_login:
+    pattern: /login
+    defaults: {_controller: UserBundle:User:login}
+
+_security_check:
+    pattern: /login_check
+
+user_logout:
+    pattern: /logout

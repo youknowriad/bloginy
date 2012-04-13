@@ -1,0 +1,8 @@
+{% if not is_granted('ROLE_REGISTRED_USER') %}
+    <div id="language_switch">
+        <strong>{% trans from "bloginy" %}Languages{% endtrans %} :</strong>
+        {% for lang in availableLanguages|keys %}
+            <a href="{{ path('switch_language', {'language':lang, 'refer': refer}) }}">{{ availableLanguages[lang].label|trans({},'bloginy') }}</a> |
+        {% endfor %}
+    </div>
+{% endif %}

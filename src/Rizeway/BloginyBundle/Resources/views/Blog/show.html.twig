@@ -1,0 +1,93 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}{{ blog.title }}, Bloginy{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('js/bundles/bloginy/utils/bloginyPager.js') }}"></script>
+    <script src="{{ asset('js/bundles/bloginy/post/PostHandler.js') }}"></script>
+{% endblock %}
+
+{% block mainmenu %}
+    {% render "BloginyBundle:Utils:mainMenu" with {'current': 'blogs'} %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="blog_resume" >
+        <div class="blog_thumbnail">
+            <div class="blog_thumbnail_loading"><img src="{{ asset('images/ajax-loader.gif') }}" alt="loading blog thumbnail" /></div>
+        </div>
+
+        <div class="title_menu">
+
+            <span class="blog_location">{{ blog.location }}</span>
+
+            <span class="blog_rating">
+                {% for i in 1..max_stars %}
+                    {% if (i <= blog.countStars(max_stars, max_rank_value)) %}
+                        <img src="{{ asset('images/icons/star-full.png') }}" alt="" />
+                    {% else %}
+                        <img src="{{ asset('images/icons/star-empty.png') }}" alt="" />
+                    {% endif %}
+                {% endfor %}
+            </span>
+
+            <span>
+                <a href="{{ blog.feedUrl }}" title="{% trans from 'bloginy' %}Follow this blog feed{% endtrans %}">
+                    <img src="{{ asset('images/icons/rss-icon-small.png') }}" alt="" />
+                </a>
+            </span>
+
+        </div>
+
+        <h1>{% trans from "bloginy" %}Blog{% endtrans %} : <span {% if is_arabic(blog.title) %}dir="rtl"{% else %}dir="ltr"{% endif %}>{{ blog.title }}</span></h1>
+        <a href="{{ blog.url }}" class="small_link">{{ blog.url }}</a>
+
+        <p {% if is_arabic(blog.description) %}dir="rtl"{% else %}dir="ltr"{% endif %}>{{ blog.description }}</p>
+
+
+        <script>
+            $('.blog_thumbnail').load("{{ path('blog_thumbnail', {'slug' : blog.slug })}}");
+        </script>
+    </div>
+
+    <div id="posts-list">
+      {% render "BloginyBundle:Blog:posts" with { "slug" : blog.slug } %}
+    </div>
+
+{% endblock %}
+
+{% block submenu %}
+    <div id="submenu">
+        <div id="icons-menu">
+            <a href="{{ blog.feedUrl }}" class="rss_icon icon" title="{% trans from 'Bloginy' %}Follow this blog's feed{% endtrans %}">{% trans from "Bloginy" %}Follow this page's feed{% endtrans %}</a>
+        </div>
+        
+        {% include "BloginyBundle:Blog:sub_menu.html.twig" with {'current': 'none'} %}
+    </div>
+{% endblock %}
+
+{% block sidebarright %}
+    <div id="sidebar-right" class="sidebar">
+        <h4 class="sidebar-title">Google</h4>
+        <div class="google_ranking sidebar_loading"><img src="{{ asset('images/ajax-loader.gif') }}" alt="loading blog thumbnail" /></div>
+
+        <h4 class="sidebar-title">Alexa</h4>
+        <div class="alexa_ranking sidebar_loading"><img src="{{ asset('images/ajax-loader.gif') }}" alt="loading blog thumbnail" /></div>
+
+        <script>
+            $('.google_ranking').load("{{ path('blog_google_ranking', {'slug' : blog.slug })}}");
+            $('.alexa_ranking').load("{{ path('blog_alexa_ranking', {'slug' : blog.slug })}}");
+        </script>
+
+        {% include "BloginyBundle:Post:tag_cloud.html.twig" with {'tags': tags} %}
+    </div>
+    
+    {% include "BloginyBundle:Blog:propose_button.html.twig" %}
+{% endblock %}
+
+
+{% block searchform %}
+    {% include "BloginyBundle:Blog:search_form.html.twig" %}
+{% endblock %}

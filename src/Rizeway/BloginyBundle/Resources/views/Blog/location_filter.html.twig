@@ -1,0 +1,11 @@
+<h4 class="sidebar-title spacer-top">{% trans from "bloginy" %}Location Filter{% endtrans %}</h4>
+<form id="filter_blog_by_location" class="form">
+    {{ form_widget(location_choices.location) }}
+</form>
+
+<script>
+    optionSelector.init('#filter_blog_by_location select',
+        "{{ path('blogs_list', {'language': language, 'location':'option'}) }}",
+        'option'
+    );
+</script>
