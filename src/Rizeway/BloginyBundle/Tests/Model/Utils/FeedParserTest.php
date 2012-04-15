@@ -29,7 +29,7 @@ class FeedParserTest extends \PHPUnit_Framework_TestCase
     {
         // Attention ce test dépend de l'accèssibilité et du flux du blog de youknowriad
         $feed_parser = new FeedParser();
-        $posts = $feed_parser->parse('http://youknowriad.nomade-dz.com/feed');
+        $posts = $feed_parser->parse('http://blog.riadbenguella.com/feed/');
         $this->assertEquals(count($posts), 10);
     }
 }

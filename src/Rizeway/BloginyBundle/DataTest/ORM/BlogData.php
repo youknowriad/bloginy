@@ -34,8 +34,8 @@ class BlogData extends AbstractFixture implements OrderedFixtureInterface
         $blog->setTitle('YouKnowRiad');
         $blog->setSlug('youknowriad');
         $blog->setDescription('Blog de Riad Benguella');
-        $blog->setUrl('http://youknowriad.nomade-dz.com');
-        $blog->setFeedUrl('http://youknowriad.nomade-dz.com/feed');
+        $blog->setUrl('http://blog.riadbenguella.com');
+        $blog->setFeedUrl('http://blog.riadbenguella.com/feed/');
         $blog->setApproved(true);
         $blog->setLocation('Oran');
         $blog->setLanguage('fr');
