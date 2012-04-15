@@ -65,6 +65,7 @@ ornicar_gravatar: ~
 exercise_html_purifier:
     simple:
         Cache.SerializerPath: '%kernel.cache_dir%/htmlpurifier'
+        Cache.DefinitionImpl: null
         AutoFormat.AutoParagraph: false
         AutoFormat.Linkify: true
         AutoFormat.RemoveEmpty: true

@@ -3,13 +3,7 @@
 {% block title %}{{ post.title }}, Bloginy{% endblock %}
 
 {% block header %}
-    <div class="vote-button">
-
-        <div class="has-voted">
-            <strong>{% trans from "bloginy" %}has voted{% endtrans %} <span class="count-votes">10</span></strong>
-        </div>
-
-    </div>
+    {% include "BloginyBundle:BlogPost:vote_button.html.twig" with {'post' : post, 'vote' : vote} %}
     <a href="{{ path('blog_post_details', {'slug' : post.slug}) }}" class="comment_link">{% trans from "bloginy" %}See on Bloginy{% endtrans %}</a>
     <iframe src="http://www.facebook.com/plugins/like.php?href={{ url('blog_post_show', {'slug' : post.slug }) }}&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:20px;" allowTransparency="true"></iframe>
     <a title="{% trans from 'bloginy' %}Tweet This{% endtrans %}"

@@ -25,6 +25,7 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Rizeway\UserBundle\Entity\User;
 use Rizeway\BloginyBundle\Entity\Post;
+use Rizeway\BloginyBundle\Entity\BlogPost;
 
 class VoteRepository extends EntityRepository
 {
@@ -92,6 +93,34 @@ class VoteRepository extends EntityRepository
             return null;
         }
     }
+
+    /**
+     * Find by user and post
+     *
+     * @param User $user
+     * @param Post $post
+     * @return Rizeway\BloginyBundle\Entity\Vote
+     */
+    /**
+     * @param \Rizeway\UserBundle\Entity\User $user
+     * @param \Rizeway\BloginyBundle\Entity\BlogPost $post
+     * @return Rizeway\BloginyBundle\Entity\Vote|null
+     */
+    public function findByUserAndBlogPost(User $user, BlogPost $post)
+    {
+        $qb = $this->getUserQueryBuilder($user);
+        $qb = $this->getBlogPostsQueryBuilder(array($post->getId()), $qb);
+
+        try
+        {
+            return $qb->getQuery()->getSingleResult();
+        }
+        catch(\Exception $e)
+        {
+            return null;
+        }
+    }
+
 
     /**
      * Get the query builder by post

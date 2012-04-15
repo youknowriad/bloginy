@@ -11,13 +11,7 @@
 {% block body %}
     <div id="post-details-{{ post.id }}" class="post">
 
-        <div class="vote-button">
-
-            <div class="has-voted">
-                <strong>{% trans from "bloginy" %}has voted{% endtrans %} <span class="count-votes">10</span></strong>
-            </div>
-
-        </div>
+        {% include "BloginyBundle:BlogPost:vote_button.html.twig" with {'post' : post, 'vote' : vote} %}
         
         <h1 {% if is_arabic(post.title) %}dir="rtl"{% else %}dir="ltr"{% endif %}><a href="{{ path('blog_post_show', {'slug' : post.slug}) }}">{{post.title}}</a></h1>
 

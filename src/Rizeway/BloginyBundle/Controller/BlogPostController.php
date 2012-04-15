@@ -67,8 +67,19 @@ class BlogPostController extends Controller
         {
             throw new NotFoundHttpException('The requested post does not exist.');
         }
-        
-        return $this->render('BloginyBundle:BlogPost:show.html.twig', array('post' => $post));
+
+        // Get the user vote
+        $vote = false;
+        if ($this->get('security.context')->isGranted('ROLE_REGISTRED_USER'))
+        {
+            $vote = !\is_null($em->getRepository('BloginyBundle:Vote')
+                ->findByUserAndBlogPost($this->get('security.context')->getToken()->getUser(), $post));
+        }
+
+        return $this->render('BloginyBundle:BlogPost:show.html.twig', array(
+            'post' => $post,
+            'vote' => $vote
+        ));
     }
 
     public function detailsAction($slug)
@@ -82,6 +93,17 @@ class BlogPostController extends Controller
             throw new NotFoundHttpException('The requested post does not exist.');
         }
 
-        return $this->render('BloginyBundle:BlogPost:details.html.twig', array('post' => $post));
+        // Get the user vote
+        $vote = false;
+        if ($this->get('security.context')->isGranted('ROLE_REGISTRED_USER'))
+        {
+            $vote = !\is_null($em->getRepository('BloginyBundle:Vote')
+                ->findByUserAndBlogPost($this->get('security.context')->getToken()->getUser(), $post));
+        }
+
+        return $this->render('BloginyBundle:BlogPost:details.html.twig', array(
+            'post' => $post,
+            'vote' => $vote
+        ));
     }
 }

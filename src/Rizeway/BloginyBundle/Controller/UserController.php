@@ -493,7 +493,8 @@ class UserController extends Controller
         
         $form = $this->get('form.factory')->create(new PostProposeForm(), $post, array(
             'tag_url' => $this->generateUrl('tag_autocomplete'),
-            'tags_transformer' => new TagsTransform($post)
+            'tags_transformer' => new TagsTransform($post),
+            'purifier_config' => $this->get('exercise_html_purifier.config.simple')
         ));
         
         if ('POST' === $this->get('request')->getMethod()) {

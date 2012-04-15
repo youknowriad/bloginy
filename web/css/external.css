@@ -109,6 +109,7 @@ iframe#external_page {
     float: right;
 }
 
+
 #header_externe .has-voted {
     color: #000;
     line-height: 12px;
@@ -123,7 +124,84 @@ iframe#external_page {
     letter-spacing: 0.01em;
 }
 
+#header_externe .propose-link {
+    text-align: center;
+    display: block;
+    width: 70px;
+    float:right;
+    background: #dbdbdb;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #000;
+}
+
+#header_externe .propose-link:hover {
+    background: #333;
+    color: #FFF;
+}
+
 .twitter-share-button {
     margin-top: 2px;
 }
 
+
+/* -------------------- FancyBox ---------------- */
+#fancybox-wrap {
+    text-align: left;
+}
+
+.ar_DZ #fancybox-wrap {
+    text-align: right;
+}
+
+
+
+/* ----------------------- writing/sharing ------------- */
+
+.form .shared_link {
+    width: 340px;
+    height: 23px;
+}
+
+#share-link-form {
+    width: 400px;
+    padding: 20px;
+}
+
+#get-link-button {
+    float: right;
+}
+
+.ar_DZ #get-link-button {
+    float: left;
+}
+
+#shared-link-informations textarea, #write-new-post textarea {
+    width: 390px;
+}
+
+#shared-link-details {
+    padding: 0 20px 20px;
+}
+
+#shared-link-informations {
+    padding-top: 20px;
+}
+
+#shared-link-informations h4 {
+    margin-bottom: 10px;
+}
+
+#write-post-link {
+    padding-left: 20px;
+}
+
+.ar_DZ #write-post-link {
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+#write-new-post {
+    padding: 20px;
+}
