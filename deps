@@ -1,77 +1,77 @@
 [symfony]
-    git=http://github.com/symfony/symfony.git
+    git=https://github.com/symfony/symfony.git
     version=v2.0.12
 
 [twig]
-    git=http://github.com/fabpot/Twig.git
+    git=https://github.com/fabpot/Twig.git
     version=v1.6.2
 
 [monolog]
-    git=http://github.com/Seldaek/monolog.git
+    git=https://github.com/Seldaek/monolog.git
     version=1.0.2
 
 [doctrine-common]
-    git=http://github.com/doctrine/common.git
+    git=https://github.com/doctrine/common.git
     version=2.1.4
 
 [doctrine-dbal]
-    git=http://github.com/doctrine/dbal.git
+    git=https://github.com/doctrine/dbal.git
     version=2.1.6
 
 [doctrine]
-    git=http://github.com/doctrine/doctrine2.git
+    git=https://github.com/doctrine/doctrine2.git
     version=2.1.6
 
 [swiftmailer]
-    git=http://github.com/swiftmailer/swiftmailer.git
+    git=https://github.com/swiftmailer/swiftmailer.git
     version=v4.1.5
 
 [assetic]
-    git=http://github.com/kriswallsmith/assetic.git
+    git=https://github.com/kriswallsmith/assetic.git
     version=v1.0.3
 
 [twig-extensions]
-    git=http://github.com/fabpot/Twig-extensions.git
+    git=https://github.com/fabpot/Twig-extensions.git
 
 [metadata]
-    git=http://github.com/schmittjoh/metadata.git
+    git=https://github.com/schmittjoh/metadata.git
     version=1.0.0
 
 [SensioFrameworkExtraBundle]
-    git=http://github.com/sensio/SensioFrameworkExtraBundle.git
+    git=https://github.com/sensio/SensioFrameworkExtraBundle.git
     target=/bundles/Sensio/Bundle/FrameworkExtraBundle
     version=origin/2.0
 
 [JMSSecurityExtraBundle]
-    git=http://github.com/schmittjoh/JMSSecurityExtraBundle.git
+    git=https://github.com/schmittjoh/JMSSecurityExtraBundle.git
     target=/bundles/JMS/SecurityExtraBundle
     version=origin/1.0.x
 
 [SensioDistributionBundle]
-    git=http://github.com/sensio/SensioDistributionBundle.git
+    git=https://github.com/sensio/SensioDistributionBundle.git
     target=/bundles/Sensio/Bundle/DistributionBundle
     version=origin/2.0
 
 [SensioGeneratorBundle]
-    git=http://github.com/sensio/SensioGeneratorBundle.git
+    git=https://github.com/sensio/SensioGeneratorBundle.git
     target=/bundles/Sensio/Bundle/GeneratorBundle
     version=origin/2.0
 
 [AsseticBundle]
-    git=http://github.com/symfony/AsseticBundle.git
+    git=https://github.com/symfony/AsseticBundle.git
     target=/bundles/Symfony/Bundle/AsseticBundle
     version=v1.0.1
 
 [doctrine-fixtures]
-  	git=http://github.com/doctrine/data-fixtures.git
-  	target=/doctrine-fixtures
+    git=https://github.com/doctrine/data-fixtures.git
+    target=/doctrine-fixtures
 
 [DoctrineFixturesBundle]
-    git=http://github.com/symfony/DoctrineFixturesBundle.git
+    git=https://github.com/symfony/DoctrineFixturesBundle.git
     target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
 
 [Imagine]
-    git=http://github.com/avalanche123/Imagine.git
+    git=https://github.com/avalanche123/Imagine.git
     target=/Imagine
 
 [GravatarBundle]
