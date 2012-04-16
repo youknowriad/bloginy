@@ -17,3 +17,9 @@ src/Rizeway/FormBundle
 .project
 .settings/
 .idea/
+
+
+########################
+app/cache/
+app/logs/
+app/config/
