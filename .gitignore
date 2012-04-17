@@ -22,4 +22,4 @@ src/Rizeway/FormBundle
 ########################
 app/cache/
 app/logs/
-app/config/
+app/config/parameters.ini
