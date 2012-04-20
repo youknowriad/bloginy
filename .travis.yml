@@ -3,5 +3,6 @@ php:
   - 5.3
 before_script: 
   - php bin/vendors.php install --reinstall
+  - php app/console doctrine:database:create
   - php app/console bloginy:init -l
 script: phpunit -c app/

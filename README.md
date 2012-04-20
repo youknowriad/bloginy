@@ -1,6 +1,8 @@
 README
 ======
 
+[![Build Status](https://secure.travis-ci.org/youknowriad/bloginy.png?branch=master)](http://travis-ci.org/youknowriad/bloginy)
+
 What is Bloginy?
 ----------------
 
