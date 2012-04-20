@@ -48,6 +48,9 @@ class PostData extends AbstractFixture implements OrderedFixtureInterface
         $post->setUser($user);
         $post->setCategory($category_technology);
         $post->setLanguage('fr');
+        $date = new \DateTime();
+        $date->modify('- 30 days');
+        $post->setCreatedAt($date);
 
         $vote = new Vote();
         $vote->setPost($post);

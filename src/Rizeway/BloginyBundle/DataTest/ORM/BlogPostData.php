@@ -46,7 +46,7 @@ class BlogPostData extends AbstractFixture implements OrderedFixtureInterface
         $post->setBlogPost($blogpost);
 
         $manager->persist($blogpost);
-        //$manager->flush();
+        $manager->flush();
     }
 
     public function getOrder()

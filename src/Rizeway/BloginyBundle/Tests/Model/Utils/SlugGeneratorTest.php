@@ -44,7 +44,7 @@ class SlugGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $slugGenerator = new SlugGenerator($this->em->getRepository('Rizeway\BloginyBundle\Entity\Blog'));
 
-        $this->assertEquals($slugGenerator->slugify('Article par défaut'), 'article-par-défaut');
+        $this->assertEquals($slugGenerator->slugify('Article par défaut'), 'article-par-d-faut');
         $this->assertEquals($slugGenerator->slugify('M3ak Ya Mourad Meghni معاك يا مراد'), 'm3ak-ya-mourad-meghni-معاك-يا-مراد');
 
         return $slugGenerator;

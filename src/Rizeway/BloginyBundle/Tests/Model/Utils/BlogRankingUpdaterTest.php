@@ -46,13 +46,13 @@ class BlogRankingUpdaterTest extends \PHPUnit_Framework_TestCase
         $updater = new BlogRankingUpdater($this->em);
         $blog = $this->em->getRepository('Rizeway\BloginyBundle\Entity\Blog')->findOneBy(array('slug' => 'youknowriad'));
         $limit = new \DateTime();
-        $limit->modify('- 75 days');
+        $limit->modify('- 60 days');
         $limit->setDate($limit->format('Y'), $limit->format('m'), 1);
         $limit->setTime(0, 0, 0);
 
         $updater->updateBlog($blog, $limit);
 
-        $this->assertEquals($blog->getRankValue(), 5000);
+        $this->assertEquals(5000, $blog->getRankValue());
     }
 }
 ?>
