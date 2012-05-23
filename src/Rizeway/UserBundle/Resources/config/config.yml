@@ -23,7 +23,7 @@ security:
             anonymous: true
             remember_me:
               key:      mySecretForBloginy2308100
-              lifetime: 3600
+              lifetime: 5184000
               path:     /
 
     access_control:
