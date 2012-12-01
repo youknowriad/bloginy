@@ -1,4 +1,4 @@
-﻿>Title: العنوان
+﻿Title: العنوان
 Description: وصف المدونة
 Url: الرابط
 Feed url: رابط التلقيمات
@@ -7,30 +7,7 @@ Primary language: اللغة الرئيسية
 All locations: كل المناطق
 Oran: وهران
 Algiers: الجزائر العاصمة
-First name: الاسم
-Last name: اللقب
-Birthday: تاريخ الميلاد
-Web site: الموقع
-Current password: كلمة السر الحالية
-New password: كلمة السر الجديدة
-Repeat the password: أدخل كلمة السر من جديد
-Username: اسم المستخدم
-Email: البريد الإلكتروني
-Password: كلمة السر
-Comment: التعليق
-Content: المحتوى
-Category: التصنيف
-Tags: الوسوم
-Name: الاسم
-Blogs: المدونات
-Users: المستخدمون
-Is public ?: هل هذه الصفحة متاحة لكل المستخدمين ؟
-In order to follow the content you like, you can create personalized pages by indicating the tags of posts show in these pages, their author or their source blog: من أجل متابعة المحتوى الذي يعجبك، يمكنك إنشاء صفحات خاصة وذلك بتوسيم المواضيع،  ذكر مصدرها أو الإشارة أو مؤلفها
-Language: اللغة
-Subject: الموضوع
-Message: محتوى الرسالة
-Copy the captcha: أعد كتابة محتوى الكابتشا
-Bad code value: النص الذي أدخلته لا يتناسب مع محتوى الصورة
+
 
 Adrar: أدرار 
 Chlef: الشلف 

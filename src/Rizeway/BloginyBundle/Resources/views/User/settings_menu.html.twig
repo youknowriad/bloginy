@@ -1,7 +1,0 @@
-<ul id="languages" class="menu-vertical">
-    <li {% if current is defined and current=="profile" %}class="current"{% endif %}><a href="{{ path('user_edit') }}">{% trans from "bloginy" %}Profile{% endtrans %}</a></li>
-    <li {% if current is defined and current=="avatar" %}class="current"{% endif %}><a href="{{ path('user_avatar') }}">{% trans from "bloginy" %}Avatar{% endtrans %}</a></li>
-    <li {% if current is defined and current=="password" %}class="current"{% endif %}><a href="{{ path('user_password') }}">{% trans from "bloginy" %}Password{% endtrans %}</a></li>
-    <li {% if current is defined and current=="social_networks" %}class="current"{% endif %}><a href="{{ path('user_social_networks') }}">{% trans from "bloginy" %}Social Networks{% endtrans %}</a></li>
-    <li {% if current is defined and current=="api_code" %}class="current"{% endif %}><a href="{{ path('user_api_code') }}">{% trans from "bloginy" %}API Key{% endtrans %}</a></li>
-</ul>

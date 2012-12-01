@@ -1,9 +1,0 @@
-<form id="search_form" method="post" action="{{ path('post_search') }}">
-    <input type="text" name="filter" value="{% trans from 'bloginy' %}Search posts{% endtrans %}" />
-    <button class="button2" id="go">Go</button>
-</form>
-
-<script>
-    var form = new SearchFormView($('#search_form'));
-    form.init();
-</script>

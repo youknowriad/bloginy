@@ -3,58 +3,14 @@ switch_language:
     defaults: {_controller: BloginyBundle:Utils:switchLanguage}
 
 
-
-posts_list:
-    pattern: /list/{category_name}/{sort}/{language}/{page}
-    defaults: {_controller: BloginyBundle:Post:list, language: 'all', category_name: 'none', sort: 'TOP', page: 1}
-
-posts_live:
-    pattern: /live/posts/{from}/{refresh}
-    defaults: {_controller: BloginyBundle:Post:live, from: 'none', refresh: false}
-
-posts_tag:
-    pattern: /tag/{tag}/{page}
-    defaults: {_controller: BloginyBundle:Post:tag, page: 1}
-
-post_vote:
-    pattern: /post/vote/{slug}
-    defaults: {_controller: BloginyBundle:Post:vote}
-
-post_show:
-    pattern: /post/show/{slug}
-    defaults: {_controller: BloginyBundle:Post:show}
-
-post_details:
-    pattern: /post/details/{slug}
-    defaults: {_controller: BloginyBundle:Post:details}
-
-post_comment:
-    pattern: /post/comment/{post_id}
-    defaults: {_controller: BloginyBundle:Comment:new}
-
-post_search:
-    pattern: /post/search/
-    defaults: {_controller: BloginyBundle:Post:search}
-
-post_search_list:
-    pattern: /post/search_list/{filter}/{page}
-    defaults: {_controller: BloginyBundle:Post:searchPosts, page: 1}
-
-
-
 blog_posts_list:
     pattern: /blog_post/list/{from}
     defaults: {_controller: BloginyBundle:BlogPost:list, from: 'none'}
 
-blog_post_show:
-    pattern: /blog_post/show/{slug}
-    defaults: {_controller: BloginyBundle:BlogPost:show}
-    
 blog_post_details:
     pattern: /blog_post/details/{slug}
     defaults: {_controller: BloginyBundle:BlogPost:details}
 
-    
 
 blogs_list:
     pattern: /blog/list/{location}/{language}/{page}
@@ -97,344 +53,28 @@ blog_search_list:
     defaults: {_controller: BloginyBundle:Blog:searchPosts, page: 1}
 
 
-
-user_dashboard:
-    pattern: /user/dashboard
-    defaults: {_controller: BloginyBundle:User:dashboard}
-
-user_profile:
-    pattern: /u/{username}
-    defaults: {_controller: BloginyBundle:User:profile}
-
-user_edit:
-    pattern: /user/edit
-    defaults: {_controller: BloginyBundle:User:edit}
-
-user_social_networks:
-    pattern: /user/socialNetworks
-    defaults: {_controller: BloginyBundle:User:socialNetworks}
-    
-user_api_code:
-    pattern: /user/apicode
-    defaults: {_controller: BloginyBundle:User:apiCode}
-
-user_password:
-    pattern: /user/password
-    defaults: {_controller: BloginyBundle:User:password}
-
-user_avatar:
-    pattern: /user/avatar
-    defaults: {_controller: BloginyBundle:User:avatar}
-
-user_posts:
-    pattern: /user_p/posts/{username}/{page}
-    defaults: {_controller: BloginyBundle:User:posts, page: 1}
-    
-user_activities:
-    pattern: /user_p/activities/{username}/{from}
-    defaults: {_controller: BloginyBundle:User:activities, from: 'none'}
-    
-user_comment_moderation:
-    pattern: /user/comment_moderation/
-    defaults: {_controller: BloginyBundle:User:commentModeration}
-    
-user_comments:
-    pattern: /user/comments/{filter}/{page}
-    defaults: {_controller: BloginyBundle:User:comments, filter: 'none', page: 1}
-  
-user_approve_comment:
-    pattern: /user/approve_comment/{comment_id}
-    defaults: {_controller: BloginyBundle:User:approveComment}
-    
-user_delete_comment:
-    pattern: /user/delete_comment/{comment_id}
-    defaults: {_controller: BloginyBundle:User:deleteComment}
-    
-user_share_link:
-    pattern: /user/share/
-    defaults: {_controller: BloginyBundle:User:share}
-  
-user_init_shared_link:
-    pattern: /user/init_link/
-    defaults: {_controller: BloginyBundle:User:initSharedLink}
-  
-user_write_post:
-    pattern: /user/write_post/
-    defaults: {_controller: BloginyBundle:User:WritePost}
-    
-user_blog_post_propose:
-    pattern: /user/propose_blog_post/{slug}
-    defaults: {_controller: BloginyBundle:User:blogPostPropose}
-    
-user_new_page:
-    pattern: /user/page/new
-    defaults: {_controller: BloginyBundle:Page:new}
-
-user_lost_password:
-    pattern: /lost_password/
-    defaults: {_controller: BloginyBundle:User:lostPassword}
-  
-page_show: 
-    pattern: /page/{slug}
-    defaults: {_controller: BloginyBundle:Page:show}
-    
-page_tag_posts: 
-    pattern: /page_posts/tag/{slug}/{p}  
-    defaults: {_controller: BloginyBundle:Page:tagPosts, p: 1}
-    
-page_user_posts: 
-    pattern: /page_posts/user/{slug}/{p}  
-    defaults: {_controller: BloginyBundle:Page:userPosts, p: 1}
-    
-page_blog_posts:
-    pattern: /page_posts/blog/{slug}/{from}  
-    defaults: {_controller: BloginyBundle:Page:blogPosts, from: 'none'}
-
-page_dzblogday:
-    pattern: /dzblogday/{page}
-    defaults: {_controller: BloginyBundle:Page:dzblogday, page: 1}
-
-
-activities_live:
-    pattern: /live/activities/{from}/{refresh}
-    defaults: {_controller: BloginyBundle:Activity:live, from: 'none', refresh: false}
-    
-    
-
-feed_home:
-    pattern: /feed/
-    defaults: {_controller: BloginyBundle:Feed:topPosts, language: 'all', category_name: 'none', sort: 'TOP', page: 1}
-
-feed_top_posts:
-    pattern: /feed/post/{category_name}/{sort}/{language}/{page}
-    defaults: {_controller: BloginyBundle:Feed:topPosts, language: 'all', category_name: 'none', sort: 'TOP', page: 1}
-
-feed_new_posts:
-    pattern: /feed/live/post/
-    defaults: {_controller: BloginyBundle:Feed:newPosts}
-    
-feed_user_posts:
-    pattern: /feed/user/{username}
-    defaults: {_controller: BloginyBundle:Feed:userPosts}
-    
 feed_blog_posts:
     pattern: /feed/blog_post/
     defaults: {_controller: BloginyBundle:Feed:blogPosts}
-    
+
 feed_top_blogs:
     pattern: /feed/blog/{location}/{language}
     defaults: {_controller: BloginyBundle:Feed:topBlogs, location: 'all', language: 'all'}
 
 
 
-tag_autocomplete:
-    pattern: /tags/autocomplete
-    defaults: {_controller: BloginyBundle:Tag:autocomplete}
-    
-blog_autocomplete:
-    pattern: /blogs/autocomplete
-    defaults: {_controller: BloginyBundle:Blog:autocomplete}
-    
-user_autocomplete:
-    pattern: /users/autocomplete
-    defaults: {_controller: BloginyBundle:User:autocomplete}
-    
-    
-
-api_top_posts:
-      pattern:   /api/topFeeds/{code}/{client}
-      defaults: {_controller: BloginyBundle:Api:topPosts, _format: xml}
-      
-api_search_posts:
-      pattern:   /api/searchFeeds/{code}/{client}/{query}
-      defaults: {_controller: BloginyBundle:Api:searchPosts, _format: xml}
-      
-api_user_posts:
-      pattern:   /api/userFeeds/{code}/{client}/{username}
-      defaults: {_controller: BloginyBundle:Api:userPosts, _format: xml}
-      
-api_blog_posts:
-      pattern:   /api/blogFeeds/{code}/{client}/{id}
-      defaults: {_controller: BloginyBundle:Api:blogPosts, _format: xml}
-      
-api_live_posts:
-      pattern:   /api/liveFeeds/{code}/{client}/{from}
-      defaults: {_controller: BloginyBundle:Api:livePosts, _format: xml, from: 'none'}
-      
-api_top_blogs:
-      pattern:   /api/topBlogs/{code}/{client}
-      defaults: {_controller: BloginyBundle:Api:topBlogs, _format: xml}
-      
-api_search_blogs:
-      pattern:   /api/searchBlogs/{code}/{client}/{query}
-      defaults: {_controller: BloginyBundle:Api:searchBlogs, _format: xml}
-      
-      
-      
-      
-bloginy_plugin:
-      pattern:   /bloginy/plugin
-      defaults: {_controller: BloginyBundle:Utils:plugin, _format: xml}
-  
 bloginy_about:
       pattern: /bloginy
       defaults: {_controller: BloginyBundle:Bloginy:about}
-  
+
 bloginy_faq:
       pattern: /bloginy/faq
       defaults: {_controller: BloginyBundle:Bloginy:faq}
-  
-bloginy_plugins:
-      pattern: /bloginy/plugins
-      defaults: {_controller: BloginyBundle:Bloginy:plugins}
-      
+
 bloginy_conditions:
       pattern: /bloginy/conditions
       defaults: {_controller: BloginyBundle:Bloginy:conditions}
-      
-bloginy_applications:
-      pattern: /bloginy/applications
-      defaults: {_controller: BloginyBundle:Bloginy:applications}
-      
+
 bloginy_contact:
       pattern: /bloginy/contact
       defaults: {_controller: BloginyBundle:Bloginy:contact}
-     
-bloginy_promote:
-      pattern: /bloginy/promote
-      defaults: {_controller: BloginyBundle:Bloginy:promote}
-
-
-
-
-developer_main:
-      pattern: /developer
-      defaults: {_controller: BloginyBundle:Developer:index}      
-      
-developer_top_posts:
-      pattern: /developer/topPosts
-      defaults: {_controller: BloginyBundle:Developer:topPosts}
-       
-developer_blog_posts:
-      pattern: /developer/blogPosts
-      defaults: {_controller: BloginyBundle:Developer:blogPosts}
-      
-developer_user_posts:
-      pattern: /developer/userPosts
-      defaults: {_controller: BloginyBundle:Developer:userPosts}
-      
-developer_search_posts:
-      pattern: /developer/searchPosts
-      defaults: {_controller: BloginyBundle:Developer:searchPosts}
-      
-developer_live_posts:
-      pattern: /developer/livePosts
-      defaults: {_controller: BloginyBundle:Developer:livePosts}
-      
-developer_top_blogs:
-      pattern: /developer/topBlogs
-      defaults: {_controller: BloginyBundle:Developer:topBlogs}
-      
-developer_search_blogs:
-      pattern: /developer/searchBlogs
-      defaults: {_controller: BloginyBundle:Developer:searchBlogs}
-      
-developer_errors:
-      pattern: /developer/errors
-      defaults: {_controller: BloginyBundle:Developer:errors}
-      
-      
-      
-#admin rules
-admin_post_delete:
-      pattern: /admin/post/delete/{slug}
-      defaults: {_controller: BloginyBundle:Admin:postDelete}
-      
-
-#retro compatibility rules
-
-old_user_show:
-    pattern: /user/{id}/{username}
-    defaults: {_controller: BloginyBundle:User:profile}
-    #id *
-    
-old_user_show_2:
-    pattern: /user/{id}/{username}/
-    defaults: {_controller: BloginyBundle:User:profile}
-
-old_blog_show:
-    pattern: /blog/{id}/{slug}
-    defaults: {_controller: BloginyBundle:Blog:show}
-    #id *
-    
-old_blog_show_2:
-    pattern: /blog/{id}/{slug}/
-    defaults: {_controller: BloginyBundle:Blog:show}
-    #id *
-    
-old_blog_feed_show:
-    pattern: /blog_feed/{id}/{slug}
-    defaults: {_controller: BloginyBundle:BlogPost:details}
-    #id *
-  
-old_blog_feed_show_2:
-    pattern: /blog_feed/{id}/{slug}/
-    defaults: {_controller: BloginyBundle:BlogPost:details}
-    #id *
-  
-old_feed_show:
-    pattern: /feeds/{id}/{slug}
-    defaults: {_controller: BloginyBundle:Post:oldShow}
-    
-old_feed_show_2:
-    pattern: /feeds/{id}/{slug}/
-    defaults: {_controller: BloginyBundle:Post:oldShow}
-    
-old_live:
-    pattern: /feeds/live
-    defaults: {_controller: BloginyBundle:Post:live, from: 'none', refresh: false}
-    
-old_live_2:
-    pattern: /feeds/live/
-    defaults: {_controller: BloginyBundle:Post:live, from: 'none', refresh: false}
-    
-old_agregator:
-    pattern: /blog_feeds
-    defaults: {_controller: BloginyBundle:BlogPost:list, from: 'none'}
-    
-old_agregator_2:
-    pattern: /blog_feeds/
-    defaults: {_controller: BloginyBundle:BlogPost:list, from: 'none'}
-    
-old_blogs:
-    pattern: /blog
-    defaults: {_controller: BloginyBundle:Blog:list, location: 'all', language: 'all', page: 1}
-    
-old_blogs_2:
-    pattern: /blog/
-    defaults: {_controller: BloginyBundle:Blog:list, location: 'all', language: 'all', page: 1}
-    
-old_tag:
-    pattern: /feeds/showTag/tag/{tag}
-    defaults: {_controller: BloginyBundle:Post:tag, page: 1}
-    
-old_tag_2:
-    pattern: /feeds/showTag/tag/{tag}/
-    defaults: {_controller: BloginyBundle:Post:tag, page: 1}
-    
-old_rss:
-    pattern: /rss
-    defaults: {_controller: BloginyBundle:Feed:topPosts, language: 'all', category_name: 'none', sort: 'TOP', page: 1}
-    
-old_rss_2:
-    pattern: /rss/
-    defaults: {_controller: BloginyBundle:Feed:topPosts, language: 'all', category_name: 'none', sort: 'TOP', page: 1}
-    
-old_rss_3:
-    pattern: /rss/feeds/tri/{tri}
-    defaults: {_controller: BloginyBundle:Feed:topPosts, language: 'all', category_name: 'none', sort: 'TOP', page: 1}
-
-old_rss_4:
-    pattern: /rss/feeds/tri/{tri}/
-    defaults: {_controller: BloginyBundle:Feed:topPosts, language: 'all', category_name: 'none', sort: 'TOP', page: 1}
-    

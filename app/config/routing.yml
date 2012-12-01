@@ -2,8 +2,5 @@ homepage:
     pattern:  /
     defaults: { _controller: BloginyBundle:Default:index }
 
-user:
-    resource: "@UserBundle/Resources/config/routing.yml"
-
 bloginy:
     resource: "@BloginyBundle/Resources/config/routing.yml"

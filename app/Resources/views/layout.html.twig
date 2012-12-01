@@ -40,10 +40,7 @@
         <div id="black_header" >
             <div id ="header" class="divcenter">
 		<a id="logo" href="http://bloginy.com"> <img src="{{ asset('images/logo.png') }}" alt="Logo du site" /></a>
-                {% render "BloginyBundle:Utils:loginStatus" %}
-                {% block searchform %}
-                {% include "BloginyBundle:Post:search_form.html.twig" %}
-                {% endblock %}
+                {% block searchform %}{% endblock %}
                 {% block mainmenu %}
                     {% render "BloginyBundle:Utils:mainMenu" %}
                 {% endblock %}
@@ -63,8 +60,6 @@
                         <td>
                             {% block sidebarright %}
                                 <div id="sidebar-right" class="sidebar">
-                                    {% include "BloginyBundle:Utils:subscribe_block.html.twig" %}
-                                    {% include "BloginyBundle:User:share_button.html.twig" %}
                                     {% include "BloginyBundle:Blog:propose_button.html.twig" %}
                                     {% render "BloginyBundle:Blog:dailyBlog" %}
                                 </div>

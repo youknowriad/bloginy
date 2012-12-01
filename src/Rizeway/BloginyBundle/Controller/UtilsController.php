@@ -63,36 +63,6 @@ class UtilsController extends Controller
 
     public function mainMenuAction($current = null)
     {
-        $user = $this->get('security.context')->getToken()->getUser();
-
-        return $this->render('BloginyBundle:Utils:main_menu.html.twig', array('user' => $user, 'current' => $current));
-    }
-    
-    public function loginStatusAction()
-    {
-        $user = $this->get('security.context')->getToken()->getUser();
-
-        return $this->render('BloginyBundle:Utils:login_status.html.twig', array('user' => $user));
-    }
-
-    public function pluginAction()
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-        
-        // Récupération du flux
-        $url = $this->getRequest()->get('url');
-        $post = $em->getRepository('BloginyBundle:BlogPost')->findOneBy(array('link' => $url));
-        
-        $vote = null;
-        if ($this->get('security.context')->isGranted('ROLE_REGISTRED_USER') && !is_null($post) && !is_null($post->getPost()))
-        {
-            $user = $this->get('security.context')->getToken()->getUser();
-            $vote = $em->getRepository('BloginyBundle:Vote')->findOneBy(array('post' => $post->getPost()->getId(), 'user' => $user->getId()));
-        }
-        
-        return $this->render('BloginyBundle:Utils:plugin.xml.twig', array(
-            'post' => $post,
-            'vote' => !is_null($vote)
-        ));
+        return $this->render('BloginyBundle:Utils:main_menu.html.twig', array('current' => $current));
     }
 }

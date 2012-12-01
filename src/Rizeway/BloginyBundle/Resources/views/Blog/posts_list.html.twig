@@ -3,5 +3,5 @@
 {% endfor %}
 
 {% if show_pager %}
-    {% include "BloginyBundle:Post:pager.html.twig" with {'route' : 'blog_posts', 'params' : {'slug' : blog.slug, 'from': from}} %}
+    {% include "BloginyBundle:BlogPost:pager.html.twig" with {'route' : 'blog_posts', 'params' : {'slug' : blog.slug, 'from': from}} %}
 {% endif %}

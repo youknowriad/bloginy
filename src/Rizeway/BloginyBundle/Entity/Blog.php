@@ -69,21 +69,6 @@ class Blog
     private $approved = false;
 
     /**
-     * @var integer $votes
-     */
-    private $votes = 0;
-
-    /**
-     * @var integer $rank_value
-     */
-    private $rank_value = 0;
-
-    /**
-     * @var integer $count_views
-     */
-    private $count_views = 0;
-
-    /**
      * @var datetime $posts_updated_at
      */
     private $posts_updated_at;
@@ -264,66 +249,6 @@ class Blog
     }
 
     /**
-     * Set votes
-     *
-     * @param integer $votes
-     */
-    public function setVotes($votes)
-    {
-        $this->votes = $votes;
-    }
-
-    /**
-     * Get votes
-     *
-     * @return integer $votes
-     */
-    public function getVotes()
-    {
-        return $this->votes;
-    }
-
-    /**
-     * Set rank_value
-     *
-     * @param integer $rankValue
-     */
-    public function setRankValue($rankValue)
-    {
-        $this->rank_value = $rankValue;
-    }
-
-    /**
-     * Get rank_value
-     *
-     * @return integer $rankValue
-     */
-    public function getRankValue()
-    {
-        return $this->rank_value;
-    }
-
-    /**
-     * Set count_views
-     *
-     * @param integer $countViews
-     */
-    public function setCountViews($countViews)
-    {
-        $this->count_views = $countViews;
-    }
-
-    /**
-     * Get count_views
-     *
-     * @return integer $countViews
-     */
-    public function getCountViews()
-    {
-        return $this->count_views;
-    }
-
-    /**
      * Set posts_updated_at
      *
      * @param datetime $postsUpdatedAt
@@ -371,23 +296,6 @@ class Blog
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Calculate the number of stars for this blog ranking value
-     * 
-     * @param integer $max_stars       Maximum stars for the best blog
-     * @param integer $max_rank_value  Maximum rank value for the best blog
-     * @return integer
-     */
-    public function countStars($max_stars, $max_rank_value)
-    {
-        if ($max_rank_value == 0 || $this->getRankValue() == 0)
-        {
-            return 0;
-        }
-        
-        return round(($max_stars/$max_rank_value)*($this->getRankValue()));
     }
     
     public function getShortTitle($length = 50)

@@ -17,10 +17,6 @@
         <field name="created_at" column="created_at" type="datetime" />
 
         <many-to-one field="blog" target-entity="Blog" />
-
-        <one-to-one field="post" target-entity="Post" inversed-by="blog_post">
-            <join-column name="post_id" referenced-column-name="id" />
-        </one-to-one>
         
     </entity>
 </doctrine-mapping>

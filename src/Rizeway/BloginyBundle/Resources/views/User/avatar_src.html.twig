@@ -1,5 +1,0 @@
-{% if (not (user.useGravatar and gravatar_exists(user.email))) %}
-{{ app.request.basepath }}/{{ asset(user.avatar.webPath(type)) }}
-{% else %}
-{{ gravatar(user.email, user.avatar.widthForType(type)) }}
-{% endif %}

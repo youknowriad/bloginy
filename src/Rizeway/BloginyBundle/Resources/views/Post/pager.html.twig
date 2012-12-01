@@ -1,7 +1,0 @@
-<a class="bloginy-pager" href="{{ path(route, params) }}">
-    {% trans from "bloginy" %}More posts{% endtrans %}
-</a>
-
-<script>
-    bloginyPager.init("{{ (target is defined) ? target : '#posts-list'}}");
-</script>

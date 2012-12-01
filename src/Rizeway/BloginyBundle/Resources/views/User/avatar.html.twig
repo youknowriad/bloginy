@@ -1,5 +1,0 @@
-{% if (not (user.useGravatar and gravatar_exists(user.email))) %}
-    <img class="avatar {{ type }}_avatar" src="{{ asset(user.avatar.webPath(type)) }}" alt="{{user.username}}'s Avatar"/>
-{% else %}
-    <img class="avatar {{ type }}_avatar" src="{{ gravatar(user.email, user.avatar.widthForType(type)) }}" alt="{{user.username}}'s Avatar"/>
-{% endif %}

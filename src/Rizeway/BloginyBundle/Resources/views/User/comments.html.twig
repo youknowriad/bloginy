@@ -1,7 +1,0 @@
-{% for comment in comments|keys %}
-    {% include "BloginyBundle:Comment:admin_resume.html.twig" with {'comment' : comments[comment], 'class' : cycle(['odd', 'even'], comment) } %}
-{% endfor %}
-
-{% if show_pager %}
-    {% include "BloginyBundle:Comment:pager.html.twig" with {'route' : 'user_comments', 'params' : {'filter': filter, 'page': page}, 'target': '#user_comments_content'} %}
-{% endif %}

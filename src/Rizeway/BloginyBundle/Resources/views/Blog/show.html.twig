@@ -23,16 +23,6 @@
 
             <span class="blog_location">{{ blog.location }}</span>
 
-            <span class="blog_rating">
-                {% for i in 1..max_stars %}
-                    {% if (i <= blog.countStars(max_stars, max_rank_value)) %}
-                        <img src="{{ asset('images/icons/star-full.png') }}" alt="" />
-                    {% else %}
-                        <img src="{{ asset('images/icons/star-empty.png') }}" alt="" />
-                    {% endif %}
-                {% endfor %}
-            </span>
-
             <span>
                 <a href="{{ blog.feedUrl }}" title="{% trans from 'bloginy' %}Follow this blog feed{% endtrans %}">
                     <img src="{{ asset('images/icons/rss-icon-small.png') }}" alt="" />
@@ -80,8 +70,6 @@
             $('.google_ranking').load("{{ path('blog_google_ranking', {'slug' : blog.slug })}}");
             $('.alexa_ranking').load("{{ path('blog_alexa_ranking', {'slug' : blog.slug })}}");
         </script>
-
-        {% include "BloginyBundle:Post:tag_cloud.html.twig" with {'tags': tags} %}
     </div>
     
     {% include "BloginyBundle:Blog:propose_button.html.twig" %}

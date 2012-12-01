@@ -114,20 +114,6 @@ class BlogPostsUpdater
                $post->setLanguage($this->language_detector->detect($text, $this->available_langugages));
                $post->setBlog($blog);
                $post->setSlug($this->getSlugGenerator()->generateUniqueSlug($post->getTitle()));
-
-               // Récupérer l'article associé s'il existe
-               $corresponding_post = $this->entity_manager->getRepository('BloginyBundle:Post')->findOneBy(array('link' => $post->getLink()));
-               
-               if (!is_null($corresponding_post))
-               {
-                   $existing_post = $this->entity_manager->getRepository('BloginyBundle:BlogPost')->findOneBy(array('post' => $corresponding_post->getId()));
-                   if (is_null($existing_post))
-                   {
-                       $corresponding_post->setBlogPost($post);
-                       $post->setPost($corresponding_post);
-                   }
-               }
-
                $this->entity_manager->persist($post);
                $count++;
            }

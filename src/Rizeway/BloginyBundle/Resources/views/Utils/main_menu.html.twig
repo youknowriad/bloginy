@@ -1,24 +1,4 @@
 <nav id="main_menu">
-    <a {% if current is defined and current=="home" %}class="current"{% endif %} href="{{ path('posts_list') }}">{% trans from "bloginy" %}Top posts{% endtrans %}</a>
-    <a {% if current is defined and current=="live" %}class="current"{% endif %} href="{{ path('posts_live') }}" alt="Live">{% trans from "bloginy" %}Live{% endtrans %}</a>
     <a {% if current is defined and current=="aggregator" %}class="current"{% endif %} href="{{ path('blog_posts_list') }}">{% trans from "bloginy" %}Aggregator{% endtrans %}</a>
     <a {% if current is defined and current=="blogs" %}class="current"{% endif %} href="{{ path('blogs_list') }}">{% trans from "bloginy" %}Blogs{% endtrans %}</a>
-    {% if is_granted('ROLE_REGISTRED_USER') %}
-        <a {% if current is defined and current=="user" %}class="current"{% endif %} href="{{ path('user_dashboard') }}">{{ user.username }}</a>
-    {% else %}
-        <a href="#login_panel" alt="Connexion" id="login_link">{% trans from "bloginy" %}Login{% endtrans %}</a>
-
-        
-        <div style="display: none;">
-            <div id="login_panel">
-                {% render 'UserBundle:User:loginPanel' %}
-            </div>
-        </div>
-
-        <script>
-            $(document).ready(function() {
-                $("a#login_link").fancybox();
-            });
-        </script>
-    {% endif %}
 </nav>

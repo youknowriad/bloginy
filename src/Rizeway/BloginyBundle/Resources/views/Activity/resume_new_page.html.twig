@@ -1,6 +1,0 @@
-<div class="activity {{ class }}">
-    <span class="datetime">{{ activity.createdAt|date('Y-m-d H:i:s') }}</span>
-    <a href="{{ path('user_profile', {'username': activity.user.username }) }}">{{ activity.user.username }}</a>
-     {% trans from "bloginy" %}shared the page{% endtrans %} :  
-    <a {% if is_arabic(activity.page.name) %}dir="rtl"{% else %}dir="ltr"{% endif %} href="{{ path('page_show', {'slug': activity.page.slug }) }}">{{ activity.page.shortName(50) }}</a>
-</div>

@@ -25,7 +25,6 @@ class AppKernel extends Kernel
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             
             new Rizeway\BloginyBundle\BloginyBundle(),
-            new Rizeway\UserBundle\UserBundle(),
             new Rizeway\ExtraFrameworkBundle\ExtraFrameworkBundle(),
             new Rizeway\CrawlerBundle\RizewayCrawlerBundle(),
             new Rizeway\FormBundle\RizewayFormBundle(),

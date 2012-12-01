@@ -1,8 +1,0 @@
-{% if is_granted('ROLE_REGISTRED_USER') %}
-    <div id="login-status">
-        {% trans from 'bloginy' %}You're currently logged in as{% endtrans %} 
-        <a href="{{ path('user_dashboard') }}">{{ user.username }}</a>
-            
-        <a href="{{ path('user_logout') }}" class="logout_link">{% trans from "bloginy" %}Logout{% endtrans %}</a>
-    </div>
-{% endif %}

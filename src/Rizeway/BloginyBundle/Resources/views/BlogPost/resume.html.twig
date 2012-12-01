@@ -1,8 +1,5 @@
 <div id="post-resume-{{ post.id }}" class="post {{ class }}">
-    
-    {% include "BloginyBundle:BlogPost:vote_button.html.twig" with {'post' : post, 'vote' : vote} %}
-
-    <h2 {% if is_arabic(post.title) %}dir="rtl"{% else %}dir="ltr"{% endif %}><a href="{{ path('blog_post_show', {'slug': post.slug }) }}">{{post.shortTitle}}</a></h2>
+    <h2 {% if is_arabic(post.title) %}dir="rtl"{% else %}dir="ltr"{% endif %}><a href="{{ post.link }}">{{post.shortTitle}}</a></h2>
 
     <p {% if is_arabic(post.resume) %}dir="rtl"{% else %}dir="ltr"{% endif %}>{{ post.resume|raw }}</p>
 

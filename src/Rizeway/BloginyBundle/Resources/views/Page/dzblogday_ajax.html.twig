@@ -1,7 +1,0 @@
-{% for post in posts|keys %}
-{% include "BloginyBundle:Post:resume.html.twig" with {'post' : posts[post], 'vote' : votes[posts[post].id]|default(false), 'class' : cycle(['odd', 'even'], post) } %}
-{% endfor %}
-
-{% if show_pager %}
-{% include "BloginyBundle:Post:pager.html.twig" with {'route' : 'page_dzblogday', 'params' : {'page': page}, 'target': '#posts-list'} %}
-{% endif %}

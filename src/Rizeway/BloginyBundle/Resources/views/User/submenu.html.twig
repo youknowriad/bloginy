@@ -1,5 +1,0 @@
-<nav>
-    <a {% if current == 'dashboard' %}class="current"{% endif %} href="{{ path('user_dashboard') }}">{% trans from "bloginy" %}Dashboard{% endtrans %}</a>
-    <a {% if current == 'settings' %}class="current"{% endif %} href="{{ path('user_edit') }}">{% trans from "bloginy" %}Settings{% endtrans %}</a>
-    <a {% if current == 'comments' %}class="current"{% endif %} href="{{ path('user_comment_moderation') }}">{% trans from "bloginy" %}Comments{% endtrans %}</a>
-</nav>

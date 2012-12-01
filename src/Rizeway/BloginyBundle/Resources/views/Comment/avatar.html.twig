@@ -1,5 +1,0 @@
-{% if (comment.user) %}
-    {% include "BloginyBundle:User:avatar.html.twig" with {'user': comment.user, 'type': 'medium'} %}
-{% else %}
-    <img class="avatar medium_avatar" src="{{ gravatar(comment.email, 50) }}" alt="{{comment.username}}'s Avatar"/>
-{% endif %}

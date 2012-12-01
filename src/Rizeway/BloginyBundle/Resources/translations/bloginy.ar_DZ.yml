@@ -1,19 +1,3 @@
-Top posts: أفضل المشاركات
-Top today: مشاركات اليوم 
-Top 7 days: مشاركات الأسبوع
-Top 30 days: مشاركات الشهر
-Top of the year: مشاركات السنة
-All categories: كل التصنيفات
-Economy: الاقتصاد
-International: دولي
-Technology: التكنولوجيا
-Health: الصحة
-Women: المرأة
-Sports: الرياضة
-Entertainment: الترفيه
-Science: العلوم
-Politics: السياسة
-Religion: الدين
 More posts: مشاركات أخرى
 Switch Language: تغيير اللغة
 Blogs: المدونات
@@ -28,110 +12,37 @@ Arabic: اللغة العربية
 French: اللغة الفرنسية
 English: اللغة الإنجليزية
 Other: باقي اللغات
-Vote: صوت
-has voted: تم التصويت
-Comment(s): تعليقات
-said on: قال يوم
 at: على الساعة
 the day: يوم
-Leave a reply: علق
-Username: الاسم
-Post Comment: أرسل تعليقا
-Your comment has been added, it's waiting for modération.: لقد تمت إضافة تعليقك، سيتم نشره بمجرد أن تتم الموافقة عليه.
-NEW TO BLOGINY: جديد في bloginy
-Blogger, simple user, share, and explore your favorite posts and blogs:  هل أنت مدون أم مجرد مستخدم، شارك واكتشف المقالات والمدونات المفضلة لديك
-SIGN UP: سجل نفسك
-Login: تسجيل الدخول
-Logout: تسجيل الخروج
-Dashboard: لوحة التحكم
-Live: مباشر
 Languages: اللغة
 Language Filter: اللغة
 Location Filter: المنطقة
-Settings: إعدادات
-Profile: الملف الشخصي
-Password: كلمة السر
 Social Networks: الشبكات الاجتماعية
-Preferences: تفضيلات
-Save modifications : حفظ التعديلات
-Change your password: تغيير كلمة السر
-Your current password is wrong: كلمة السر الحالية غير صحيحة
-Your settings has been saved successfully: تم حفظ الإعدادات بنجاح
-Your password has been changed successfully: تم تغيير كلمة السر
 Optional: اختياري
-Proposed by: تم اقتراحه من طرف
 Blog: مدونة
 Follow this blog feed: اتبع هده المدونة
-My posts: مشاركاتي
-Avatar: صورة رمزية
-Tag Cloud: سحابة الوسوم
-Identity: الهوية
-proposed: نشر المقال
-A new blog has been added: تمت إضافة مدونة جديدة 
-joined us on Bloginy: التحق بنا في bloginy
-has voted for : صوت على
-left a comment on : علق على
 Posts:  مشاركات
-Timeline: الخط الزمني
 Blog of the day: مدونة اليوم
 Details: تفاصيل
-Comments: تعليقات
-All comments: كل التعليقات
-Waiting moderation: في انتظار الموافقة
-Approved comments: التعليقات المصادق عليها
-You're currently logged in as: لقد قمت بتسجيل دخولك كـ
-shared the page: نشر الصفحة
-Create a new page: إنشاء صفحة جديدة
-Page created at: أنشأت هده الصفحة في
-by: من طرف
-Share / Write a post: اكتب / اقترح مشاركة
-Enter the link to share: ادخل الرابط
 Search posts: البحث عن مشاركات
 Search blogs: البحث عن مدونات
 New blogs: مدونات جديدة
 Show more posts: المزيد من المشاركات
 Last posts: آخر المشاركات
-Last activity: آخر النشاطات
-Show more activities:  المزيد من النشاطات
-Live posts: مشاركات مباشرة
-Live activities: نشاطات مباشرة
-You lost your password, enter your email to get a new one: هل فقدت كلمة السر الخاصة بك؟ أدخل عنوانك الإلكتروني لاسترجاعها
-Get a new password: الحصول على كلمة سر جديدة
 About Bloginy: حول Bloginy
 The blog: المدونة
 Contact us: اتصل بنا
 The team: الفريق
-Wordpress Plugins: إضافات Wordpress
-Bloginy for developers (API): Bloginy للمبرمجين (API)
-Promote Bloginy: التعريف بـ Bloginy
-Third-party applications: تطبيقات Bloginy
 RSS or Atom feed of the blog: رابط التلقيمات الخاصة بالمدونة
-Tell us if you can't find'em: أبلغ عن رابط معطل الرابط
 Blog's home page address: رابط المدونة
-"Tags describing the post. example : football, sport..." : "الوسوم التي تصف المشاركة. مثال :   كرة القدم ، الرياضة..."
 Or: أو
-write your post on Bloginy : اكتب مقالا على Bloginy
-Link details: تفاصيل الرابط
-The link to be shared: الرابط 
-Fill your bloginy profile with your social profiles addresses: إملأ  ملف التعريف الخاص بك على Bloginy  بروابط الشبكات   الاجتماعية الخاصة بك
-Web site: الموقع
-Twitter profile: الملف الشخصي على Twitter
-Facebook profile: الملف الشخصي على Facebook
-In order to follow the content you like, you can create personalized pages by indicating the tags of posts show in these pages, their author or their source blog: من أجل متابعة المحتوى الذي ترغبه، يمكنك إنشاء صفحات مخصصة وذلك بالإشارة لعلامات الوظائف،  مصدرها أو المستخدم الذي نشرها
-Create this page: إنشاء هذه الصفحة
 Send the message: بعث الرسالة
 Your message has been successfully sent!: تم إرسال الرسالة بنجاح !
-Tools: أدوات
 Sections: أقسام
 Participate: أشارك
-API Key : مفتاح API
-Your API Key is : مفتاح  API الخاص بك هو
-For more informations on the API, see the bloginy section dedicated to developers. This API gives you the ability to make applications or websites that use the different functions of Bloginy: للمزيد من المعلومات حول ال API، زر قسمbloginy المخصص للمطورين.  ال API تمنحك برمجة تطبيقات أو مواقع تستخدم وظائف المختلفة من Bloginy
-the developer section: قسم المطورين
-This key in necessary to use the API. For more details visit : هذا المفتاح ضروري لاستخدام ال API. للمزيد من التفاصيل زر 
 Follow us: اتبعنا
-"Who voted ?" : "من صوت ؟"
-  
+Tell us if you can't find'em: أبلغ عن رابط معطل الرابط
+
 #pages :
 "Bloginy is the Algerian blogs aggregator of choice. It's a website that brings together the most interesting posts on the Algerian blogs.": Bloginy هو مجمع للمدونات الجزائرية يقوم باستعراض أفضل مقالاتها.
 How it works ?: مبدأ العمل

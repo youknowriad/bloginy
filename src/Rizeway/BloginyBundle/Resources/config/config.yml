@@ -3,14 +3,8 @@ parameters:
     bloginy.post.sidebar.max_results:     6
     bloginy.blog.max_results:             20
     bloginy.blog.sidebar.max_results:     6
-    bloginy.comment.max_results:          30
     bloginy.feed.max_results:             20
     bloginy.blog.max_stars:               5
-    bloginy.activity.max_results:         30
-    bloginy.activity.sidebar.max_results: 6
-    bloginy.tag_cloud.tag_max_size :      250
-    bloginy.tag_cloud.tag_min_size :      70
-    bloginy.tag_cloud.limit:              30
     bloginy.blog.location:
       - Adrar
       - Chlef
@@ -74,13 +68,8 @@ parameters:
     bloginy.link:  'http://www.bloginy.com'
     bloginy.description : 'Bloginy, Algerian Blog Aggregator'
     bloginy.feed_link.rss:  'http://www.bloginy.com/feed/'
-    bloginy.dzblogday.tags:
-      - dzblogday
-      - يوم التدوين الجزائري
-      - dz blog day
-      - dz blogday
-      - dzblog day
-    
+
+
 #services
 services:
     bloginy.language_detector:
@@ -106,16 +95,7 @@ services:
         class: Rizeway\BloginyBundle\Model\Utils\ApiAuthenticator
         arguments: [@doctrine.orm.entity_manager]
 
-    bloginy.loginlistener:
-        class: Rizeway\BloginyBundle\Listener\LoginListener
-        tags:
-            - { name: kernel.event_listener, event: security.interactive_login, method:onSecurityInteractiveLogin }
-            
     bloginy.twig.extension:
         class: Rizeway\BloginyBundle\Extension\IsArabicExtension
         tags:
             - { name: twig.extension }
-            
-    bloginy.visit_handler:
-        class: Rizeway\BloginyBundle\Model\Utils\PostVisitHandler
-        arguments: [@doctrine.orm.entity_manager]

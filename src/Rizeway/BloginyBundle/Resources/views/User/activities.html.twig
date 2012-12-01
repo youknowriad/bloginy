@@ -1,7 +1,0 @@
-{% for activity in activities|keys %}
-    {% include "BloginyBundle:Activity:resume_"~ activities[activity].type ~".html.twig" with {'activity' : activities[activity], 'class' : cycle(['odd', 'even'], activity) } %}
-{% endfor %}
-
-{% if show_pager %}
-    {% include "BloginyBundle:Activity:pager.html.twig" with {'route' : 'user_activities', 'params' : {'username': user.username,'from': from}, 'target': '#user_profile_content'} %}
-{% endif %}

@@ -84,7 +84,7 @@ class BlogRepository extends EntityRepository
         $qb = $this->getApprovedQueryBuilder(1, $qb);
         $qb = $this->getLocationQueryBuilder($location, $qb);
         $qb = $this->getLanguageQueryBuilder($language, $qb);
-        $qb->addOrderBy('blog.rank_value', 'DESC');
+        $qb->addOrderBy('blog.created_at', 'DESC');
         
         return $this->findForQueryBuilder($page, $max_results, $qb);
     }
@@ -170,7 +170,7 @@ class BlogRepository extends EntityRepository
     {
         $qb = $this->getSearchFilterQueryBuilder($filter);
         $qb = $this->getApprovedQueryBuilder(1, $qb)
-           ->orderBy('blog.rank_value', 'DESC');
+           ->orderBy('blog.created_at', 'DESC');
            
         return $this->findForQueryBuilder($page, $max_results, $qb);
     }
@@ -296,14 +296,5 @@ class BlogRepository extends EntityRepository
         return $this->_em->createQueryBuilder()
           ->select('blog')
           ->from('BloginyBundle:Blog', 'blog');
-    }
-
-    public function getMaxRankValue()
-    {
-        return (int) current($this->_em->createQueryBuilder()
-            ->select('MAX(blog.rank_value)')
-            ->from('BloginyBundle:Blog', 'blog')
-            ->getQuery()
-            ->getOneOrNullResult());
     }
 }

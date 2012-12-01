@@ -1,6 +1,5 @@
 imports:
    - { resource:  "@BloginyBundle/Resources/config/config.yml" }
-   - { resource:  "@UserBundle/Resources/config/config.yml" }
    - { resource:  "@ExtraFrameworkBundle/Resources/config/config.yml" }
    - { resource:  parameters.ini }
 
@@ -71,5 +70,18 @@ exercise_html_purifier:
         AutoFormat.RemoveEmpty: true
         AutoFormat.RemoveEmpty.RemoveNbsp: true
         HTML.Allowed: a[href],strong,em,p,li,ul,ol
-        
+
 gregwar_captcha: ~
+
+security:
+    providers:
+        in_memory:
+            users:
+
+    firewalls:
+        main:
+            pattern:    ^/
+            anonymous: true
+
+    access_control:
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }

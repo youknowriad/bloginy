@@ -1,8 +1,0 @@
-<h4 class="sidebar-title">{% trans from "bloginy" %}Who voted ?{% endtrans %}</h4>
-<div id="post-voters">
-{% for vote in votes %}
-    <div class="voter">
-        <a href="{{ path('user_profile', {'username': vote.user.username}) }}" title="{{ vote.user.name }}">{% include "BloginyBundle:User:avatar.html.twig" with {'user': vote.user, 'type': 'medium'} %}</a>
-    </div>
-{% endfor %}
-</div>

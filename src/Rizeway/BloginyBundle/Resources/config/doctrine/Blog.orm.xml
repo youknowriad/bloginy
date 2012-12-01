@@ -15,11 +15,6 @@
         <field name="location" column="location" type="string" length="100" nullable="true" />
         <field name="language" column="language" type="string" length="100" />
         <field name="approved" column="approved" type="boolean" />
-        
-        <!-- move these fields to history ranking tables -->
-        <field name="votes" column="votes" type="integer" />
-        <field name="rank_value" column="rank_value" type="integer" />
-        <field name="count_views" column="count_views" type="integer" />
 
         <field name="posts_updated_at" column="posts_updated_at" type="datetime" nullable="true" />
         <field name="created_at" column="created_at" type="datetime" />

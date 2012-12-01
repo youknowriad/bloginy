@@ -1,6 +1,0 @@
-<div class="moderated_comment">
-    {% trans from "bloginy" %}Your comment has been added, it's waiting for modération.{% endtrans %}
-    {% include 'BloginyBundle:Comment:show.html.twig' with {'comment': comment} %}
-</div>
-
-{% render "BloginyBundle:Comment:new"  with {'post_id' : comment.post.id, 'new': true} %}

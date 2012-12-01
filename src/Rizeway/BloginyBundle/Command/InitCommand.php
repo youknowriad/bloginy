@@ -56,10 +56,6 @@ class InitCommand extends ContainerAwareCommand
         $command = $this->getApplication()->find('doctrine:schema:create');
         $command->run(new ArrayInput(array('command' => 'creating new schema')), $output);
         
-        // Fixtures
-        $command = $this->getApplication()->find('doctrine:fixtures:load');
-        $command->run(new ArrayInput(array('command' => 'loading data test')), $output);  
-        
         // Data Test
         if ($input->getOption('load_test_data'))
         {
