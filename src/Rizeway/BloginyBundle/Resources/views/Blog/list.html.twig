@@ -36,14 +36,6 @@
     </div>
 {% endblock %}
 
-{% block sidebarright %}
-    <div id="sidebar-right" class="sidebar">
-        {% include "BloginyBundle:Blog:propose_button.html.twig" %}
-        {% render "BloginyBundle:Blog:dailyBlog" %}
-        {% render "BloginyBundle:Blog:last" %}
-    </div>
-{% endblock %}
-
 {% block searchform %}
     {% include "BloginyBundle:Blog:search_form.html.twig" %}
 {% endblock %}
