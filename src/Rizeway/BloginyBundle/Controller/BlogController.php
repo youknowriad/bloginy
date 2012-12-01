@@ -109,8 +109,7 @@ class BlogController extends Controller
         $choices = array('all' => 'All locations') + \array_combine($this->container->getParameter('bloginy.blog.location'),
                 $this->container->getParameter('bloginy.blog.location'));
 
-        $form = $this->get('form.factory')
-            ->createNamedBuilder('form', 'location', $loc)
+        $form = $this->createFormBuilder($loc)
             ->add('location', 'choice', array('choices' => $choices))
             ->getForm();
 

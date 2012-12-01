@@ -1,15 +1,11 @@
-{% extends "::layout.html.twig" %}
+{% extends "BloginyBundle::layout.html.twig" %}
 
 {% block title %}Bloginy : {% trans from "bloginy" %}Popular blogs{% endtrans %}{% endblock %}
 
 {% block js %}
     {{ parent() }}
-    <script src="{{ asset('js/bundles/bloginy/utils/bloginyPager.js') }}"></script>
-    <script src="{{ asset('js/bundles/bloginy/utils/optionSelector.js') }}"></script>
-{% endblock %}
-
-{% block mainmenu %}
-    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
+    <script src="{{ asset('bundles/bloginy/js/BloginyPager.js') }}"></script>
+    <script src="{{ asset('bundles/bloginy/js/OptionSelector.js') }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -20,22 +16,17 @@
 
 {% endblock %}
 
-{% block submenu %}
-    <div id="submenu">
-        <div id="icons-menu">
-            <a href="{{ path('feed_top_blogs', {'location': location, 'language': language}) }}" class="rss_icon icon" title="{% trans from 'Bloginy' %}Follow this page's feed{% endtrans %}">{% trans from "Bloginy" %}Follow this page's feed{% endtrans %}</a>
-        </div>
-       {% include "BloginyBundle:Blog:sub_menu.html.twig" with {'current': 'top'} %}
-    </div>
+
+{% block sidebar_left %}
+    {% render "BloginyBundle:Blog:locationFilter" with {'location': location, 'language': language} %}
+    {% render "BloginyBundle:Blog:languageFilter" with {'location': location, 'language': language} %}
 {% endblock %}
 
-{% block sidebarleft %}
-    <div id="sidebar-left" class="sidebar">
-        {% render "BloginyBundle:Blog:locationFilter" with {'location': location, 'language': language} %}
-        {% render "BloginyBundle:Blog:languageFilter" with {'location': location, 'language': language} %}
-    </div>
-{% endblock %}
-
-{% block searchform %}
+{% block search %}
     {% include "BloginyBundle:Blog:search_form.html.twig" %}
+{% endblock %}
+
+
+{% block main_menu %}
+    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
 {% endblock %}

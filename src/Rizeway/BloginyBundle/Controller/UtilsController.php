@@ -36,10 +36,9 @@ class UtilsController extends Controller
        
         // Get the referer
         $lang = new Language();
-        $lang->setLanguage(is_null($language)? $this->get('request')->getSession()->getLocale():$language);
-        if (!is_null($language))
-        {
-            $this->get('request')->getSession()->setLocale($lang->getLocale());
+        $lang->setLanguage(is_null($language)? $this->get('session')->get('_locale') : $language);
+        if (!is_null($language)) {
+            $this->get('session')->set('_locale', $lang->getLocale());
         }
 
         if ($this->get('request')->get('refer'))
@@ -56,8 +55,8 @@ class UtilsController extends Controller
 
     public function languageClassAction()
     {
-        $class = sprintf('class="%s"', $this->get('request')->getSession()->getLocale());
-        $direction = 'dir="'. (($this->get('request')->getSession()->getLocale() == 'ar_DZ') ? 'rtl' : 'ltr') .'"';
+        $class = sprintf('class="%s"', $this->get('session')->get('_locale'));
+        $direction = 'dir="'. (($this->get('session')->get('_locale') == 'ar_DZ') ? 'rtl' : 'ltr') .'"';
         return new Response($class.' '.$direction);
     }
 

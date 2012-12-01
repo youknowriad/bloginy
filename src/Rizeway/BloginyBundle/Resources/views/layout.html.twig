@@ -1,0 +1,58 @@
+{% extends "RizewayDyalnaUIBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet/less" href="{{ asset('bundles/bloginy/less/bloginy.less') }}" />
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bloginy/js/jquery.color.js') }}"></script>
+    <script src="{{ asset('bundles/bloginy/js/menu.js') }}"></script>
+{% endblock %}
+
+{% block logo %}<a id="logo" href="{{ path('homepage') }}">Bloginy</a>{% endblock %}
+
+{% block content %}
+    
+    <div id="menu">
+        {% block main_menu %}
+            {% render "BloginyBundle:Utils:mainMenu" %}
+        {% endblock %}
+    </div>
+
+    <div style="overflow: hidden">
+        <div id="sidebar-left">
+            {% block sidebar_left %}
+            {% endblock %}
+        </div>
+
+
+        <div id="sidebar-right" class="sidebar">
+            {% block sidebar_right %}
+                {% include "BloginyBundle:Blog:propose_button.html.twig" %}
+                {% render "BloginyBundle:Blog:dailyBlog" %}
+                {% render "BloginyBundle:Blog:last" %}
+            {% endblock %}  
+        </div>
+        
+        <div id="content-center">
+        {% block body %}
+        {% endblock %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block search %}
+    {% include "BloginyBundle:BlogPost:_search_form.html.twig" %} 
+{% endblock %}
+
+
+{% block footer %}
+    {% include "BloginyBundle:Utils:_footer.html.twig" %} 
+{% endblock %}
+
+{% block body_class %}
+{% render "BloginyBundle:Utils:languageClass" %}
+{% endblock %}

@@ -1,3 +1,9 @@
+# Internal routing configuration to handle ESI
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal
+
+
 homepage:
     pattern:  /
     defaults: { _controller: BloginyBundle:Default:index }

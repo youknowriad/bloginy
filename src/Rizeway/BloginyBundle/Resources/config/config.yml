@@ -1,5 +1,5 @@
 parameters:
-    bloginy.post.max_results:             4
+    bloginy.post.max_results:             12
     bloginy.post.sidebar.max_results:     6
     bloginy.blog.max_results:             20
     bloginy.blog.sidebar.max_results:     6
@@ -72,6 +72,13 @@ parameters:
 
 #services
 services:
+
+    bloginy.locale_listener:
+        class: Rizeway\BloginyBundle\Listener\LocaleListener
+        tags:
+            - { name:  kernel.event_listener, event: kernel.request, method: onKernelRequest }
+        arguments: [%locale%]
+
     bloginy.language_detector:
         class: Rizeway\BloginyBundle\Model\Utils\LanguageDetector
         arguments: [%alchemy_api_key%, %bing_app_id%]
@@ -82,18 +89,6 @@ services:
     bloginy.blog_posts_updater:
         class: Rizeway\BloginyBundle\Model\Utils\BlogPostsUpdater
         arguments: [@doctrine.orm.entity_manager, @bloginy.feed_parser, @bloginy.language_detector, %bloginy.post.language%]
-
-    bloginy.blog_ranking_updater:
-        class: Rizeway\BloginyBundle\Model\Utils\BlogRankingUpdater
-        arguments: [@doctrine.orm.entity_manager]
-
-    bloginy.post_ranking_updater:
-        class: Rizeway\BloginyBundle\Model\Utils\PostRankingUpdater
-        arguments: [@doctrine.orm.entity_manager]
-
-    bloginy.api_authenticator:
-        class: Rizeway\BloginyBundle\Model\Utils\ApiAuthenticator
-        arguments: [@doctrine.orm.entity_manager]
 
     bloginy.twig.extension:
         class: Rizeway\BloginyBundle\Extension\IsArabicExtension

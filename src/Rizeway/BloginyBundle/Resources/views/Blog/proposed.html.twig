@@ -1,4 +1,4 @@
-{% extends "::layout.html.twig" %}
+{% extends "BloginyBundle::layout_without_sidebar.html.twig" %}
 
 {% block title %}Bloginy : {% trans from "bloginy" %}Propose a blog{% endtrans %}{% endblock %}
 
@@ -14,14 +14,10 @@
 
 {% endblock %}
 
-
-{% block submenu %}
-    <div id="submenu">
-       {% include "BloginyBundle:Blog:sub_menu.html.twig" with {'current': 'propose'} %}
-    </div>
+{% block search %}
+    {% include "BloginyBundle:Blog:search_form.html.twig" %}
 {% endblock %}
 
-
-{% block searchform %}
-    {% include "BloginyBundle:Blog:search_form.html.twig" %}
+{% block sidebar_left %}
+    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
 {% endblock %}

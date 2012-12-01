@@ -1,4 +1,6 @@
-<nav id="main_menu">
-    <a {% if current is defined and current=="aggregator" %}class="current"{% endif %} href="{{ path('blog_posts_list') }}">{% trans from "bloginy" %}Aggregator{% endtrans %}</a>
-    <a {% if current is defined and current=="blogs" %}class="current"{% endif %} href="{{ path('blogs_list') }}">{% trans from "bloginy" %}Blogs{% endtrans %}</a>
-</nav>
+<ul>
+    <li><a style="background-color: #f05b1a;" {% if current is defined and current=="aggregator" %}class="current"{% endif %} href="{{ path('blog_posts_list') }}"><span>{% trans from "bloginy" %}Aggregator{% endtrans %}</span></a></li>
+    <li><a style="background-color: #356194;" {% if current is defined and current=="blogs" %}class="current"{% endif %} href="{{ path('blogs_list') }}"><span>{% trans from "bloginy" %}Blogs{% endtrans %}</span></a></li>
+</ul>
+<div class="menu-rest">
+</div>

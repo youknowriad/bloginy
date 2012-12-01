@@ -1,0 +1,26 @@
+{% extends "BloginyBundle::layout.html.twig" %}
+
+{% block content %}
+    
+    <div id="menu">
+        {% block main_menu %}
+            {% render "BloginyBundle:Utils:mainMenu" %}
+        {% endblock %}
+    </div>
+
+    <div style="overflow: hidden">
+        <div id="sidebar-right" class="sidebar">
+            {% block sidebar_right %}
+                {% include "BloginyBundle:Blog:propose_button.html.twig" %}
+                {% render "BloginyBundle:Blog:dailyBlog" %}
+                {% render "BloginyBundle:Blog:last" %}
+            {% endblock %}  
+        </div>
+        
+        <div id="content-left">
+        {% block body %}
+        {% endblock %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -21,8 +21,6 @@
 
 namespace Rizeway\BloginyBundle\Model\Utils;
 
-require_once __DIR__.'/../../../../../vendor/simplepie/SimplePie.compiled.php';
-
 use Rizeway\BloginyBundle\Entity\BlogPost;
 
 class FeedParser

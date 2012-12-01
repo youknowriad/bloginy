@@ -11,6 +11,10 @@ blog_post_details:
     pattern: /blog_post/details/{slug}
     defaults: {_controller: BloginyBundle:BlogPost:details}
 
+blog_post_search:
+    pattern: /blog_post/search/
+    defaults: {_controller: BloginyBundle:BlogPost:search}
+
 
 blogs_list:
     pattern: /blog/list/{location}/{language}/{page}
@@ -61,20 +65,3 @@ feed_top_blogs:
     pattern: /feed/blog/{location}/{language}
     defaults: {_controller: BloginyBundle:Feed:topBlogs, location: 'all', language: 'all'}
 
-
-
-bloginy_about:
-      pattern: /bloginy
-      defaults: {_controller: BloginyBundle:Bloginy:about}
-
-bloginy_faq:
-      pattern: /bloginy/faq
-      defaults: {_controller: BloginyBundle:Bloginy:faq}
-
-bloginy_conditions:
-      pattern: /bloginy/conditions
-      defaults: {_controller: BloginyBundle:Bloginy:conditions}
-
-bloginy_contact:
-      pattern: /bloginy/contact
-      defaults: {_controller: BloginyBundle:Bloginy:contact}

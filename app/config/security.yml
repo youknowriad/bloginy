@@ -1,0 +1,17 @@
+jms_security_extra:
+    secure_all_services: false
+    expressions: true
+
+security:
+    providers:
+        in_memory:
+            memory:
+                users:
+
+    firewalls:
+        main:
+            pattern:    ^/
+            anonymous: true
+
+    access_control:
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }

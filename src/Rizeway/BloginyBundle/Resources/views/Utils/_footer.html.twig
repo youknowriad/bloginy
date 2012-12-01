@@ -1,0 +1,38 @@
+
+
+<footer>
+    <div id="footer-top">
+        <div class="center">
+            <div id="social_network">
+                <h3>{% trans from 'bloginy' %}Retrieve Bloginy on{% endtrans %}</h3>
+                <a href="http://facebook.com/dyalna"><span class="small-icon facebook-icon"></span>Facebook</a>
+                <a href="http://twitter.com/dyalna_com"><span class="small-icon twitter-icon"></span>Twitter</a>
+                <a href="http://plus.google.com/b/107066582603806625655/107066582603806625655"><span class="small-icon google-icon"></span>Google Plus</a>
+                <a href="{{ url('feed_blog_posts') }}"><span class="small-icon feed-icon"></span>Flux Rss</a>
+            </div>
+
+            <div class="menu-footer">
+                <h3>{% trans from 'bloginy' %}Sections{% endtrans %}</h3>
+                <a href="{{ path('blog_posts_list') }}" alt="{% trans from 'bloginy' %}Aggregator{% endtrans %}">+ {% trans from 'bloginy' %}Aggregator{% endtrans %}</a>
+                <a href="{{ path('blogs_list') }}" alt="{% trans from 'bloginy' %}Blogs{% endtrans %}">+ {% trans from "bloginy" %}Blogs{% endtrans %}</a>
+            </div>
+            
+            {% render "BloginyBundle:Utils:switchLanguage" %}
+
+            <div class="menu-footer">
+                <h3>{% trans from 'bloginy' %}Participate{% endtrans %}</h3>
+                <a href="{{ path('blog_propose') }}" alt="{% trans from 'bloginy' %}Propose a blog{% endtrans %}">+ {% trans from 'bloginy' %}Propose a blog{% endtrans %}</a>
+            </div>
+        </div>
+    </div>
+    <div id="footer-bottom">
+        <div class="center">
+            <div id="copyright">
+                © {{ date()|date('Y') }} Rizeway. Tout droits réservés
+            </div>
+            <div id="rizeway">
+                <a href="http://rizeway.com"><img src="{{asset("bundles/bloginy/images/rizeway.png")}}" alt="" /></a>
+            </div>
+        </div>
+    </div>
+</footer>

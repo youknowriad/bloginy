@@ -1,4 +1,4 @@
-{% extends "::layout.html.twig" %}
+{% extends "BloginyBundle::layout_without_sidebar.html.twig" %}
 
 {% block title %}Bloginy : {% trans from "bloginy" %}Search blogs{% endtrans %}{% endblock %}
 
@@ -28,10 +28,10 @@
     </div>
 {% endblock %}
 
-{% block submenu %}
-    <div id="submenu">{% trans from 'bloginy' %}Searching blogs that match {% endtrans %} <strong>{{ filter }}</strong></div>
+{% block search %}
+    {% include "BloginyBundle:Blog:search_form.html.twig" with {'value': filter} %}
 {% endblock %}
 
-{% block searchform %}
-    {% include "BloginyBundle:Blog:search_form.html.twig" %}
+{% block sidebar_left %}
+    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
 {% endblock %}

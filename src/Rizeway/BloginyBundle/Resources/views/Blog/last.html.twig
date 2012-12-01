@@ -1,4 +1,4 @@
-<h4 class="sidebar-title">{% trans from "bloginy" %}New blogs{% endtrans %}</h4>
+<h4 class="simple-sidebar-title separator-top">{% trans from "bloginy" %}New blogs{% endtrans %}</h4>
 <ul class="last_blogs sidebar_list">
     {% for blog in blogs %}
         <li>{% include "BloginyBundle:Blog:small_resume.html.twig" with {'blog' : blog} %}</li>

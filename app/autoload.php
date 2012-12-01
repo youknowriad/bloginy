@@ -1,64 +1,16 @@
 <?php
 
-use Symfony\Component\ClassLoader\UniversalClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
-$loader = new UniversalClassLoader();
-$loader->registerNamespaces(array(
-    'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
-    'Sensio'           => __DIR__.'/../vendor/bundles',
-    'JMS'              => __DIR__.'/../vendor/bundles',
-    'Doctrine\\Common' => __DIR__.'/../vendor/doctrine-common/lib',
-    'Doctrine\\DBAL'   => __DIR__.'/../vendor/doctrine-dbal/lib',
-    'Doctrine'         => __DIR__.'/../vendor/doctrine/lib',
-    'Monolog'          => __DIR__.'/../vendor/monolog/src',
-    'Assetic'          => __DIR__.'/../vendor/assetic/src',
-    'Metadata'         => __DIR__.'/../vendor/metadata/src',
-    'Doctrine\\Common\\DataFixtures' => __DIR__.'/../vendor/doctrine-fixtures/lib',
-    'Imagine'          => __DIR__.'/../vendor/Imagine/lib',
-    'Zendfony'         => __DIR__.'/../vendor/bundles',
-    'Exercise'         => __DIR__.'/../vendor/bundles',
-    'Gregwar'          => __DIR__.'/../vendor/bundles',
-    'Ornicar'          => __DIR__.'/../vendor/bundles',
-    
-    'Rizeway'          => __DIR__.'/../src',
-));
-$loader->registerPrefixes(array(
-    'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
-    'Twig_'            => __DIR__.'/../vendor/twig/lib',
-    'HTMLPurifier'     => __DIR__.'/../vendor/htmlpurifier/library',
-    'Zend_'            => __DIR__.'/../vendor/zend/library',
-    'ZendX_'           => __DIR__.'/../vendor/zend/extras/library',
-));
-$loader->registerPrefixFallbacks(array(
-    __DIR__.'/../vendor/symfony/src/Symfony/Component/Locale/Resources/stubs',
-));
-$loader->registerNamespaceFallbacks(array(
-    __DIR__.'/../src',
-));
-$loader->register();
+$loader = require __DIR__.'/../vendor/autoload.php';
 
-AnnotationRegistry::registerLoader(function($class) use ($loader) {
-    $loader->loadClass($class);
-    return class_exists($class, false);
-});
-AnnotationRegistry::registerFile(__DIR__.'/../vendor/doctrine/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php');
+// intl
+if (!function_exists('intl_get_error_code')) {
+    require_once __DIR__.'/../vendor/symfony/symfony/src/Symfony/Component/Locale/Resources/stubs/functions.php';
 
-// Swiftmailer needs a special autoloader to allow
-// the lazy loading of the init file (which is expensive)
-require_once __DIR__.'/../vendor/swiftmailer/lib/classes/Swift.php';
-Swift::registerAutoload(__DIR__.'/../vendor/swiftmailer/lib/swift_init.php');
+    $loader->add('', __DIR__.'/../vendor/symfony/symfony/src/Symfony/Component/Locale/Resources/stubs');
+}
 
-/**
- * Fix for Zend Framework 1.x
- */
-set_include_path(implode(PATH_SEPARATOR, array(
-    __DIR__.'/../vendor/zend/library',
-    __DIR__.'/../vendor/zend/extras/library',
-    get_include_path()
-)));
+AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 
-// Include Alchemy
-
-require_once __DIR__.'/../vendor/alchemy/src/AlchemyAPI_CURL.php';
-require_once __DIR__.'/../vendor/alchemy/src/AlchemyAPIParams.php';
+return $loader;

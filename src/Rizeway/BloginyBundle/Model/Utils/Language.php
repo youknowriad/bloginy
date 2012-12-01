@@ -23,7 +23,7 @@ namespace Rizeway\BloginyBundle\Model\Utils;
 
 class Language
 {
-    protected $language = 'fr';
+    protected $language = 'fr_FR';
 
     public function getLanguage()
     {

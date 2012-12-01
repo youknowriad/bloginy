@@ -1,5 +1,5 @@
 {% for post in posts|keys %}
-    {% include "BloginyBundle:BlogPost:resume.html.twig" with {'post' : posts[post],  'vote' : votes[posts[post].id]|default(false), 'class' : cycle(['odd', 'even'], post)} %}
+    {% include "BloginyBundle:BlogPost:resume.html.twig" with {'post' : posts[post],  'vote' : votes[posts[post].id]|default(false), 'class' : cycle(['even', 'odd'], post)} %}
 {% endfor %}
 
 {% if show_pager %}

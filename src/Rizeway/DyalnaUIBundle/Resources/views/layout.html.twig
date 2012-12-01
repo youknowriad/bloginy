@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>{% block title %}Dyalna{% endblock %}</title>
+    <meta charset="UTF-8" />
+ 
+    {% block stylesheets %}
+        <link rel="stylesheet/less" href="{{ asset('bundles/rizewaydyalnaui/less/layout.less') }}" />
+    {% endblock %}
+    
+    {% block js %}
+        <script src="{{ asset('bundles/rizewaydyalnaui/js/less.js') }}"></script>
+        <script src="{{ asset('bundles/rizewaydyalnaui/js/jquery-1.7.1.min.js') }}"></script>
+    {% endblock %}
+
+    <link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700|Voltaire' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    <meta charset="UTF-8" />
+       
+   <!--[if IE]>
+        <script src="{{ asset('bundles/rizewayui/js/fix/html5shiv.js') }}"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="{{ asset('bundles/rizewayui/js/fix/IE9.js') }}"></script>
+    <![endif]-->
+</head>
+<body {% block body_class %}{% endblock %}>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=416046911798994";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div id="layout">
+        <div id="dyalna-header">
+            <div class="center">
+                {% include "RizewayDyalnaUIBundle:Utils:_dyalna_header.html.twig" %}
+            </div>
+        </div>
+        <div class="center">
+            <header>
+                {% block logo %}{% endblock %}
+                
+                <div id="search">
+                    {% block search %}{% endblock %}
+                </div>    
+            </header>
+            
+            <div class="content">
+                {% block content %}
+                {% endblock %}  
+            </div>
+        </div>
+    </div>
+
+    {% block footer %}{% endblock %}
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-788479-5']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+</body>
+</html>
