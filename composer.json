@@ -21,7 +21,9 @@
         "kriswallsmith/assetic": "1.1.*@dev",
 
 
-        "simplepie/simplepie": "dev-master"
+        "simplepie/simplepie": "dev-master",
+        "zetacomponents/feed": "1.3",
+        "zetacomponents/base": "1.8"
     },
     "scripts": {
         "post-install-cmd": [

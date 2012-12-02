@@ -31,7 +31,7 @@ class BlogPostController extends Controller
 {
     public function listAction($from = 'none')
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
 
         $date = new \DateTime();
         if ($from !== 'none') {
@@ -62,7 +62,7 @@ class BlogPostController extends Controller
 
     public function detailsAction($slug)
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
 
         // Get  The Post
         $post = $em->getRepository('BloginyBundle:BlogPost')->customFindOneBy(array('slug' => $slug));
@@ -83,5 +83,27 @@ class BlogPostController extends Controller
             'post' => $post,
             'vote' => $vote
         ));
+    }
+
+    public function searchAction()
+    {
+        $filter = $this->getRequest()->get('filter');
+     
+        return $this->render('BloginyBundle:BlogPost:search.html.twig', array('filter'  => $filter));
+    }
+
+    public function searchPostsAction($filter, $page = 1)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $posts = $em->getRepository('BloginyBundle:BlogPost')
+            ->search($filter, $page, $this->container->getParameter('bloginy.post.max_results'));
+       
+        return $this->render('BloginyBundle:BlogPost:search_ajax.html.twig',
+            array(
+                'posts' => $posts,
+                'filter' => $filter,
+                'show_pager' => (count($posts) == $this->container->getParameter('bloginy.post.max_results')),
+                'page' => $page + 1
+            ));
     }
 }

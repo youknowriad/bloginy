@@ -37,7 +37,7 @@ class SlugGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $kernel = new \AppKernel('dev', true);
         $kernel->boot();
-        $this->em = $kernel->getContainer()->get('doctrine')->getEntityManager();
+        $this->em = $kernel->getContainer()->get('doctrine')->getManager();
     }
 
     public function testSlugify()

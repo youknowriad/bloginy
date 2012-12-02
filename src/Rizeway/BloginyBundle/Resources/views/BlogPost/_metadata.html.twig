@@ -1,0 +1,7 @@
+<div class="metadata">
+    <a href="https://twitter.com/share?url={{ url('blog_post_details', {'slug': post.slug }) }}&text={{ post.shortTitle|raw|url_encode }}&count=horiztonal&lang=fr" target="_blank" class="twitter" title="Partagez sur Twitter" rel="nofollow"><span class="small-icon twitter-icon"></span></a>
+
+    <a href="https://facebook.com/sharer.php?s=100&p[url]={{ url('blog_post_details', {'slug': post.slug }) }}&p[title]={{ post.shortTitle|raw|url_encode }}&p[summary]={{ post.resume|raw|url_encode }}" target="_blank" class="facebook" title="Partagez sur Facebook" rel="nofollow"><span class="small-icon facebook-icon"></span></a>
+
+    <a href="{{ path('blog_show', {'slug': post.blog.slug}) }}" class="source" title="Source de l'article : {{ post.blog.title }}"><span class="small-icon home-icon"></span></a>
+</div>

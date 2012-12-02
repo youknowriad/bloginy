@@ -1,10 +1,6 @@
-{% extends "BloginyBundle::layout_without_sidebar.html.twig" %}
+{% extends "BloginyBundle::layout.html.twig" %}
 
 {% block title %}Bloginy : {% trans from "bloginy" %}Propose a blog{% endtrans %}{% endblock %}
-
-{% block mainmenu %}
-    {% render "BloginyBundle:Utils:mainMenu" with {'current': 'blogs'} %}
-{% endblock %}
 
 {% block body %}
 

@@ -46,7 +46,7 @@ class BlogRepository extends EntityRepository
             $query->setMaxResults($max_results);
             $query->setFirstResult(($page - 1) * $max_results);
         }
-
+        
         return $query->getResult();
     }
 

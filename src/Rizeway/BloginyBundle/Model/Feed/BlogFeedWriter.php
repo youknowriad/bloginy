@@ -39,19 +39,25 @@ class BlogFeedWriter extends ContainerAwareFeedWriter {
 
     public function addBlog(Blog $blog) 
     {
-        $entry = $this->writer->createEntry();
-        $entry->setTitle($blog->getTitle());
-        $entry->setLink($this->container->get('router')->generate('blog_show', array('slug' => $blog->getSlug()), true));
-        $entry->addAuthor(array(
-            'name'  => $blog->getTitle(),
-            'uri'   => $blog->getUrl(),
-        ));
-        $entry->setDateModified($blog->getCreatedAt()->getTimestamp());
-        $entry->setDateCreated($blog->getCreatedAt()->getTimestamp());
-        $entry->setDescription($blog->getDescription() ? $blog->getDescription() : 'no description');
-        $entry->setContent($blog->getDescription() ? $blog->getDescription() : 'no content');
-        
-        $this->writer->addEntry($entry);
+        $item = $this->writer->add( 'item' );
+        $item->title = htmlspecialchars($blog->getTitle());
+        $item->description = htmlspecialchars($blog->getDescription() ? $blog->getDescription() : 'no content');
+        $item->published = $blog->getCreatedAt();
+        $item->updated = $blog->getCreatedAt();
+        $url = $this->container->get('router')->generate('blog_show', array('slug' => $blog->getSlug()), true);
+        $item->id = $url;
+
+        $author = $item->add('author');
+        $author->name = isset($options['author_name']) ? $options['author_name'] : $this->container->getParameter('bloginy.title');
+        $author->email = isset($options['author_email']) ? $options['author_email'] : $this->container->getParameter('bloginy.email');
+
+        $link = $item->add( 'link' );
+        $link->href = $url;
+        $link->rel = 'alternate';
+
+        $link = $item->add( 'link' );
+        $link->href = $url;
+        $link->rel = 'self';
     }
 
 }

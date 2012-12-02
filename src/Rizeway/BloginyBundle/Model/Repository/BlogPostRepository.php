@@ -44,6 +44,58 @@ class BlogPostRepository extends EntityRepository
     }
 
     /**
+     * Find for a query builder with possible pagination
+     *
+     * @param integer $page
+     * @param integer $max_results
+     * @param QueryBuilder $qb
+     * @return Rizeway\BloginyBundle\Entity\BlogPost[]
+     */
+    public function findForQueryBuilder($page = 1, $max_results = null, QueryBuilder $qb = null)
+    {
+        $qb = is_null($qb) ? $this->getBaseQueryBuilder() : $qb;
+
+        $query = $qb->getQuery();
+        if (!is_null($max_results)) {
+            $query->setMaxResults($max_results);
+            $query->setFirstResult(($page - 1) * $max_results);
+        }
+
+        return $query->getResult();
+    }
+    
+    /**
+     * Search posts
+     * @param string $filter
+     * @param int $page
+     * @param int $max_results
+     * @return Rizeway\BloginyBundle\Entity\BlogPost[]
+     */
+    public function search($filter, $page = 1, $max_results = null)
+    {
+        $qb = $this->getSearchFilterQueryBuilder($filter);
+        $qb->orderBy('blog_post.created_at', 'DESC');
+           
+        return $this->findForQueryBuilder($page, $max_results, $qb);
+    }
+    
+    /**
+     * Get the search query builder
+     * @param string $filter
+     * @param QueryBuilder $qb
+     * @return Query 
+     */
+    public function getSearchFilterQueryBuilder($filter, QueryBuilder $qb = null)
+    {
+        $qb = is_null($qb) ? $this->getBaseQueryBuilder() : $qb;
+        $where = is_null($qb->getDQLPart('where')) ? 'where' : 'andWhere';
+        $qb->$where($qb->expr()->orX('blog_post.title LIKE :filter', 'blog_post.content LIKE :filter'))
+           ->setParameter('filter', '%'.$filter.'%');
+        
+        return $qb;
+    }
+
+    /**
     * find the posts from published after $date
     *
     * @param DateTime $date
@@ -65,29 +117,6 @@ class BlogPostRepository extends EntityRepository
     }
 
     /**
-    * find the posts published after $date
-    *
-    * @param DateTime $date
-    * @param integer $max_results
-    * @return Rizeway\BloginyBundle\Entity\BlogPost[]
-    */
-    public function findUntilProposedPost(\DateTime $date, $max_results = null,  QueryBuilder $qb = null)
-    {
-        $where = is_null($qb->getDQLPart('where')) ? 'where' : 'andWhere';
-        $qb->$where('post.created_at > :created_at');
-        $qb->setParameter('created_at', $date->format('Y-m-d H:i:sP'));
-        $qb->addOrderBy('post.created_at', 'ASC');
-
-        $query = $qb->getQuery();
-
-        if (!is_null($max_results)) {
-            $query->setMaxResults($max_results);
-        }
-
-        return $query->getResult();
-    }
-
-    /**
      * find the posts for a blog and published after $date
      * @param Blog|Blog[] $blog
      * @param DateTime $date
@@ -100,23 +129,6 @@ class BlogPostRepository extends EntityRepository
         $qb->orderBy('blog_post.published_at', 'DESC');
 
         return $this->findFrom($date, $max_results, $qb);
-    }
-
-    /**
-     * Find blog proposed posts until $date
-     * 
-     * @param Blog $blog
-     * @param DateTime $date
-     * @param integer $max_results
-     * @param QueryBuilder $qb
-     * @return Rizeway\BloginyBundle\Entity\BlogPost[]
-     */
-    public function findProposedPostsForBlogUntil(Blog $blog, $date, $max_results = null)
-    {
-        $qb = $this->getBaseQueryBuilderJoinPosts();
-        $qb = $this->getBlogQueryBuilder($blog, $qb);
-
-        return $this->findUntilProposedPost($date, $max_results, $qb);
     }
 
 
@@ -166,22 +178,6 @@ class BlogPostRepository extends EntityRepository
     }
 
     /**
-     * Find the proposed posts query builder
-     * 
-     * @param QueryBuilder $qb
-     * @return QueryBuilder
-     */
-    public function getProposedPostsQueryBuilder(QueryBuilder $qb = null)
-    {
-        $qb = is_null($qb) ? $this->getBaseQueryBuilder() : $qb;
-        $where = is_null($qb->getDQLPart('where')) ? 'where' : 'andWhere';
-
-        $qb->$where('blog_post.post IS NOT NULL');
-
-        return $qb;
-    }
-
-    /**
     * Get the base query builder
     *
     * @return QueryBuilder
@@ -193,16 +189,4 @@ class BlogPostRepository extends EntityRepository
           ->from('BloginyBundle:BlogPost', 'blog_post');
     }
 
-   /**
-    * Get the base query builder (only proposed posts)
-    *
-    * @return QueryBuilder
-    */
-    public function getBaseQueryBuilderJoinPosts()
-    {
-        return $this->_em->createQueryBuilder()
-          ->select('blog_post, post')
-          ->from('BloginyBundle:BlogPost', 'blog_post')
-          ->join('blog_post.post', 'post');
-    }
 }

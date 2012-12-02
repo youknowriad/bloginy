@@ -18,15 +18,11 @@
 
 
 {% block sidebar_left %}
+    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
     {% render "BloginyBundle:Blog:locationFilter" with {'location': location, 'language': language} %}
     {% render "BloginyBundle:Blog:languageFilter" with {'location': location, 'language': language} %}
 {% endblock %}
 
 {% block search %}
     {% include "BloginyBundle:Blog:search_form.html.twig" %}
-{% endblock %}
-
-
-{% block main_menu %}
-    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
 {% endblock %}

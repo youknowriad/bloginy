@@ -1,4 +1,3 @@
-<h4 class="sidebar-title">{% trans from "bloginy" %}Language Filter{% endtrans %}</h4>
 <ul id="languages" class="menu-vertical">
     <li {% if language == 'all' %}class="current"{% endif %}><a href="{{ path('blogs_list', {'language': 'all', 'location': location}) }}">{% trans from "bloginy" %}All languages{% endtrans %}</a></li>
     {% for lang in languages|keys %}

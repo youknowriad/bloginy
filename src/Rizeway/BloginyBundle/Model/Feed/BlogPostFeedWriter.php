@@ -39,19 +39,25 @@ class BlogPostFeedWriter extends ContainerAwareFeedWriter {
 
     public function addPost(BlogPost $post) 
     {
-        $entry = $this->writer->createEntry();
-        $entry->setTitle($post->getTitle());
-        $entry->setLink($this->container->get('router')->generate('blog_post_show', array('slug' => $post->getSlug()), true));
-        $entry->addAuthor(array(
-            'name'  => $post->getBlog()->getTitle(),
-            'uri'   => $this->container->get('router')->generate('blog_show', array('slug' => $post->getBlog()->getSlug()), true),
-        ));
-        $entry->setDateModified($post->getCreatedAt()->getTimestamp());
-        $entry->setDateCreated($post->getCreatedAt()->getTimestamp());
-        $entry->setDescription($post->getResume() ? $post->getResume() : 'no description');
-        $entry->setContent($post->getResume() ? $post->getResume() : 'no content');
-        
-        $this->writer->addEntry($entry);
+        $item = $this->writer->add( 'item' );
+        $item->title = htmlspecialchars($post->getTitle());
+        $item->description = htmlspecialchars($post->getResume() ? $post->getResume() : 'no content');
+        $item->published = $post->getCreatedAt();
+        $item->updated = $post->getCreatedAt();
+        $url = $this->container->get('router')->generate('blog_post_details', array('slug' => $post->getSlug()), true);
+        $item->id = $url;
+
+        $author = $item->add('author');
+        $author->name = isset($options['author_name']) ? $options['author_name'] : $this->container->getParameter('bloginy.title');
+        $author->email = isset($options['author_email']) ? $options['author_email'] : $this->container->getParameter('bloginy.email');
+
+        $link = $item->add( 'link' );
+        $link->href = $url;
+        $link->rel = 'alternate';
+
+        $link = $item->add( 'link' );
+        $link->href = $url;
+        $link->rel = 'self';
     }
 
 }

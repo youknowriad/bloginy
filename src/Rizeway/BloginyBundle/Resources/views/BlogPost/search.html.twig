@@ -1,5 +1,7 @@
 {% extends "BloginyBundle::layout.html.twig" %}
 
+{% block title %}Bloginy : {% trans from "bloginy" %}Search posts{% endtrans %}{% endblock %}
+
 {% block js %}
     {{ parent() }}
     <script src="{{ asset('bundles/bloginy/js/BloginyPager.js') }}"></script>
@@ -8,9 +10,13 @@
 {% block body %}
 
     <div id="posts-list">
-        {% include "BloginyBundle:BlogPost:list_ajax.html.twig" with {'posts': posts, 'show_pager': show_pager, 'from': from} %}
+        {% render "BloginyBundle:BlogPost:searchPosts" with {'filter': filter} %}
     </div>
 
+{% endblock %}
+
+{% block search %}
+    {% include "BloginyBundle:BlogPost:_search_form.html.twig" with {'value': filter} %}
 {% endblock %}
 
 {% block sidebar_left %}

@@ -1,15 +1,10 @@
-{% extends "BloginyBundle::layout_without_sidebar.html.twig" %}
+{% extends "BloginyBundle::layout.html.twig" %}
 
 {% block title %}Bloginy : {% trans from "bloginy" %}Search blogs{% endtrans %}{% endblock %}
 
 {% block js %}
     {{ parent() }}
-    <script src="{{ asset('js/bundles/bloginy/utils/bloginyPager.js') }}"></script>
-    <script src="{{ asset('js/bundles/bloginy/post/PostHandler.js') }}"></script>
-{% endblock %}
-
-{% block mainmenu %}
-    {% render "BloginyBundle:Utils:mainMenu" with {"current":"blogs"} %}
+    <script src="{{ asset('bundles/bloginy/js/BloginyPager.js') }}"></script>
 {% endblock %}
 
 {% block body %}

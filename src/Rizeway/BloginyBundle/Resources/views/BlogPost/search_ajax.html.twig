@@ -3,5 +3,5 @@
 {% endfor %}
 
 {% if show_pager %}
-    {% include "BloginyBundle:BlogPost:pager.html.twig" with {'route' : 'blog_posts_list', 'params' : {'from': from}} %}
+    {% include "BloginyBundle:BlogPost:pager.html.twig" with {'route' : 'blog_post_search_list', 'params' : {'page': page, 'filter': filter}} %}
 {% endif %}

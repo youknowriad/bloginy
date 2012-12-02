@@ -16,6 +16,8 @@
     <link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700|Voltaire' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     <meta charset="UTF-8" />
+
+    {% block head %}{% endblock %}
        
    <!--[if IE]>
         <script src="{{ asset('bundles/rizewayui/js/fix/html5shiv.js') }}"></script>
@@ -40,15 +42,17 @@
                 {% include "RizewayDyalnaUIBundle:Utils:_dyalna_header.html.twig" %}
             </div>
         </div>
-        <div class="center">
-            <header>
+        <header>
+            <div class="center">
                 {% block logo %}{% endblock %}
                 
                 <div id="search">
                     {% block search %}{% endblock %}
-                </div>    
-            </header>
+                </div>   
+            </div> 
+        </header>
             
+        <div class="center">
             <div class="content">
                 {% block content %}
                 {% endblock %}  

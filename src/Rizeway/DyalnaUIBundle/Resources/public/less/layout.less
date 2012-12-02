@@ -1,5 +1,5 @@
 @text-color: #222;
-@first-background-color: #f7f7f7;
+@first-background-color: #F3F3F3;
 @border-color: #999;
 
 @color: #881f31;
@@ -45,7 +45,18 @@ h2 {
     margin: 10px 0 5px;
 }
 
+ul {
+    list-style: square;
+    list-style-position: inside;
+    margin-bottom: 10px;
+    li {
+        line-height: 25px;
+        text-align: justify;
+    }
+}
+
 p {
+    margin-bottom: 10px;
     line-height: 25px;
     text-align: justify;
 }
@@ -54,6 +65,7 @@ p {
     width: 1000px;
     margin: auto;
     text-align: left;
+    position: relative;
 }
 
 
@@ -133,6 +145,8 @@ p {
     }
 
     select {
+        line-height: 20px;
+        height: 30px;
         border: 1px solid @color3;
         background: @first-background-color;
         margin-bottom: 5px;
@@ -369,10 +383,12 @@ header {
 /* ----------- Search Form ------------------------------------------ */
 #search {
     position: absolute;
-    left: 350px;
+    left: 300px;
     top: 30px;
 
     input {
+        font-family: Signika Negative, arial;
+        font-size: 10pt;
         background: url(../images/loupe.png)  no-repeat @first-background-color  320px;
         height: 30px;
         width: 300px;
@@ -381,11 +397,13 @@ header {
         padding-left: 10px;
         color: #858b8c;
         padding-right: 35px;
+        font-weight: 300;
+        text-shadow: none;
     }
 }
 
 .ar_DZ #search {
-    right: 350px;
+    right: 300px;
     left: auto;
 
     input {

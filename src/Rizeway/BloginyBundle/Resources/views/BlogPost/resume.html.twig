@@ -1,4 +1,6 @@
 <div id="post-resume-{{ post.id }}" class="post {{ class }}">
+    {% include "BloginyBundle:BlogPost:_metadata.html.twig" with {'post': post} %}
+
     <h2 {% if is_arabic(post.title) %}dir="rtl"{% else %}dir="ltr"{% endif %}><a href="{{ post.link }}">{{post.shortTitle}}</a></h2>
 
     <div class="post-content">

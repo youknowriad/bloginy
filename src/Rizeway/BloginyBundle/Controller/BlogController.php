@@ -40,7 +40,7 @@ class BlogController extends Controller
 {
     public function listAction($location = 'all', $language = 'all', $page = 1)
     {
-        $blogs = $this->get('doctrine')->getEntityManager()
+        $blogs = $this->get('doctrine')->getManager()
             ->getRepository('BloginyBundle:Blog')
             ->findTop($location, $language, $page, $this->container->getParameter('bloginy.blog.max_results'));
        
@@ -70,7 +70,7 @@ class BlogController extends Controller
 
             if ($form->isValid()) {
 
-                $slugGenerator = new SlugGenerator($this->get('doctrine')->getEntityManager()->getRepository('BloginyBundle:Blog'));
+                $slugGenerator = new SlugGenerator($this->get('doctrine')->getManager()->getRepository('BloginyBundle:Blog'));
                 $blog->setSlug($slugGenerator->generateUniqueSlug($blog->getTitle()));
                 
                 // Detect the language           
@@ -79,8 +79,8 @@ class BlogController extends Controller
                 $text = (strlen($blog->getDescription()) > 20 ) ? $blog->getDescription() : $blog->getTitle();
                 $blog->setLanguage($detector->detect($text, $languages));
                 
-                $this->get('doctrine')->getEntityManager()->persist($blog);
-                $this->get('doctrine')->getEntityManager()->flush();
+                $this->get('doctrine')->getManager()->persist($blog);
+                $this->get('doctrine')->getManager()->flush();
 
                 // Send the activation mail
                 $mail = new BlogPropositionMail(array('blog' => $blog));
@@ -132,7 +132,7 @@ class BlogController extends Controller
 
     public function showAction($slug)
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
 
         // Get  The Blog
         $blog = $em->getRepository('BloginyBundle:Blog')->customFindOneBy(array('slug' => $slug));
@@ -148,7 +148,7 @@ class BlogController extends Controller
 
     public function postsAction($slug, $from = 'none')
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
 
         // Get  The Blog
         $blog = $em->getRepository('BloginyBundle:Blog')->customFindOneBy(array('slug' => $slug));
@@ -162,7 +162,7 @@ class BlogController extends Controller
         if ($from !== 'none') {
             $date->setTimestamp($from);
         }
-        $posts = $this->get('doctrine')->getEntityManager()
+        $posts = $this->get('doctrine')->getManager()
             ->getRepository('BloginyBundle:BlogPost')
             ->findForBlog($blog, $date, $this->container->getParameter('bloginy.post.max_results'));
         
@@ -179,7 +179,7 @@ class BlogController extends Controller
 
     public function thumbnailAction($slug)
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
 
         // Get  The Blog
         $blog = $em->getRepository('BloginyBundle:Blog')->customFindOneBy(array('slug' => $slug));
@@ -195,7 +195,7 @@ class BlogController extends Controller
 
     public function googleRankingAction($slug)
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
 
         // Get  The Blog
         $blog = $em->getRepository('BloginyBundle:Blog')->customFindOneBy(array('slug' => $slug));
@@ -211,7 +211,7 @@ class BlogController extends Controller
 
     public function alexaRankingAction($slug)
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
 
         // Get  The Blog
         $blog = $em->getRepository('BloginyBundle:Blog')->customFindOneBy(array('slug' => $slug));
@@ -228,7 +228,7 @@ class BlogController extends Controller
     
     public function dailyBlogAction()
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
         
         // Get The Daily Blog
         $blog = $em->getRepository('BloginyBundle:Blog')->findDailyBlog();
@@ -238,32 +238,32 @@ class BlogController extends Controller
     
     public function lastAction()
     {
-        $blogs = $this->get('doctrine')->getEntityManager()
+        $blogs = $this->get('doctrine')->getManager()
             ->getRepository('BloginyBundle:Blog')
             ->findLast($this->container->getParameter('bloginy.blog.sidebar.max_results'));
        
         return $this->render('BloginyBundle:Blog:last.html.twig',array('blogs' => $blogs));
     }
-    
-  public function searchAction()
-  {
-      $filter = $this->getRequest()->get('filter');
+
+    public function searchAction()
+    {
+        $filter = $this->getRequest()->get('filter');
      
-      return $this->render('BloginyBundle:Blog:search.html.twig', array('filter'  => $filter));
-  }
-  
-  public function searchBlogsAction($filter, $page = 1)
-  {
-      $em = $this->getDoctrine()->getEntityManager();
-      $blogs = $em->getRepository('BloginyBundle:Blog')
+        return $this->render('BloginyBundle:Blog:search.html.twig', array('filter'  => $filter));
+    }
+
+    public function searchBlogsAction($filter, $page = 1)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $blogs = $em->getRepository('BloginyBundle:Blog')
             ->search($filter, $page, $this->container->getParameter('bloginy.blog.max_results'));
-       
-      return $this->render('BloginyBundle:Blog:search_ajax.html.twig',
+
+        return $this->render('BloginyBundle:Blog:search_ajax.html.twig',
             array(
                 'blogs' => $blogs,
                 'filter' => $filter,
                 'show_pager' => (count($blogs) == $this->container->getParameter('bloginy.blog.max_results')),
                 'page' => $page + 1
             ));
-  }
+    }
 }

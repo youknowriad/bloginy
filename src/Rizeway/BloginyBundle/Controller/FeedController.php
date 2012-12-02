@@ -34,7 +34,7 @@ class FeedController extends Controller
 {   
     public function blogPostsAction()
     {
-        $em = $this->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getManager();
 
         $posts = $em->getRepository('BloginyBundle:BlogPost')
             ->findFrom(new \DateTime(), $this->container->getParameter('bloginy.feed.max_results'));
@@ -47,7 +47,7 @@ class FeedController extends Controller
     
     public function topBlogsAction($location = 'all', $language = 'all')
     {
-        $blogs = $this->get('doctrine')->getEntityManager()
+        $blogs = $this->get('doctrine')->getManager()
             ->getRepository('BloginyBundle:Blog')
             ->findTop($location, $language, 1, $this->container->getParameter('bloginy.blog.max_results'));
        

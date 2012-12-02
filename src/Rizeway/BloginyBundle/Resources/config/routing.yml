@@ -3,6 +3,8 @@ switch_language:
     defaults: {_controller: BloginyBundle:Utils:switchLanguage}
 
 
+
+
 blog_posts_list:
     pattern: /blog_post/list/{from}
     defaults: {_controller: BloginyBundle:BlogPost:list, from: 'none'}
@@ -14,6 +16,12 @@ blog_post_details:
 blog_post_search:
     pattern: /blog_post/search/
     defaults: {_controller: BloginyBundle:BlogPost:search}
+
+blog_post_search_list:
+    pattern: /blog/search_list/{filter}/{page}
+    defaults: {_controller: BloginyBundle:BlogPost:searchPosts, page: 1}
+
+
 
 
 blogs_list:
@@ -54,14 +62,17 @@ blog_search:
 
 blog_search_list:
     pattern: /blog/search_list/{filter}/{page}
-    defaults: {_controller: BloginyBundle:Blog:searchPosts, page: 1}
+    defaults: {_controller: BloginyBundle:Blog:searchBlogs, page: 1}
 
+feed_index:
+    pattern: /feed/
+    defaults: {_controller: BloginyBundle:Feed:blogPosts, _format: rss}
 
 feed_blog_posts:
     pattern: /feed/blog_post/
-    defaults: {_controller: BloginyBundle:Feed:blogPosts}
+    defaults: {_controller: BloginyBundle:Feed:blogPosts, _format: rss}
 
 feed_top_blogs:
     pattern: /feed/blog/{location}/{language}
-    defaults: {_controller: BloginyBundle:Feed:topBlogs, location: 'all', language: 'all'}
+    defaults: {_controller: BloginyBundle:Feed:topBlogs, location: 'all', language: 'all', _format: rss}
 

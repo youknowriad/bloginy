@@ -1,5 +1,12 @@
 {% extends "RizewayDyalnaUIBundle::layout.html.twig" %}
 
+
+{% block title %}Bloginy : {% trans from "bloginy" %}Blog Aggregator{% endtrans %}{% endblock %}
+
+{% block head %}
+    <link rel="alternate" type="application/rss+xml" title="Bloginy : {% trans from "bloginy" %}Blog Aggregator{% endtrans %}" href="{{ url('feed_index') }}" />
+{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet/less" href="{{ asset('bundles/bloginy/less/bloginy.less') }}" />
@@ -15,12 +22,6 @@
 
 {% block content %}
     
-    <div id="menu">
-        {% block main_menu %}
-            {% render "BloginyBundle:Utils:mainMenu" %}
-        {% endblock %}
-    </div>
-
     <div style="overflow: hidden">
         <div id="sidebar-left">
             {% block sidebar_left %}
@@ -30,8 +31,8 @@
 
         <div id="sidebar-right" class="sidebar">
             {% block sidebar_right %}
-                {% include "BloginyBundle:Blog:propose_button.html.twig" %}
                 {% render "BloginyBundle:Blog:dailyBlog" %}
+                {% include "BloginyBundle:Blog:propose_button.html.twig" %}
                 {% render "BloginyBundle:Blog:last" %}
             {% endblock %}  
         </div>

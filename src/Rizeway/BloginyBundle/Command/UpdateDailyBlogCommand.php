@@ -41,7 +41,7 @@ class UpdateDailyBlogCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output) {
 
         $output->writeln('<info>Refreshing the daily blog ...</info>');
-        $updater = new DailyBlogUpdater($this->getContainer()->get('doctrine')->getEntityManager());
+        $updater = new DailyBlogUpdater($this->getContainer()->get('doctrine')->getManager());
         $blog = $updater->updateDailyBlog();
         if ($blog)
         {

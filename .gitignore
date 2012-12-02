@@ -7,4 +7,3 @@ vendor
 composer.phar
 
 !vendor/ArPHP
-!vendor/Zend
