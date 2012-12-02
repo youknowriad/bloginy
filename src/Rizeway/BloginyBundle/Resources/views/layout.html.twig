@@ -21,6 +21,15 @@
 {% block logo %}<a id="logo" href="{{ path('homepage') }}">Bloginy</a>{% endblock %}
 
 {% block content %}
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=416046911798994";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     
     <div style="overflow: hidden">
         <div id="sidebar-left">
@@ -34,6 +43,8 @@
                 {% render "BloginyBundle:Blog:dailyBlog" %}
                 {% include "BloginyBundle:Blog:propose_button.html.twig" %}
                 {% render "BloginyBundle:Blog:last" %}
+                <div class="separator-top">&nbsp;</div>
+                <div class="fb-like-box" data-href="http://www.facebook.com/blogagregator" data-width="190" data-height="315" data-show-faces="true" data-stream="false" data-header="false"></div>
             {% endblock %}  
         </div>
         
