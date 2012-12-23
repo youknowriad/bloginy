@@ -73,12 +73,6 @@ class BlogController extends Controller
                 $slugGenerator = new SlugGenerator($this->get('doctrine')->getManager()->getRepository('BloginyBundle:Blog'));
                 $blog->setSlug($slugGenerator->generateUniqueSlug($blog->getTitle()));
                 
-                // Detect the language           
-                $detector = $this->container->get('bloginy.language_detector');
-                $languages = $this->container->getParameter('bloginy.post.language');
-                $text = (strlen($blog->getDescription()) > 20 ) ? $blog->getDescription() : $blog->getTitle();
-                $blog->setLanguage($detector->detect($text, $languages));
-                
                 $this->get('doctrine')->getManager()->persist($blog);
                 $this->get('doctrine')->getManager()->flush();
 

@@ -1,10 +1,8 @@
 Rizeway\BloginyBundle\Entity\Blog:
 
     constraints:
-        - Rizeway\ExtraFrameworkBundle\Validator\Constraints\Unique:
-             property: title
-        - Rizeway\ExtraFrameworkBundle\Validator\Constraints\Unique:
-             property: url
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: title
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: url
 
     properties:
         title:
@@ -32,7 +30,7 @@ Rizeway\BloginyBundle\Entity\Blog:
                 message : 'The Feed url should not be blank'
             - Url:
                 message : 'The Feed url is invalid'
-                
+
 Rizeway\BloginyBundle\Entity\Post:
 
     properties:

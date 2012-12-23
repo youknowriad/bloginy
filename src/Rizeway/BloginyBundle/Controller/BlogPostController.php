@@ -29,7 +29,7 @@ use Rizeway\BloginyBundle\Model\Utils\VoteRetriever;
 
 class BlogPostController extends Controller
 {
-    public function listAction($from = 'none')
+    public function listAction($from = 'none', $language = 'all')
     {
         $em = $this->get('doctrine')->getManager();
 
@@ -38,7 +38,7 @@ class BlogPostController extends Controller
             $date->setTimestamp($from);
         }
         $posts = $em->getRepository('BloginyBundle:BlogPost')
-            ->findFrom($date, $this->container->getParameter('bloginy.post.max_results'));
+            ->findFromForLanguage($date, $language, $this->container->getParameter('bloginy.post.max_results'));
         $last_post = (!\is_null($posts) && \count($posts))? \end($posts) : null;
 
         // Votes
@@ -53,6 +53,7 @@ class BlogPostController extends Controller
 
         return $this->render($view,
             array(
+                'language' => $language,
                 'votes' => $votes,
                 'posts' => $posts,
                 'show_pager' => (count($posts) == $this->container->getParameter('bloginy.post.max_results')),
@@ -105,5 +106,15 @@ class BlogPostController extends Controller
                 'show_pager' => (count($posts) == $this->container->getParameter('bloginy.post.max_results')),
                 'page' => $page + 1
             ));
+    }
+
+    public function languageFilterAction($language = 'all')
+    {
+        $languages = $this->container->getParameter('bloginy.post.language');
+
+        return $this->render('BloginyBundle:BlogPost:_language_filter.html.twig', array(
+            'languages' => $languages,
+            'language' => $language
+        ));
     }
 }

@@ -1,0 +1,8 @@
+<ul id="languages" class="menu-vertical">
+    <li {% if language == 'all' %}class="current"{% endif %}><a href="{{ path('blog_posts_list', {'language': 'all'}) }}">{% trans from "bloginy" %}All languages{% endtrans %}</a></li>
+    {% for lang in languages|keys %}
+        <li {% if language == lang %}class="current"{% endif %}>
+            <a href="{{ path('blog_posts_list', {'language': lang}) }}" title="{{ languages[lang] }}">{{ languages[lang]|trans({},"bloginy") }}</a>
+        </li>
+    {% endfor %}
+</ul>

@@ -15,4 +15,5 @@
 
 {% block sidebar_left %}
     {% render "BloginyBundle:Utils:mainMenu" with {"current": "aggregator"} %}
+    {% render "BloginyBundle:BlogPost:languageFilter" with {'language': language} %}
 {% endblock %}

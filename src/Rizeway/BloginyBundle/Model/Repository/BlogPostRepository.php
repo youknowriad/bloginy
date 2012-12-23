@@ -95,6 +95,22 @@ class BlogPostRepository extends EntityRepository
         return $qb;
     }
 
+
+    /**
+    * find the posts from published after $date
+    *
+    * @param DateTime $date
+    * @param string $language
+    * @param integer $max_results
+    * @return Rizeway\BloginyBundle\Entity\BlogPost[]
+    */
+    public function findFromForLanguage(\DateTime $date, $language = 'all', $max_results = null,  QueryBuilder $qb = null)
+    {
+        $qb = is_null($qb) ? $this->getBaseQueryBuilder() : $qb;
+        $qb = $this->getLanguageQueryBuilder($language, $qb);
+
+        return $this->findFrom($date, $max_results, $qb);
+    }
     /**
     * find the posts from published after $date
     *
@@ -103,7 +119,8 @@ class BlogPostRepository extends EntityRepository
     * @return Rizeway\BloginyBundle\Entity\BlogPost[]
     */
     public function findFrom(\DateTime $date, $max_results = null,  QueryBuilder $qb = null)
-    {
+    {        
+        $qb = is_null($qb) ? $this->getBaseQueryBuilder() : $qb;
         $qb = $this->getPublishedAtQueryBuilder($date, Operators::OPERATOR_LESS_THAN, $qb);
         $qb->addOrderBy('blog_post.published_at', 'DESC');
 
@@ -150,6 +167,26 @@ class BlogPostRepository extends EntityRepository
         return $qb;
     }
 
+    /**
+     * Get the query builder for the language filter
+     *
+     * @param string $language
+     * @param QueryBuilder $qb
+     * @return QueryBuilder
+     */
+    public function getLanguageQueryBuilder($language = 'all', QueryBuilder $qb = null)
+    {
+        $qb = is_null($qb) ? $this->getBaseQueryBuilder() : $qb;
+        if ($language != 'all')
+        {
+            $where = is_null($qb->getDQLPart('where')) ? 'where' : 'andWhere';
+            $qb->$where('blog_post.language = :language');
+            $qb->setParameter('language', $language);
+        }
+
+        return $qb;
+    }
+    
     /**
      * Get the query builder with a blog filter
      *     

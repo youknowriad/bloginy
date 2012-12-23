@@ -11,9 +11,6 @@
         {% include "BloginyBundle:BlogPost:_metadata.html.twig" with {'post': post} %}
 
         <h1 {% if is_arabic(post.title) %}dir="rtl"{% else %}dir="ltr"{% endif %}><a href="{{ post.link }}">{{post.title}}</a></h1>
-        <div class="details_bar">
-            <span>{{ post.createdAt|date('Y-m-d H:i:s') }}</span>
-        </div>
 
         <p {% if is_arabic(post.resume) %}dir="rtl"{% else %}dir="ltr"{% endif %}>{{ post.content|raw }}</p>
 

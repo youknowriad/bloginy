@@ -6,8 +6,8 @@ switch_language:
 
 
 blog_posts_list:
-    pattern: /blog_post/list/{from}
-    defaults: {_controller: BloginyBundle:BlogPost:list, from: 'none'}
+    pattern: /blog_post/list/{from}/{language}
+    defaults: {_controller: BloginyBundle:BlogPost:list, from: 'none', language: 'all'}
 
 blog_post_details:
     pattern: /blog_post/details/{slug}

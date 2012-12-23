@@ -74,7 +74,7 @@ class BlogPostsUpdater
         $this->entity_manager = $entity_manager;
         $this->feed_parser = $feed_parser;
         $this->language_detector = $language_detector;
-        $this->available_langugages = \array_keys($available_languages);
+        $this->available_langugages = $available_languages;
     }
 
     public function setOutputInterface(OutputInterface $output)
@@ -110,10 +110,11 @@ class BlogPostsUpdater
         {
            if (\is_null($blog->getPostsUpdatedAt()) || $blog->getPostsUpdatedAt() < $post->getPublishedAt() )
            {
-               $text = (strlen($post->getResume()) > 20 ) ? $post : $post->getTitle();
+               $text = (strlen($post->getResume()) > 20 ) ? $post->getResume() : $post->getTitle();
                $post->setLanguage($this->language_detector->detect($text, $this->available_langugages));
                $post->setBlog($blog);
                $post->setSlug($this->getSlugGenerator()->generateUniqueSlug($post->getTitle()));
+
                $this->entity_manager->persist($post);
                $count++;
            }

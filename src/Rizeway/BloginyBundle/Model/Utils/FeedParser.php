@@ -48,8 +48,8 @@ class FeedParser
             if (\strlen($title) && \strlen($content))
             {
               $post = new BlogPost();
-              $post->setTitle($title);
-              $post->setContent($content);
+              $post->setTitle(html_entity_decode($title));
+              $post->setContent(html_entity_decode($content));
               $post->setLink($item->get_permalink());
               $post->setPublishedAt(new \DateTime($item->get_date()));
 
