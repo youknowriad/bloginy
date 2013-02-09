@@ -78,7 +78,7 @@ class BlogController extends Controller
 
                 // Send the activation mail
                 $mail = new BlogPropositionMail(array('blog' => $blog));
-                //$mail->send($this->get('mailer'), $this->get('templating'));
+                $mail->send($this->get('mailer'), $this->get('templating'));
 
                 // Redirect
                 return new RedirectResponse($this->generateUrl('blog_proposed', array('slug' => $blog->getSlug())));

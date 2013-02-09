@@ -36,7 +36,7 @@ abstract class BaseMail {
     /**
      * @var string $to
      */
-    protected $to = 'contact@bloginy.com';
+    protected $to = 'bloginy@rizeway.com';
 
     /*
      * @var string $content_type

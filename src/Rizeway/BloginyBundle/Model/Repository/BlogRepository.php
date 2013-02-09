@@ -137,6 +137,7 @@ class BlogRepository extends EntityRepository
     public function findLast($max_results)
     {
         $qb = $this->getBaseQueryBuilder();
+        $qb = $this->getApprovedQueryBuilder(1, $qb);
         $qb->orderBy('blog.created_at', 'DESC');
         
         return $this->findForQueryBuilder(1, $max_results, $qb);

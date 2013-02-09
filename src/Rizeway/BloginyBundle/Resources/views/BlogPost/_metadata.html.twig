@@ -5,5 +5,5 @@
 
     <a href="{{ path('blog_show', {'slug': post.blog.slug}) }}" class="source" title="Source de l'article : {{ post.blog.title }}"><span class="small-icon home-icon"></span></a>
 
-    <a href="{{ path('blog_post_details', {'slug' : post.slug}) }}" class="time" title="Publié le {{ post.publishedAt|date('d/m/Y') }} à {{ post.createdAt|date('h:i') }}"><span class="small-icon time-icon"></span></a>
+    <a href="{{ path('blog_post_details', {'slug' : post.slug}) }}" class="time" title="Publié le {{ post.publishedAt|date('d/m/Y') }} à {{ post.publishedAt|date('H:i') }}"><span class="small-icon time-icon"></span></a>
 </div>
