@@ -18,7 +18,11 @@
     <script src="{{ asset('bundles/bloginy/js/menu.js') }}"></script>
 {% endblock %}
 
-{% block logo %}<a id="logo" href="{{ path('homepage') }}">Bloginy</a>{% endblock %}
+{% block logo %}<a href="{{ path('homepage') }}">Bloginy</a>{% endblock %}
+
+{% block dyalna_header %}
+    {% include "RizewayDyalnaUIBundle:Utils:_dyalna_header.html.twig" with {'current':'bloginy'} %}
+{% endblock %}
 
 {% block content %}
 
@@ -37,9 +41,11 @@
             {% endblock %}
         </div>
 
-
         <div id="sidebar-right" class="sidebar">
             {% block sidebar_right %}
+                {% block search %}
+                    {% include "BloginyBundle:BlogPost:_search_form.html.twig" %}
+                {% endblock %}
                 {% render "BloginyBundle:Blog:dailyBlog" %}
                 {% include "BloginyBundle:Blog:propose_button.html.twig" %}
                 {% render "BloginyBundle:Blog:last" %}
@@ -55,11 +61,6 @@
     </div>
 
 {% endblock %}
-
-{% block search %}
-    {% include "BloginyBundle:BlogPost:_search_form.html.twig" %} 
-{% endblock %}
-
 
 {% block footer %}
     {% include "BloginyBundle:Utils:_footer.html.twig" %} 

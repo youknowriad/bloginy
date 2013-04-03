@@ -1,9 +1,26 @@
 {
-    "name": "symfony/framework-standard-edition",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "name": "rizeway/bloginy",
+    "description": "Agrégateur de blogs",
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "dyalna/ui-bundle",
+                "version": "dev-master",
+                "source": {
+                    "url": "git@bitbucket.org:riad/dyalna-ui-bundle.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "psr-0": { "Rizeway\\DyalnaUIBundle": "" }
+                }
+            }
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
@@ -20,10 +37,10 @@
         "jms/di-extra-bundle": "1.1.*",
         "kriswallsmith/assetic": "1.1.*@dev",
 
-
         "simplepie/simplepie": "dev-master",
         "zetacomponents/feed": "1.3",
-        "zetacomponents/base": "1.8"
+        "zetacomponents/base": "1.8",
+        "dyalna/ui-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
@@ -39,6 +56,10 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web"

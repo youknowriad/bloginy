@@ -48,6 +48,7 @@
 {% endblock %}
 
 {% block sidebar_right %}
+    {% include "BloginyBundle:Blog:search_form.html.twig" %}
     <div class="sidebar_block">
         <h4 class="simple-sidebar-title">Google</h4>
         <div class="sidebar-block google_ranking sidebar_loading"><img src="{{ asset('bundles/bloginy/images/ajax-loader.gif') }}" alt="loading blog thumbnail" /></div>
@@ -64,11 +65,6 @@
     </script>
     
     {% include "BloginyBundle:Blog:propose_button.html.twig" %}
-{% endblock %}
-
-
-{% block search %}
-    {% include "BloginyBundle:Blog:search_form.html.twig" %}
 {% endblock %}
 
 {% block sidebar_left %}

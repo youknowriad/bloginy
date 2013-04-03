@@ -1,3 +1,3 @@
-<form method="get" action="{{ path('blog_post_search') }}">
+<form id="search-form" method="get" action="{{ path('blog_post_search') }}">
     <input type="text" name="filter" placeholder="{% trans from 'bloginy' %}Search posts{% endtrans %}" {% if value is defined %}value="{{ value }}"{% endif %} />
 </form>
