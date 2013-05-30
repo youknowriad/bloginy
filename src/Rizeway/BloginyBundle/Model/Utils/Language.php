@@ -23,45 +23,24 @@ namespace Rizeway\BloginyBundle\Model\Utils;
 
 class Language
 {
-    protected $language = 'fr_FR';
+    protected $language = 'fr';
 
     public function getLanguage()
     {
         return $this->language;
     }
 
-    public function getLocale()
-    {
-        $languages = $this->getAvailableLanguages();
-        
-        return $languages[$this->language]['locale'];
-    }
-
     public function setLanguage($language)
     {
-        $language = \substr($language, 0, 2);
-        $languages = $this->getAvailableLanguages();
-        if (isset($languages[$language]))
-        {
-            $this->language = $language;
-        }
+        $this->language = $language;
     }
     
     public function getAvailableLanguages()
     {
         return array(
-            'ar' => array('locale' => 'ar_DZ', 'label' => 'Arabic'),
-            'fr'=> array('locale' => 'fr_FR' ,'label' => 'French'),
-            'en'=> array('locale' => 'en_US', 'label' => 'English'));
-    }
-    
-    public function getLocaleChoices() {
-        $array  = array();
-        foreach ($this->getAvailableLanguages() as $lang)
-        {
-            $array[$lang['locale']] = $lang['label'];
-        }
-        
-        return $array;
+            'ar' => 'Arabic',
+            'fr'=> 'French',
+            'en' => 'English'
+        );
     }
 }

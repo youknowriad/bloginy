@@ -1,0 +1,15 @@
+<div id="switch-locale">
+    <a href="{{ path('switch_language', {'language': app.request.locale, 'refer': refer}) }}" class="current">{{ app.request.locale|upper }}</a>
+
+    {% for lang in availableLanguages|keys %}
+        {% if app.request.locale != lang %}
+            <a href="{{ path('switch_language', {'language':lang, 'refer': refer}) }}">
+                {{ lang|upper }}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<script>
+    new SwitchLocale($('#switch-locale'));
+</script>

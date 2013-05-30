@@ -1,4 +1,8 @@
 {
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
     "hash": "852f09a5c1ffab6a108f07fe4644cce7",
     "packages": [
         {
@@ -281,7 +285,7 @@
                     "Rizeway\\DyalnaUIBundle": ""
                 }
             },
-            "time": "2013-04-02 14:11:33"
+            "time": "2013-05-30 09:26:54"
         },
         {
             "name": "jms/aop-bundle",

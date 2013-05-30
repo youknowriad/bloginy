@@ -16,10 +16,14 @@
     {{ parent() }}
     <script src="{{ asset('bundles/bloginy/js/jquery.color.js') }}"></script>
     <script src="{{ asset('bundles/bloginy/js/menu.js') }}"></script>
+    <script src="{{ asset('bundles/rizewaydyalnaui/js/utils/switch-locale.js') }}"></script>
 {% endblock %}
 
 {% block logo %}<a href="{{ path('homepage') }}">Bloginy</a>{% endblock %}
-{% block slogan %}Agrégateur de blogs Algériens{% endblock %}
+{% block slogan %}
+    {%  render "BloginyBundle:Utils:switchLocale" %}
+    <p>{% trans from "bloginy" %}Algerian Blog Aggregator{% endtrans %}</p>
+{% endblock %}
 
 {% block dyalna_header %}
     {% include "RizewayDyalnaUIBundle:Utils:_dyalna_header.html.twig" with {'current':'bloginy'} %}

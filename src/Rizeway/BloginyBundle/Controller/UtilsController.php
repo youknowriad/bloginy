@@ -31,37 +31,47 @@ class UtilsController extends Controller
 {
     public function switchLanguageAction($language = null)
     {
-        // Get the referer
-        $refer = $this->get('request')->getUri();
-       
-        // Get the referer
-        $lang = new Language();
-        $lang->setLanguage(is_null($language)? $this->get('session')->get('_locale') : $language);
         if (!is_null($language)) {
-            $this->get('session')->set('_locale', $lang->getLocale());
-        }
+            $this->get('session')->set('_locale', $language);
 
-        if ($this->get('request')->get('refer'))
-        {
-           return  new RedirectResponse($this->get('request')->get('refer'));
+            return  new RedirectResponse($this->get('request')->get('refer'));
+        } elseif (is_null($this->get('session')->get('_locale'))) {
+            $lang = new Language();
+            $locale = $this->getRequest()->getPreferredLanguage(array_keys($lang->getAvailableLanguages()));
+            $this->get('session')->set('_locale', $lang);
+            $lang->setLanguage($locale);
+        } else {
+            $lang = new Language();
+            $lang->setLanguage($this->get('session')->get('_locale'));
         }
 
         return $this->render('BloginyBundle:Utils:switch_language.html.twig',
             array(
                 'language' => $lang->getLanguage(),
-                'refer' => $refer,
-                'availableLanguages' => $lang->getAvailableLanguages()));        
+                'refer' => $this->get('request')->getUri(),
+                'availableLanguages' => $lang->getAvailableLanguages()
+            ));
     }
 
     public function languageClassAction()
     {
         $class = sprintf('class="%s"', $this->get('session')->get('_locale'));
-        $direction = 'dir="'. (($this->get('session')->get('_locale') == 'ar_DZ') ? 'rtl' : 'ltr') .'"';
+        $direction = 'dir="'. (($this->get('session')->get('_locale') == 'ar') ? 'rtl' : 'ltr') .'"';
         return new Response($class.' '.$direction);
     }
 
     public function mainMenuAction($current = null)
     {
         return $this->render('BloginyBundle:Utils:main_menu.html.twig', array('current' => $current));
+    }
+
+    public function  switchLocaleAction()
+    {
+        $lang = new Language();
+        return $this->render('BloginyBundle:Utils:_switch_locale.html.twig',
+            array(
+                'availableLanguages' => $lang->getAvailableLanguages(),
+                'refer' => $this->getRequest()->getUri()
+            ));
     }
 }
