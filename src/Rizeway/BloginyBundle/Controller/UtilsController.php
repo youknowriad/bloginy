@@ -38,7 +38,7 @@ class UtilsController extends Controller
         } elseif (is_null($this->get('session')->get('_locale'))) {
             $lang = new Language();
             $locale = $this->getRequest()->getPreferredLanguage(array_keys($lang->getAvailableLanguages()));
-            $this->get('session')->set('_locale', $lang);
+            $this->get('session')->set('_locale', $locale);
             $lang->setLanguage($locale);
         } else {
             $lang = new Language();
