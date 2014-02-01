@@ -48,7 +48,7 @@ class UtilsController extends Controller
         return $this->render('BloginyBundle:Utils:switch_language.html.twig',
             array(
                 'language' => $lang->getLanguage(),
-                'refer' => $this->get('request')->getUri(),
+                'refer' => $this->get('request_stack')->getMasterRequest()->getUri(),
                 'availableLanguages' => $lang->getAvailableLanguages()
             ));
     }
@@ -71,7 +71,7 @@ class UtilsController extends Controller
         return $this->render('BloginyBundle:Utils:_switch_locale.html.twig',
             array(
                 'availableLanguages' => $lang->getAvailableLanguages(),
-                'refer' => $this->getRequest()->getUri()
+                'refer' => $this->get('request_stack')->getMasterRequest()->getUri()
             ));
     }
 }

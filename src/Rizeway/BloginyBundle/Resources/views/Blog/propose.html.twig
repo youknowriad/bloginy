@@ -76,5 +76,5 @@
 {% endblock %}
 
 {% block sidebar_left %}
-    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
+    {{ render(controller("BloginyBundle:Utils:mainMenu", {"current": "blogs"})) }}
 {% endblock %}

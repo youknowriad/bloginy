@@ -60,13 +60,13 @@ class BlogController extends Controller
     {
         $blog = new Blog();
 
-        $form = $this->get('form.factory')->create(new BlogProposeForm(), $blog, array(
+        $form = $this->createForm(new BlogProposeForm(), $blog, array(
           'location_choices' => \array_combine($this->container->getParameter('bloginy.blog.location'),
                 $this->container->getParameter('bloginy.blog.location')),
           'language_choices' => $this->container->getParameter('bloginy.blog.language')));
 
         if ('POST' === $this->get('request')->getMethod()) {
-            $form->bindRequest($this->get('request'));
+            $form->bind($this->get('request'));
 
             if ($form->isValid()) {
 

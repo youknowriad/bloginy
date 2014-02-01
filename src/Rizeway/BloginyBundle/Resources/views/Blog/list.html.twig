@@ -18,9 +18,9 @@
 
 
 {% block sidebar_left %}
-    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
-    {% render "BloginyBundle:Blog:locationFilter" with {'location': location, 'language': language} %}
-    {% render "BloginyBundle:Blog:languageFilter" with {'location': location, 'language': language} %}
+    {{ render(controller("BloginyBundle:Utils:mainMenu", {"current": "blogs"})) }}
+    {{ render(controller("BloginyBundle:Blog:locationFilter", {'location': location, 'language': language})) }}
+    {{ render(controller("BloginyBundle:Blog:languageFilter", {'location': location, 'language': language})) }}
 {% endblock %}
 
 {% block search %}

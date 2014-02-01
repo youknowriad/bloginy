@@ -19,5 +19,5 @@
 
 
 {% block sidebar_left %}
-    {% render "BloginyBundle:Utils:mainMenu" with {"current": "aggregator"} %}
+    {{ render(controller("BloginyBundle:Utils:mainMenu", {"current": "aggregator"})) }}
 {% endblock %}

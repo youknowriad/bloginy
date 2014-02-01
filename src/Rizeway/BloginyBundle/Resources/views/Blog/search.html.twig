@@ -10,7 +10,7 @@
 {% block body %}
 
     <div id="blogs-list">
-        {% render "BloginyBundle:Blog:searchBlogs" with {'filter': filter} %}
+        {{ render(controller( "BloginyBundle:Blog:searchBlogs", {'filter': filter})) }}
     </div>
 
 {% endblock %}
@@ -18,8 +18,8 @@
 {% block sidebarright %}
     <div id="sidebar-right" class="sidebar">
         {% include "BloginyBundle:Blog:propose_button.html.twig" %}
-        {% render "BloginyBundle:Blog:dailyBlog" %}
-        {% render "BloginyBundle:Blog:last" %}
+        {{ render(controller("BloginyBundle:Blog:dailyBlog")) }}
+        {{ render(controller("BloginyBundle:Blog:last")) }}
     </div>
 {% endblock %}
 
@@ -28,5 +28,5 @@
 {% endblock %}
 
 {% block sidebar_left %}
-    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
+    {{ render(controller( "BloginyBundle:Utils:mainMenu", {"current": "blogs"})) }}
 {% endblock %}

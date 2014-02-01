@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block mainmenu %}
-    {% render "BloginyBundle:Utils:mainMenu" with {'current': 'blogs'} %}
+    {{ render(controller("BloginyBundle:Utils:mainMenu", {'current': 'blogs'})) }}
 {% endblock %}
 
 {% block body %}
@@ -42,7 +42,7 @@
     </div>
 
     <div id="posts-list">
-      {% render "BloginyBundle:Blog:posts" with { "slug" : blog.slug } %}
+      {{ render(controller( "BloginyBundle:Blog:posts", { "slug" : blog.slug })) }}
     </div>
 
 {% endblock %}
@@ -68,5 +68,5 @@
 {% endblock %}
 
 {% block sidebar_left %}
-    {% render "BloginyBundle:Utils:mainMenu" with {"current": "blogs"} %}
+    {{ render(controller("BloginyBundle:Utils:mainMenu", {"current": "blogs"})) }}
 {% endblock %}

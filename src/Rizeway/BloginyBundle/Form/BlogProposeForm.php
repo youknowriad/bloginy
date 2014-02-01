@@ -23,6 +23,7 @@ namespace Rizeway\BloginyBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class BlogProposeForm extends AbstractType
 {
@@ -37,13 +38,13 @@ class BlogProposeForm extends AbstractType
         $builder->add('location', 'choice', array('choices' => $options['location_choices']));
     }
 
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array(
+        $resolver->setDefaults(array(
             'location_choices' => array(),
             'language_choices' => array(),
             'data_class' => 'Rizeway\BloginyBundle\Entity\Blog',
-        );
+        ));
     }
 
     public function getName()

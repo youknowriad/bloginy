@@ -21,7 +21,7 @@
 
 {% block logo %}<a href="{{ path('homepage') }}">Bloginy</a>{% endblock %}
 {% block slogan %}
-    {%  render "BloginyBundle:Utils:switchLocale" %}
+    {{ render(controller("BloginyBundle:Utils:switchLocale")) }}
     <p>{% trans from "bloginy" %}Algerian Blog Aggregator{% endtrans %}</p>
 {% endblock %}
 
@@ -51,9 +51,9 @@
                 {% block search %}
                     {% include "BloginyBundle:BlogPost:_search_form.html.twig" %}
                 {% endblock %}
-                {% render "BloginyBundle:Blog:dailyBlog" %}
+                {{ render(controller("BloginyBundle:Blog:dailyBlog")) }}
                 {% include "BloginyBundle:Blog:propose_button.html.twig" %}
-                {% render "BloginyBundle:Blog:last" %}
+                {{ render(controller("BloginyBundle:Blog:last")) }}
                 <div class="separator-top">&nbsp;</div>
                 <div class="fb-like-box" data-href="http://www.facebook.com/blogagregator" data-width="190" data-height="315" data-show-faces="true" data-stream="false" data-header="false"></div>
             {% endblock %}  
@@ -72,7 +72,7 @@
 {% endblock %}
 
 {% block body_class %}
-{% render "BloginyBundle:Utils:languageClass" %}
+{{ render(controller("BloginyBundle:Utils:languageClass")) }}
 {% endblock %}
 
 {% block analytics %}

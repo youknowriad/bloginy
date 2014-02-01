@@ -17,7 +17,7 @@
                 <a href="{{ path('blogs_list') }}" alt="{% trans from 'bloginy' %}Blogs{% endtrans %}">+ {% trans from "bloginy" %}Blogs{% endtrans %}</a>
             </div>
             
-            {% render "BloginyBundle:Utils:switchLanguage" %}
+            {{ render(controller("BloginyBundle:Utils:switchLanguage")) }}
 
             <div class="menu-footer">
                 <h3>{% trans from 'bloginy' %}Participate{% endtrans %}</h3>

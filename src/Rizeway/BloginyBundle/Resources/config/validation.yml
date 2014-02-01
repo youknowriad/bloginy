@@ -8,12 +8,11 @@ Rizeway\BloginyBundle\Entity\Blog:
         title:
             - NotBlank:
                 message : 'The title should not be blank'
-            - MinLength:
-                limit: 3
-                message : 'The title is too short (At least 3 characters)'
-            - MaxLength:
-                limit: 255
-                message : 'The title is too long (255 characters max)'
+            - Length:
+                min: 3
+                minMessage : 'The title is too short (At least 3 characters)'
+                max: 255
+                maxMessage : 'The title is too long (255 characters max)'
 
         description:
             - NotBlank:
@@ -30,92 +29,3 @@ Rizeway\BloginyBundle\Entity\Blog:
                 message : 'The Feed url should not be blank'
             - Url:
                 message : 'The Feed url is invalid'
-
-Rizeway\BloginyBundle\Entity\Post:
-
-    properties:
-        title:
-            - NotBlank:
-                message : 'The title should not be blank'
-            - MinLength:
-                limit: 3
-                message : 'The title is too short (At least 3 characters)'
-            - MaxLength:
-                limit: 255
-                message : 'The title is too long (255 characters max)'
-
-        content:
-            - NotBlank:
-                message : 'The content should not be blank'
-
-        link:
-            - Url:
-                message : 'The link is invalid'
-
-
-Rizeway\BloginyBundle\Entity\Page:
-    getters:
-        Valid:
-            - "True": { message: "The page must at least be defined by a tag, a user or a blog" }
-    properties:
-        name:
-            - NotBlank:
-                message : 'The name should not be blank'
-            - MinLength:
-                limit: 3
-                message : 'The name is too short (At least 3 characters)'
-            - MaxLength:
-                limit: 100
-                message : 'The name is too long (100 characters max)'
-
-Rizeway\BloginyBundle\Entity\Comment:
-    properties:
-        username:
-            - NotBlank:
-                message : 'The username should not be blank'
-            - MinLength:
-                limit: 3
-                message : 'The username is too short (At least 3 characters)'
-            - MaxLength:
-                limit: 100
-                message : 'The username is too long (100 characters max)'
-
-        comment:
-            - NotBlank:
-                message : 'The comment should not be blank'
-
-        web_site:
-            - Url:
-                message : 'The website is invalid'
-            - MinLength:
-                limit: 3
-                message : 'The website is too short (At least 3 characters)'
-            - MaxLength:
-                limit: 100
-                message : 'The website is too long (100 characters max)'
-
-        email:
-            - NotBlank:
-                message : 'The Email should not be blank'
-            - Email:
-                message : 'The Email is invalid'
-            - MinLength:
-                limit: 3
-                message : 'The Email is too short (At least 3 characters)'
-            - MaxLength:
-                limit: 100
-                message : 'The Email is too long (100 characters max)'
-
-Rizeway\BloginyBundle\Model\Utils\ChangePassword:
-
-    properties:
-
-        new_password:
-            - NotBlank:
-                message : 'The password should not be blank'
-            - MinLength:
-                limit: 6
-                message : 'The password is too short (At least 6 characters)'
-            - MaxLength:
-                limit: 32
-                message : 'The password is too long (32 characters max)'

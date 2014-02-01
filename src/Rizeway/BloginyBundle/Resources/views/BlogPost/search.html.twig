@@ -10,7 +10,7 @@
 {% block body %}
 
     <div id="posts-list">
-        {% render "BloginyBundle:BlogPost:searchPosts" with {'filter': filter} %}
+        {{ render(controller("BloginyBundle:BlogPost:searchPosts", {'filter': filter})) }}
     </div>
 
 {% endblock %}
@@ -20,5 +20,5 @@
 {% endblock %}
 
 {% block sidebar_left %}
-    {% render "BloginyBundle:Utils:mainMenu" with {"current": "aggregator"} %}
+    {{ render(controller("BloginyBundle:Utils:mainMenu", {"current": "aggregator"})) }}
 {% endblock %}
