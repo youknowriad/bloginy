@@ -83,7 +83,7 @@ class PageController extends Controller
                 
                 $this->get('session')->setFlash('notice', 'Your page has been created successfully!');
                 
-                return $this->render('BloginyBundle:Page:created.html.twig', array('page' => $page));
+                return $this->redirect($this->generateUrl('user_dashboard'));
             }
         }
         
